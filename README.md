@@ -31,17 +31,6 @@ $ npm run generate
 
 For detailed explanation on how things work, check out the [documentation](https://nuxt.com/docs)
 
-## Testing
-
-For automated testing we make use of the [Jest Testing Framework](https://jestjs.io/) and [Vue test utils](https://test-utils.vuejs.org/). The relevant [configuration file](/jest.config.ts) contains the setup of jest. It takes care of which folders to test, such as `/components` and `/pages` as well as provide us with some code coverage for all the test scenarios. A separate [Babel configuration file](/babel.config.js) was also added to make sure the unnamed exports from the vue-components were still treated correctly. For more information on this configuration file, please refer to this [Github issue](https://github.com/vitejs/vite/issues/1149#issuecomment-775033930)
-
-To run the tests inside the project, run the script below
-
-```bash
-# test components and pages inside project
-$ npm run test
-```
-
 ## Special Directories
 
 You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
