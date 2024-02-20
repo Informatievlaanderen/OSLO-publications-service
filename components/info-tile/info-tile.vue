@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts" name="infoTile">
-import { Dataset } from '~/types/dataset'
+import type { Dataset } from '~/types/dataset'
 
 const props = defineProps<Dataset>()
 defineExpose({ props })

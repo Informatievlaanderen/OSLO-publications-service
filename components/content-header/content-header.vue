@@ -1,6 +1,7 @@
 <template>
   <div id="header-container"></div>
   <vl-content-header
+    v-if="banner != false"
     mod-large
     mod-show-mobile
     :mod-context="context"

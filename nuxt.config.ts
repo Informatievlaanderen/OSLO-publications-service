@@ -5,8 +5,9 @@ export default defineNuxtConfig({
   // https://nuxt.com/docs/getting-started/deployment#static-hosting
   ssr: true,
   app: {
+    baseURL: import.meta.env.VITE_ROOT_PATH,
     head: {
-      title: 'OSLO-frontend-template',
+      title: 'data.vlaanderen.be',
       htmlAttrs: {
         lang: 'nl',
       },
@@ -50,9 +51,9 @@ export default defineNuxtConfig({
   },
   // Alias declaration for easier access to components directory
   alias: {
-    "@components": fileURLToPath(new URL('./components', __filename)),
-    "@content": fileURLToPath(new URL('./content', __filename)),
-    "@types": fileURLToPath(new URL('./types', __filename)),
+    "@components": fileURLToPath(new URL('./components', import.meta.url)),
+    "@content": fileURLToPath(new URL('./content', import.meta.url)),
+    "@types": fileURLToPath(new URL('./types', import.meta.url)),
   },
   // Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
   css: ['~/css/styles.scss'],
@@ -71,8 +72,9 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
   content: {
+    documentDriven: true,
     highlight: {
       theme: 'light-plus'
     }
-  }
+  },
 })

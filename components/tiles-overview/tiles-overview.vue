@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { NavigationMenu } from '~/types/navigationMenu'
+import type { NavigationMenu } from '~/types/navigationMenu'
 
 defineProps({
   tiles: {

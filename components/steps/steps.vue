@@ -13,6 +13,6 @@
 </template>
 
 <script setup lang="ts" name="steps">
-import { Steps } from '~/types/steps'
+import type { Steps } from '~/types/steps'
 defineProps<Steps>()
 </script>

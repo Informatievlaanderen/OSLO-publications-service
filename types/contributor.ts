@@ -1,4 +1,4 @@
-import { Workplace } from '~/types/workplace'
+import type { Workplace } from '~/types/workplace'
 
 export interface Contributor {
     firstName: string,

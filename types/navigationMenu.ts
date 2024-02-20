@@ -1,4 +1,4 @@
-import { NavigationLink } from '~/types/navigationLink'
+import type { NavigationLink } from '~/types/navigationLink'
 
 export interface NavigationMenu  {
     title: string,

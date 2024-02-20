@@ -1,10 +1,9 @@
 <template>
+  <content-header
+    title="OSLO"
+    subtitle="Frontend template"
+  />
   <vl-region>
-    <content-header
-      title="OSLO"
-      href="https://www.vlaanderen.be/digitaal-vlaanderen"
-      subtitle="Frontend template"
-    />
     <vl-layout>
       <vl-region>
         <vl-grid>
@@ -20,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { Index } from '~/types/index'
+import type { Index } from '~/types/index'
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {

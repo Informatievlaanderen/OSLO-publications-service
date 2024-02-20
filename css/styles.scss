@@ -1,3 +1,4 @@
+/* stylelint-disable import-notation */
 $vl-font-location: "/assets/font/flanders/";
 $vl-icon-font-location: "/assets/font/iconfont/";
 
@@ -15,20 +16,28 @@ $vl-icon-font-location: "/assets/font/iconfont/";
 .title {
     margin-bottom: 3rem;
     text-transform: capitalize;
-    font-weight: 300;
 }
 
 .sticky {
     position: sticky;
-    top: 1rem;
+    top: 7.5rem;
 
-    a{ 
-        margin: 0.3rem auto;
+    width: 22rem;
+    padding-top: 6rem;
+
+    a {
+        margin: 0; 
+        padding: 0.2rem;
     }
 }
   
 .subtitle {
     font-weight: 400;
+}
+
+.typography > * {
+    margin-bottom: 1.8rem;
+    text-align: justify;
 }
   
 .numbered-list {

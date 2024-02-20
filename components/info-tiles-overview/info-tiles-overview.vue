@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { Dataset } from '~/types/dataset'
+import type { Dataset } from '~/types/dataset'
 
 defineProps({
   tiles: {
