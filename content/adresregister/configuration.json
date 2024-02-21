@@ -164,6 +164,29 @@
       ]
     }
   ],
+  "properties": [
+    {
+      "links": ["test", "lol"],
+      "title": "Adreslocator",
+      "description": "aanduiding (Adreslocator)",
+      "href": "Adreslocator",
+      "headers": ["Type", "Eigenschap"],
+      "rows": [
+        ["URI", "https://data.vlaanderen.be/ns/adres#Adreslocator"],
+        ["domain", "Menselijk leesbare aanduiding of naam die een gebruiker"],
+        ["reach", "https://data.vlaanderen.be/ns/adres#Locatieaanduiding"],
+        [
+          "definition",
+          "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld."
+        ],
+        ["specialisation", "http://www.w3.org/ns/prov#Entity"],
+        [
+          "usage",
+          "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+        ]
+      ]
+    }
+  ],
   "terminologies": [
     {
       "title": "adresgebied",
@@ -172,6 +195,50 @@
     {
       "title": "adresgebied",
       "headers": ["URI", "http://www.w3.org/ns/locn#Address"]
+    }
+  ],
+  "classes": [
+    {
+      "links": ["test", "lol"],
+      "title": "Adreslocator",
+      "description": "aanduiding (Adreslocator)",
+      "href": "Adreslocator",
+      "headers": ["Type", "Klasse"],
+      "rows": [
+        ["URI", "https://data.vlaanderen.be/ns/adres#Adreslocator"],
+        ["domain", "Menselijk leesbare aanduiding of naam die een gebruiker"],
+        ["reach", "https://data.vlaanderen.be/ns/adres#Locatieaanduiding"],
+        [
+          "definition",
+          "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld."
+        ],
+        ["specialisation", "http://www.w3.org/ns/prov#Entity"],
+        [
+          "usage",
+          "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+        ]
+      ]
+    },
+    {
+      "links": ["test", "lol"],
+      "title": "Adreslocator",
+      "description": "aanduiding (Adreslocator)",
+      "href": "Adreslocator",
+      "headers": ["Type", "Klasse"],
+      "rows": [
+        ["URI", "https://data.vlaanderen.be/ns/adres#Adreslocator"],
+        ["domain", "Menselijk leesbare aanduiding of naam die een gebruiker"],
+        ["reach", "https://data.vlaanderen.be/ns/adres#Locatieaanduiding"],
+        [
+          "definition",
+          "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld."
+        ],
+        ["specialisation", "http://www.w3.org/ns/prov#Entity"],
+        [
+          "usage",
+          "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+        ]
+      ]
     }
   ],
   "jsonLD": "https://test.data.vlaanderen.be/context/besluit-mobiliteit.jsonld"

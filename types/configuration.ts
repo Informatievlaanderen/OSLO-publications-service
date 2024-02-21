@@ -7,7 +7,7 @@ interface Definition {
     description: string,
     href?: string,
     headers: string[],
-    rows: Array<NavigationLink | string>
+    rows: Array<NavigationLink | string | number>
 }
 
 export interface Configuration {

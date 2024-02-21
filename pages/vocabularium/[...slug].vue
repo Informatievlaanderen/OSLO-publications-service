@@ -3,18 +3,20 @@
   <vl-region>
     <vl-layout>
       <div class="head">
-        <vl-title tag-name="h1" class="title">{{ data?.title }}</vl-title>
+        <vl-title tag-name="h1" class="title"
+          >Vocabularium {{ data?.voc?.title }}</vl-title
+        >
         <vl-title tag-name="h2" class="subtitle"
-          >Uitgegeven op {{ data?.datePublished }}</vl-title
+          >Uitgegeven op {{ data?.voc?.datePublished }}</vl-title
         >
         <dl>
           <dt>Laatste aanpasing</dt>
-          <dd>{{ data?.dateModified }}</dd>
+          <dd>{{ data?.voc?.dateModified }}</dd>
           <dt>Laatste versie</dt>
-          <a :href="data?.lastVersion">{{ data?.lastVersion }}</a>
-          <template v-if="data?.authors">
+          <a :href="data?.voc?.lastVersion">{{ data?.voc?.lastVersion }}</a>
+          <template v-if="data?.voc?.authors">
             <dt>Auteurs</dt>
-            <dd v-for="author in data?.authors">
+            <dd v-for="author in data?.voc?.authors">
               <contributor
                 :firstName="author?.firstName"
                 :lastName="author.lastName"
@@ -23,9 +25,9 @@
               />
             </dd>
           </template>
-          <template v-if="data?.editors">
+          <template v-if="data?.voc?.editors">
             <dt>Editoren</dt>
-            <dd v-for="editor in data?.editors">
+            <dd v-for="editor in data?.voc?.editors">
               <contributor
                 :firstName="editor?.firstName"
                 :lastName="editor.lastName"
@@ -34,9 +36,9 @@
               />
             </dd>
           </template>
-          <template v-if="data?.contributors">
+          <template v-if="data?.voc?.contributors">
             <dt>Medewerkers</dt>
-            <dd v-for="contributor in data?.contributors">
+            <dd v-for="contributor in data?.voc?.contributors">
               <contributor
                 :firstName="contributor?.firstName"
                 :lastName="contributor.lastName"
@@ -50,87 +52,195 @@
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
           <vl-region>
-            <vl-title tag-name="h2" class="subtitle" id="abstract"
-              >Samenvatting</vl-title
-            >
-            <VlTypography class="typography" v-html="data?.summary" />
+            <introduction id="inleiding">
+              <VlTypography
+                v-if="data?.markdown?.introduction"
+                v-html="data?.markdown?.introduction"
+              >
+              </VlTypography>
+              <VlTypography v-else>
+                <p>
+                  Dit document beschrijft een <strong>vocabularium</strong>, in
+                  dit geval <strong>{{ data?.voc?.title }}</strong
+                  >. Een vocabularium is een verzameling van herbruikbare
+                  termen, namelijk klassen en eigenschappen, waarvan hun
+                  betekenis is vastgelegd door middel van een label en
+                  definitie. Voor termen gedefinieerd in dit domein zijn er nog
+                  bijkomende formele afspraken beschikbaar. Voor externe termen
+                  worden de formele afspraken overgenomen van de externe bron.
+                </p>
+              </VlTypography>
+            </introduction>
           </vl-region>
           <vl-region>
-            <vl-title tag-name="h2" class="subtitle" id="sotd"
+            <vl-title tag-name="h2" id="abstract" class="subtitle"
+              >Samenvatting</vl-title
+            >
+            <VlTypography
+              v-if="data?.markdown?.summary"
+              v-html="data?.markdown?.summary"
+              class="typography"
+            />
+            <VlTypography v-else class="typography">
+              Het {{ data?.voc?.title }} vocabularium specificeert een aantal
+              klassen en eigenschappen om een
+              {{ data?.voc?.title?.toLowerCase() }} te beschrijven.
+            </VlTypography>
+          </vl-region>
+          <vl-region>
+            <vl-title tag-name="h2" id="sotd" class="subtitle"
               >Status van dit document</vl-title
             >
-            <VlTypography class="typography" v-html="data?.status" />
+            <VlTypography
+              v-if="data?.markdown?.status"
+              v-html="data?.markdown?.status"
+              class="typography"
+            />
+            <VlTypography v-else class="typography">
+              <p>
+                <em
+                  >Deze sectie beschrijft de status van dit document op het
+                  moment van publicatie. Het kan zijn dat er ondertussen al
+                  nieuwere versies zijn uitgebracht.</em
+                >
+              </p>
+              <br />
+              <p>
+                Een lijst van de recentste vocabularia is terug te vinden op
+                <a href="https://data.vlaanderen.be/ns"
+                  >https://data.vlaanderen.be/ns</a
+                >
+              </p>
+              <p>
+                Dit document is een offici&#235;le specificatie van een
+                vocabularium en biedt een gedeeld begrippenkader voor bepaalde
+                concepten. Deze specificatie dient om de definitie, gebruik,
+                domein en bereik van de RDF termen binnen dit domein te
+                verduidelijken. De termen gedefinieerd in dit vocabularium zijn
+                persistent en zullen bijgevolg nooit verdwijnen, noch zullen de
+                definities veranderen behalve dan om een bestaande definitie
+                verder te verduidelijken. Termen kunnen echter wel als verouderd
+                worden bestempeld en vervangen worden in nieuwere versies van
+                deze specificatie.
+              </p>
+            </VlTypography>
           </vl-region>
           <ol>
             <li class="list__item">
               <vl-title
                 tag-name="h2"
-                class="subtitle"
                 id="license-and-liability"
+                class="subtitle"
                 >Licentie</vl-title
               >
             </li>
-            <VlTypography class="typography" v-html="data?.license" />
+            <vl-region>
+              <VlTypography
+                v-if="data?.markdown?.license"
+                v-html="data?.markdown?.license"
+                class="typography"
+              />
+              <VlTypography v-else>
+                Deze specificatie van
+                <a
+                  href="https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen"
+                  >Informatie Vlaanderen</a
+                >
+                is gepubliceerd onder de
+                <a
+                  href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html"
+                  >"Modellicentie Gratis Hergebruik - v1.0"</a
+                >.
+              </VlTypography>
+            </vl-region>
             <li class="list__item">
               <vl-title
                 tag-name="h2"
-                class="subtitle"
                 id="conformance-statement"
+                class="subtitle"
                 >Conformiteit</vl-title
               >
             </li>
-            <VlTypography class="typography" v-html="data?.conformance" />
+            <vl-region>
+              <VlTypography
+                v-if="data?.markdown?.conformity"
+                v-html="data?.markdown?.conformity"
+                class="typography"
+              />
+              <VlTypography v-else class="typography">
+                <p>
+                  Een uitwisseling van gegevens, op welke manier deze
+                  uitwisseling ook gebeurt, is conform aan dit vocabularium
+                  wanneer het de terminologie (klassen en eigenschappen)
+                  gebruikt op een manier die consistent is met de semantiek
+                  zoals opgesteld in de nieuwste versie van de specificatie
+                  (domein, bereik, definitie en gebruik) en het geen
+                  terminologie gebruikt uit andere vocabularia als alternatief
+                  voor de voorgestelde terminologie opgenomen in dit
+                  vocabularium.
+                </p>
+              </VlTypography>
+            </vl-region>
             <li class="list__item">
-              <vl-title tag-name="h2" class="subtitle" id="overview"
+              <vl-title tag-name="h2" id="overview" class="subtitle"
                 >Overzicht</vl-title
               >
             </li>
-            <VlTypography class="typography" v-html="data?.overview" />
-            <vl-title tag-name="h3" class="subtitle">Klassen</vl-title>
+            <VlTypography
+              v-if="data?.voc?.overview"
+              v-html="data?.voc?.overview"
+              class="typography"
+            />
+            <VlTypography
+              >Deze sectie somt alle klassen en eigenschappen van het
+              vocabularium op.</VlTypography
+            >
             <vl-region>
-              <links-overview :links="data?.classes" />
+              <vl-title tag-name="h3" class="subtitle"
+                ><strong>Klassen</strong></vl-title
+              >
+              <links-overview :links="data?.voc?.classes" />
             </vl-region>
-            <vl-title tag-name="h3" class="subtitle">Eigenschappen</vl-title>
+            <vl-title tag-name="h3" class="subtitle"
+              ><strong>Eigenschappen</strong></vl-title
+            >
             <vl-region>
-              <links-overview :links="data?.properties" />
+              <links-overview :links="data?.voc?.properties" />
             </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
-              <vl-title tag-name="h2" class="subtitle" id="classes"
+              <vl-title tag-name="h2" id="classes" class="subtitle"
                 >Klassen</vl-title
               >
             </li>
-            <vl-region v-for="item in data?.classes">
-              <vl-title tag-name="h3" class="subtitle" :id="item?.href"
-                >Klasse {{ item?.title }}</vl-title
+            <p>Deze sectie geeft een formele definitie aan elke klasse.</p>
+            <vl-region v-for="item in data?.voc?.classes">
+              <vl-title tag-name="h3" :id="item?.href" class="subtitle"
+                >Klasse <i>{{ item?.title }}</i></vl-title
               >
               <data-table :headers="item?.headers" :rows="item?.rows" />
             </vl-region>
             <!-- PROPERTIES -->
             <li class="list__item">
-              <vl-title tag-name="h2" class="subtitle" id="properties"
+              <vl-title tag-name="h2" id="properties" class="subtitle"
                 >Eigenschappen</vl-title
               >
             </li>
-            <vl-region v-for="item in data?.properties">
-              <vl-title tag-name="h3" class="subtitle" :id="item?.href"
+            <vl-region v-for="item in data?.voc?.properties">
+              <vl-title tag-name="h3" :id="item?.href" class="subtitle"
                 >Eigenschap {{ item?.title }}</vl-title
               >
-              <data-table
-                v-for="item in data?.properties"
-                :headers="item?.headers"
-                :rows="item?.rows"
-              />
+              <data-table :headers="item?.headers" :rows="item?.rows" />
             </vl-region>
             <!-- TERMINOLOGIES -->
             <li class="list__item">
-              <vl-title tag-name="h2" class="subtitle" id="external"
+              <vl-title tag-name="h2" id="external" class="subtitle"
                 >Externe terminologie</vl-title
               >
             </li>
           </ol>
-          <vl-region v-for="item in data?.terminologies">
-            <vl-title tag-name="h3" class="subtitle" :id="item?.href">{{
+          <vl-region v-for="item in data?.voc?.terminologies">
+            <vl-title tag-name="h3" :id="item?.href" class="subtitle">{{
               item?.title
             }}</vl-title>
             <data-table :headers="item?.headers" :rows="item?.rows" />
@@ -146,7 +256,9 @@
 </template>
 
 <script setup lang="ts">
+import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
 import type { Configuration } from '~/types/configuration'
+import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
 
 const { params } = useRoute()
@@ -190,14 +302,19 @@ const overview: OverviewLinks = {
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {
-  const [nsData] = await Promise.all([
-    queryContent<Configuration>(`ns/${params?.slug?.[0]}/configuration`).find(),
+  const [voc, content] = await Promise.all([
+    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`).find(),
+    queryContent<Content>(`${params?.slug?.[0]}/vocabularium-content`)
+      .where({ _extension: 'md' })
+      .find(),
   ])
 
-  return nsData[0]
+  return {
+    voc: voc[0],
+    markdown: content[0],
+  }
 })
-
-if (!data.value) {
+if (!data?.value?.voc) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Page not found',

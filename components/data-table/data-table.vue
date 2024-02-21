@@ -1,5 +1,5 @@
 <template>
-  <vl-data-table>
+  <vl-data-table mod-zebra>
     <thead>
       <tr>
         <th v-for="header in headers">{{ header }}</th>
