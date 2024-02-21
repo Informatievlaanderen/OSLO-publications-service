@@ -1,6 +1,6 @@
 
 export interface Header {
-    banner?: boolean,
+    hideBanner?: boolean,
     title?: string,
     href?: string,
     subtitle?: string,

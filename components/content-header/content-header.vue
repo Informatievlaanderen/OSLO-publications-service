@@ -1,7 +1,7 @@
 <template>
   <div id="header-container"></div>
   <vl-content-header
-    v-if="banner != false"
+    v-if="!hideBanner"
     mod-large
     mod-show-mobile
     :mod-context="context"

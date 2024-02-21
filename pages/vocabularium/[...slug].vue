@@ -1,5 +1,5 @@
 <template>
-  <content-header :banner="false" />
+  <content-header :hide-banner="true" />
   <vl-region>
     <vl-layout>
       <div class="head">
