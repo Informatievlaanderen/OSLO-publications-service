@@ -1,6 +1,7 @@
 import type { Contributor } from '~/types/contributor'
 import type { Entity } from '~/types/entity'
 import type { NavigationLink } from '~/types/navigationLink'
+import type { Class } from '~/types/class'
 
 interface Definition {
     title: string,
@@ -23,10 +24,9 @@ export interface Configuration {
     license: string
     conformance: string
     overview: string
-    classes?: Definition[]
-    properties?: Definition[]
+    entities?: Class[]
+    attributes?: Class[]
     terminologies: Definition[]
-    entities: Entity[]
     datatypes: Entity[]
     jsonLD?: string
 }

@@ -2,7 +2,7 @@
   <p v-if="!!links?.length">
     &#124;
     <template v-for="link in links">
-      <a :href="'#' + link?.href">{{ link?.title }}</a>
+      <a :href="link?.href">{{ link?.title }}</a>
       &nbsp;&#124;
     </template>
   </p>

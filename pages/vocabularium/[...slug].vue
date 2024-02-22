@@ -199,13 +199,18 @@
               <vl-title tag-name="h3" class="subtitle"
                 ><strong>Klassen</strong></vl-title
               >
-              <links-overview :links="data?.voc?.classes" />
+              <links-overview
+                :links="filterClasses(data?.voc?.entities ?? [], 'nl')"
+              />
             </vl-region>
-            <vl-title tag-name="h3" class="subtitle"
-              ><strong>Eigenschappen</strong></vl-title
+            <vl-title tag-name="h3" class="subtitle">
+              <strong>Eigenschappen</strong></vl-title
             >
+            // Change this to properties aggregated!
             <vl-region>
-              <links-overview :links="data?.voc?.properties" />
+              <links-overview
+                :links="filterClasses(data?.voc?.entities ?? [], 'nl')"
+              />
             </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
@@ -214,11 +219,14 @@
               >
             </li>
             <p>Deze sectie geeft een formele definitie aan elke klasse.</p>
-            <vl-region v-for="item in data?.voc?.classes">
-              <vl-title tag-name="h3" :id="item?.href" class="subtitle"
-                >Klasse <i>{{ item?.title }}</i></vl-title
+            <vl-region v-for="item in data?.voc?.entities">
+              <vl-title tag-name="h3" :id="item?.id" class="subtitle"
+                >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
               >
-              <data-table :headers="item?.headers" :rows="item?.rows" />
+              <data-table
+                :headers="['Type', 'Klasse']"
+                :rows="filterClassValues(item, 'nl')"
+              />
             </vl-region>
             <!-- PROPERTIES -->
             <li class="list__item">
@@ -226,11 +234,14 @@
                 >Eigenschappen</vl-title
               >
             </li>
-            <vl-region v-for="item in data?.voc?.properties">
-              <vl-title tag-name="h3" :id="item?.href" class="subtitle"
-                >Eigenschap {{ item?.title }}</vl-title
+            <vl-region v-for="item in data?.voc?.attributes">
+              <vl-title tag-name="h3" :id="item?.id" class="subtitle"
+                >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >
-              <data-table :headers="item?.headers" :rows="item?.rows" />
+              <!-- <data-table
+                :headers="['Type', 'Klasse']"
+                :rows="filterPropertyValues(item, 'nl')"
+              /> -->
             </vl-region>
             <!-- TERMINOLOGIES -->
             <li class="list__item">
@@ -243,7 +254,7 @@
             <vl-title tag-name="h3" :id="item?.href" class="subtitle">{{
               item?.title
             }}</vl-title>
-            <data-table :headers="item?.headers" :rows="item?.rows" />
+            <!-- <data-table :headers="item?.headers" :rows="item?.rows" /> -->
           </vl-region>
         </vl-column>
         <vl-column width="3" width-s="12">

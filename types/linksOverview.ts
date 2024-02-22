@@ -1,6 +1,6 @@
 import type { NavigationLink } from '~/types/navigationLink'
 
-interface NestedNavigationLink extends NavigationLink {
+export interface NestedNavigationLink extends NavigationLink {
     children?: NavigationLink[]
 }
 
