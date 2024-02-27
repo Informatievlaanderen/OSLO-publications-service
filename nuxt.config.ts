@@ -53,6 +53,7 @@ export default defineNuxtConfig({
   alias: {
     "@components": fileURLToPath(new URL('./components', import.meta.url)),
     "@content": fileURLToPath(new URL('./content', import.meta.url)),
+    "@constants": fileURLToPath(new URL('./constants', import.meta.url)),
     "@types": fileURLToPath(new URL('./types', import.meta.url)),
   },
   // Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css

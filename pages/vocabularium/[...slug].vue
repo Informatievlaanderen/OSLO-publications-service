@@ -206,11 +206,8 @@
             <vl-title tag-name="h3" class="subtitle">
               <strong>Eigenschappen</strong></vl-title
             >
-            // Change this to properties aggregated!
             <vl-region>
-              <links-overview
-                :links="filterClasses(data?.voc?.entities ?? [], 'nl')"
-              />
+              <links-overview :links="filterClasses(properties, 'nl')" />
             </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
@@ -218,7 +215,10 @@
                 >Klassen</vl-title
               >
             </li>
-            <p>Deze sectie geeft een formele definitie aan elke klasse.</p>
+            <VlTypography
+              >Deze sectie geeft een formele definitie aan elke
+              klasse.</VlTypography
+            >
             <vl-region v-for="item in data?.voc?.entities">
               <vl-title tag-name="h3" :id="item?.id" class="subtitle"
                 >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
@@ -234,14 +234,19 @@
                 >Eigenschappen</vl-title
               >
             </li>
-            <vl-region v-for="item in data?.voc?.attributes">
+            <VlTypography
+              >Deze sectie geeft een formele definitie aan elke eigenschap.
+            </VlTypography>
+            <vl-region
+              v-for="item in filterInScopeProperties(properties, 'nl')"
+            >
               <vl-title tag-name="h3" :id="item?.id" class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >
-              <!-- <data-table
-                :headers="['Type', 'Klasse']"
+              <data-table
+                :headers="['Type', 'Eigenschap']"
                 :rows="filterPropertyValues(item, 'nl')"
-              /> -->
+              />
             </vl-region>
             <!-- TERMINOLOGIES -->
             <li class="list__item">
@@ -249,12 +254,20 @@
                 >Externe terminologie</vl-title
               >
             </li>
+            <VlTypography
+              >Deze sectie geeft een overzicht van terminologie uit andere
+              vocabularia die relevant is voor dit domeinmodel samen met hun
+              Nederlandstalige labels en definities.
+            </VlTypography>
           </ol>
-          <vl-region v-for="item in data?.voc?.terminologies">
-            <vl-title tag-name="h3" :id="item?.href" class="subtitle">{{
-              item?.title
+          <vl-region v-for="item in filterExternalProperties(properties, 'nl')">
+            <vl-title tag-name="h3" :id="item?.id" class="subtitle">{{
+              item?.vocabularyLabel['nl']
             }}</vl-title>
-            <!-- <data-table :headers="item?.headers" :rows="item?.rows" /> -->
+            <data-table
+              :headers="[]"
+              :rows="filterExternalTerminologies(item, 'nl')"
+            />
           </vl-region>
         </vl-column>
         <vl-column width="3" width-s="12">
@@ -268,6 +281,7 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
+import type { Class } from '~/types/class'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
@@ -325,6 +339,11 @@ const { data } = await useAsyncData('data', async () => {
     markdown: content[0],
   }
 })
+
+const properties =
+  data?.value?.voc?.entities?.flatMap((entity: Class) => entity?.properties) ??
+  []
+
 if (!data?.value?.voc) {
   throw createError({
     statusCode: 404,

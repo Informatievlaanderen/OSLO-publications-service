@@ -22,8 +22,8 @@ export interface Class {
     }
     scope: string;
     // change name to entity
-    properties: Class;
-    domain: Class;
+    properties: Class[];
+    domain: string;
     range: Class;
     parents?: Class[];
 }
