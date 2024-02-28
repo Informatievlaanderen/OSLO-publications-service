@@ -13,24 +13,28 @@
     <tbody>
       <tr v-for="property in properties">
         <td>
-          <a :href="property?.link?.href">{{ property?.link?.title }}</a>
-        </td>
-        <td>
-          <a :href="property?.type?.href">{{ property?.type?.title }}</a>
-        </td>
-        <td>
-          {{ property?.cardinality }}
-        </td>
-        <td>
-          {{ property?.description }}
-        </td>
-        <td>
-          {{ property?.usage }}
-        </td>
-        <td>
-          <a :href="property?.codeList?.href">{{
-            property?.codeList?.title
+          <a :href="property?.id" v-vl-tooltip.right="property?.id">{{
+            getLabel(property, 'nl', 'AP')
           }}</a>
+        </td>
+        <td>
+          <a :href="`#${getLabel(property?.range, 'nl', 'AP')}`">{{
+            getLabel(property?.range, 'nl', 'AP')
+          }}</a>
+        </td>
+        <td>
+          <!-- "CARDINALITY TO ADD" -->
+          <!-- {{ property?.cardinality }} -->
+        </td>
+        <td>
+          {{ getDefinition(property, 'nl', 'AP') }}
+        </td>
+        <td>
+          {{ getUsage(property, 'nl', 'AP') }}
+        </td>
+        <td>
+          <!-- <a :href="property.id">{{
+          }}</a> -->
         </td>
       </tr>
     </tbody>
@@ -38,6 +42,10 @@
 </template>
 
 <script setup lang="ts" name="propertyTable">
-import type { Properties } from '~/types/entity'
-defineProps<Properties>()
+import type { Class } from '~/types/class'
+defineProps({
+  properties: {
+    type: Array<Class>,
+  },
+})
 </script>

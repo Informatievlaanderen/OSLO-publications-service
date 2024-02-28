@@ -187,11 +187,6 @@
               >
             </li>
             <VlTypography
-              v-if="data?.voc?.overview"
-              v-html="data?.voc?.overview"
-              class="typography"
-            />
-            <VlTypography
               >Deze sectie somt alle klassen en eigenschappen van het
               vocabularium op.</VlTypography
             >
@@ -200,7 +195,7 @@
                 ><strong>Klassen</strong></vl-title
               >
               <links-overview
-                :links="filterClasses(data?.voc?.entities ?? [], 'nl')"
+                :links="filterClasses(data?.voc?.classes ?? [], 'nl')"
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
@@ -219,7 +214,7 @@
               >Deze sectie geeft een formele definitie aan elke
               klasse.</VlTypography
             >
-            <vl-region v-for="item in data?.voc?.entities">
+            <vl-region v-for="item in data?.voc?.classes">
               <vl-title tag-name="h3" :id="item?.id" class="subtitle"
                 >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
               >
@@ -238,7 +233,7 @@
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
             <vl-region
-              v-for="item in filterInScopeProperties(properties, 'nl')"
+              v-for="item in filterInScopeClasses(properties, 'nl')"
             >
               <vl-title tag-name="h3" :id="item?.id" class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
@@ -260,13 +255,13 @@
               Nederlandstalige labels en definities.
             </VlTypography>
           </ol>
-          <vl-region v-for="item in filterExternalProperties(properties, 'nl')">
+          <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
             <vl-title tag-name="h3" :id="item?.id" class="subtitle">{{
               item?.vocabularyLabel['nl']
             }}</vl-title>
             <data-table
               :headers="[]"
-              :rows="filterExternalTerminologies(item, 'nl')"
+              :rows="filterExternalTerminologies(item)"
             />
           </vl-region>
         </vl-column>
@@ -341,7 +336,7 @@ const { data } = await useAsyncData('data', async () => {
 })
 
 const properties =
-  data?.value?.voc?.entities?.flatMap((entity: Class) => entity?.properties) ??
+  data?.value?.voc?.classes?.flatMap((entity: Class) => entity?.properties) ??
   []
 
 if (!data?.value?.voc) {

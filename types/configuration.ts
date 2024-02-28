@@ -19,14 +19,8 @@ export interface Configuration {
     authors: Contributor[]
     contributors: Contributor[]
     editors: Contributor[]
-    summary: string
-    status: string
-    license: string
-    conformance: string
-    overview: string
-    entities?: Class[]
+    classes?: Class[]
     attributes?: Class[]
-    terminologies: Definition[]
-    datatypes: Entity[]
+    dataTypes: Class[]
     jsonLD?: string
 }

@@ -1,4 +1,5 @@
 import type { NavigationLink } from '~/types/navigationLink'
+import type { Class } from '~/types/class'
 
 enum Cardinality {
     ZERO = "0",
@@ -14,18 +15,5 @@ export interface Entity {
     vocHref?: string,
     description?: string,
     usage?: string,
-    properties?: Property[]
-}
-
-export interface Property {
-    link: NavigationLink,
-    type: NavigationLink,
-    codeList: NavigationLink,
-    description: string,
-    usage: string,
-    cardinality: Cardinality
-}
-
-export interface Properties {
-    properties?: Property[]
+    properties?: Class[]
 }

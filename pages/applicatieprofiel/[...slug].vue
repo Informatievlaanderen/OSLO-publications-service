@@ -82,26 +82,15 @@
             />
             <VlTypography v-else class="typography">
               <p>
-                Dit applicatieprofiel dient om het specifieke gebruik van de
-                entiteiten relevant voor de beschreven applicatie te
-                verduidelijken.
+                Dit applicatieprofiel heeft status
+                {{ data?.markdown?.status }} en werd uitgegeven op
+                {{ data?.ap?.datePublished }}.
               </p>
               <p>
-                Dit document werd als Kandidaat-standaard gepubliceerd door de
-                werkgroep semantiek en bevindt zich in een evaluatieperiode.
-                Indien de evaluatie positief beoordeeld wordt door het
-                stuurorgaan Vlaams Informatie- en ICT-beleid op basis van een
-                aantal referentie implementaties en het behandelen van eventuele
-                feedback wordt dit document gepromoot tot Standaard in het
-                beschreven domein.
-              </p>
-              <p>
-                Feedback op deze specificatie kan gegeven worden via de
-                <a href="mailto:oslo@kb.vlaanderen.be">mailing lijst</a> of als
-                een topic in onze
-                <a
-                  href="https://github.com/Informatievlaanderen/OSLO-Public-Discussion"
-                  >publieke reviewdiscussielijst</a
+                Informatie over het gevolgde proces en de beslissingen om tot
+                deze specificatie te komen zijn beschikbaar in het
+                <a href="https://data.vlaanderen.be/standaarden"
+                  >standaardenregister</a
                 >.
               </p>
             </VlTypography>
@@ -110,25 +99,23 @@
             <vl-title tag-name="h2" id="license" class="subtitle"
               >Licentie</vl-title
             >
-            <vl-region>
-              <VlTypography
-                v-if="data?.markdown?.license"
-                v-html="data?.markdown?.license"
-                class="typography"
-              />
-              <VlTypography v-else>
-                Deze specificatie van
-                <a
-                  href="https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen"
-                  >Informatie Vlaanderen</a
-                >
-                is gepubliceerd onder de
-                <a
-                  href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html"
-                  >"Modellicentie Gratis Hergebruik - v1.0"</a
-                >.
-              </VlTypography>
-            </vl-region>
+            <VlTypography
+              v-if="data?.markdown?.license"
+              v-html="data?.markdown?.license"
+              class="typography"
+            />
+            <VlTypography v-else>
+              Deze specificatie van
+              <a
+                href="https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen"
+                >Informatie Vlaanderen</a
+              >
+              is gepubliceerd onder de
+              <a
+                href="https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html"
+                >"Modellicentie Gratis Hergebruik - v1.0"</a
+              >.
+            </VlTypography>
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="conformance" class="subtitle"
@@ -159,11 +146,15 @@
                 In dit document wordt correct gebruik van de volgende entiteiten
                 toegelicht:
               </p>
-              <links-overview :links="data?.ap?.entities" />
+              <links-overview
+                :links="filterClasses(data?.ap?.classes ?? [], 'nl', AP)"
+              />
             </vl-region>
             <vl-region>
               <p>In dit document worden de volgende datatypes toegelicht:</p>
-              <links-overview :links="data?.ap?.datatypes" />
+              <links-overview
+                :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
+              />
             </vl-region>
             <a target="_blank" :href="`/doc/${params?.slug?.[0]}/overview.jpg`">
               <img
@@ -173,28 +164,57 @@
             </a>
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
-          <template v-for="entity in data?.ap?.entities">
-            <entity
-              :title="entity?.title"
-              :href="entity?.href"
-              :description="entity?.description"
-              :usage="entity?.usage"
-              :properties="entity?.properties"
-              :vocHref="entity?.vocHref"
-            />
+          <template
+            v-for="item in filterInScopeClasses(data?.ap?.classes ?? [], 'nl')"
+          >
             <vl-region>
-              <property-table :properties="entity?.properties" />
+              <entity
+                :title="getLabel(item, 'nl', AP)"
+                :href="getLabel(item, 'nl', AP)"
+                :description="getDefinition(item, 'nl', AP)"
+                :usage="getUsage(item, 'nl', AP)"
+                :properties="item?.properties"
+                :vocHref="item?.id"
+              />
+              <vl-region v-if="item?.properties?.length">
+                <property-table :properties="item?.properties" />
+              </vl-region>
+            </vl-region>
+          </template>
+          <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
+          <template
+            v-for="item in filterInScopeClasses(
+              data?.ap?.dataTypes ?? [],
+              'nl',
+            )"
+          >
+            <vl-region>
+              <entity
+                :title="getLabel(item, 'nl', AP)"
+                :href="getLabel(item, 'nl', AP)"
+                :description="getDefinition(item, 'nl', AP)"
+                :usage="getUsage(item, 'nl', AP)"
+                :properties="item?.properties"
+                :vocHref="item?.id"
+              />
+            </vl-region>
+            <vl-region v-if="item?.properties?.length">
+              <property-table :properties="item?.properties" />
             </vl-region>
           </template>
           <vl-region>
-            <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
-            <template v-for="datatype in data?.ap?.datatypes">
-              <property-table :properties="datatype?.properties" />
-            </template>
+            <vl-title tag-name="h2" id="jsonld-context" class="subtitle"
+              >JSON-LD context</vl-title
+            >
+            <p v-if="data?.ap?.jsonLD">
+              Een herbruikbare JSON-LD context definitie voor dit
+              applicatieprofiel is terug te vinden op:
+              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+            </p>
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="jsonld-context" class="subtitle"
-              >JSON-LD context</vl-title
+              >SHACL template</vl-title
             >
             <p v-if="data?.ap?.jsonLD">
               Een herbruikbare JSON-LD context definitie voor dit
@@ -214,6 +234,8 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
+import { getLabel } from '~/utils/publication-filter'
+import { AP } from '~/constants/constants'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
