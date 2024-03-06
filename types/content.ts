@@ -4,4 +4,6 @@ export interface Content {
     license?: string;
     conformity?: string;
     status?: string;
+    [key: string]: string | undefined
+
 }

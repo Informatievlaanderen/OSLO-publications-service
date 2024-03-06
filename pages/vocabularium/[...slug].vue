@@ -14,39 +14,12 @@
           <dd>{{ data?.voc?.dateModified }}</dd>
           <dt>Laatste versie</dt>
           <a :href="data?.voc?.lastVersion">{{ data?.voc?.lastVersion }}</a>
-          <template v-if="data?.voc?.authors">
-            <dt>Auteurs</dt>
-            <dd v-for="author in data?.voc?.authors">
-              <contributor
-                :firstName="author?.firstName"
-                :lastName="author.lastName"
-                :email="author?.email"
-                :workplace="author?.workplace"
-              />
-            </dd>
-          </template>
-          <template v-if="data?.voc?.editors">
-            <dt>Editoren</dt>
-            <dd v-for="editor in data?.voc?.editors">
-              <contributor
-                :firstName="editor?.firstName"
-                :lastName="editor.lastName"
-                :email="editor?.email"
-                :workplace="editor?.workplace"
-              />
-            </dd>
-          </template>
-          <template v-if="data?.voc?.contributors">
-            <dt>Medewerkers</dt>
-            <dd v-for="contributor in data?.voc?.contributors">
-              <contributor
-                :firstName="contributor?.firstName"
-                :lastName="contributor.lastName"
-                :email="contributor?.email"
-                :workplace="contributor?.workplace"
-              />
-            </dd>
-          </template>
+          <role-list :role="'authors'" :contributors="data?.voc?.authors" />
+          <role-list :role="'editors'" :contributors="data?.voc?.editors" />
+          <role-list
+            :role="'contributors'"
+            :contributors="data?.voc?.contributors"
+          />
         </dl>
       </div>
       <vl-grid class="content">
@@ -232,9 +205,7 @@
             <VlTypography
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
-            <vl-region
-              v-for="item in filterInScopeClasses(properties, 'nl')"
-            >
+            <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
               <vl-title tag-name="h3" :id="item?.id" class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >

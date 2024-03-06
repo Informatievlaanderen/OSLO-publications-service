@@ -9,39 +9,12 @@
         <dl>
           <dt>Laatste aanpasing</dt>
           <dd>{{ data?.ap?.dateModified }}</dd>
-          <template v-if="data?.ap?.authors">
-            <dt>Auteurs</dt>
-            <dd v-for="author in data?.ap?.authors">
-              <contributor
-                :firstName="author?.firstName"
-                :lastName="author.lastName"
-                :email="author?.email"
-                :workplace="author?.workplace"
-              />
-            </dd>
-          </template>
-          <template v-if="data?.ap?.editors">
-            <dt>Editoren</dt>
-            <dd v-for="editor in data?.ap?.editors">
-              <contributor
-                :firstName="editor?.firstName"
-                :lastName="editor.lastName"
-                :email="editor?.email"
-                :workplace="editor?.workplace"
-              />
-            </dd>
-          </template>
-          <template v-if="data?.ap?.contributors">
-            <dt>Medewerkers</dt>
-            <dd v-for="contributor in data?.ap?.contributors">
-              <contributor
-                :firstName="contributor?.firstName"
-                :lastName="contributor.lastName"
-                :email="contributor?.email"
-                :workplace="contributor?.workplace"
-              />
-            </dd>
-          </template>
+          <role-list :role="'authors'" :contributors="data?.ap?.authors" />
+          <role-list :role="'editors'" :contributors="data?.ap?.editors" />
+          <role-list
+            :role="'contributors'"
+            :contributors="data?.ap?.contributors"
+          />
         </dl>
       </div>
       <vl-grid class="content">
@@ -137,91 +110,29 @@
               </p>
             </VlTypography>
           </vl-region>
+
           <vl-region>
-            <vl-title tag-name="h2" id="overzicht" class="subtitle"
-              >Overzicht</vl-title
-            >
-            <vl-region>
-              <p>
-                In dit document wordt correct gebruik van de volgende entiteiten
-                toegelicht:
-              </p>
-              <links-overview
-                :links="filterClasses(data?.ap?.classes ?? [], 'nl', AP)"
-              />
-            </vl-region>
-            <vl-region>
-              <p>In dit document worden de volgende datatypes toegelicht:</p>
-              <links-overview
-                :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
-              />
-            </vl-region>
-            <a target="_blank" :href="`/doc/${params?.slug?.[0]}/overview.jpg`">
-              <img
-                :src="`${rootPath}/${params?.slug?.[0]}/overview.jpg`"
-                alt="Overview model"
-              />
-            </a>
+            <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
+            <entity-region
+              v-for="item in filterInScopeClasses(
+                data?.ap?.classes ?? [],
+                'nl',
+              )"
+              :item="item"
+              language="nl"
+              type="AP"
+            />
           </vl-region>
-          <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
-          <template
-            v-for="item in filterInScopeClasses(data?.ap?.classes ?? [], 'nl')"
-          >
-            <vl-region>
-              <entity
-                :title="getLabel(item, 'nl', AP)"
-                :href="getLabel(item, 'nl', AP)"
-                :description="getDefinition(item, 'nl', AP)"
-                :usage="getUsage(item, 'nl', AP)"
-                :properties="item?.properties"
-                :vocHref="item?.id"
-              />
-              <vl-region v-if="item?.properties?.length">
-                <property-table :properties="item?.properties" />
-              </vl-region>
-            </vl-region>
-          </template>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
-          <template
+          <entity-region
             v-for="item in filterInScopeClasses(
               data?.ap?.dataTypes ?? [],
               'nl',
             )"
-          >
-            <vl-region>
-              <entity
-                :title="getLabel(item, 'nl', AP)"
-                :href="getLabel(item, 'nl', AP)"
-                :description="getDefinition(item, 'nl', AP)"
-                :usage="getUsage(item, 'nl', AP)"
-                :properties="item?.properties"
-                :vocHref="item?.id"
-              />
-            </vl-region>
-            <vl-region v-if="item?.properties?.length">
-              <property-table :properties="item?.properties" />
-            </vl-region>
-          </template>
-          <vl-region>
-            <vl-title tag-name="h2" id="jsonld-context" class="subtitle"
-              >JSON-LD context</vl-title
-            >
-            <p v-if="data?.ap?.jsonLD">
-              Een herbruikbare JSON-LD context definitie voor dit
-              applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
-            </p>
-          </vl-region>
-          <vl-region>
-            <vl-title tag-name="h2" id="jsonld-context" class="subtitle"
-              >SHACL template</vl-title
-            >
-            <p v-if="data?.ap?.jsonLD">
-              Een herbruikbare JSON-LD context definitie voor dit
-              applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
-            </p>
-          </vl-region>
+            :item="item"
+            language="nl"
+            type="AP"
+          />
         </vl-column>
         <vl-column width="3" width-s="12">
           <side-navigation :links="links"></side-navigation>
@@ -234,15 +145,11 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
-import { getLabel } from '~/utils/publication-filter'
-import { AP } from '~/constants/constants'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
 const { params } = useRoute()
-const rootPath = import.meta.env.VITE_ROOT_PATH
-
 const links: NavigationLink[] = [
   {
     href: '#inleiding',
