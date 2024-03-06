@@ -188,7 +188,10 @@
               klasse.</VlTypography
             >
             <vl-region v-for="item in data?.voc?.classes">
-              <vl-title tag-name="h3" :id="item?.id" class="subtitle"
+              <vl-title
+                tag-name="h3"
+                :id="item?.vocabularyLabel['nl']"
+                class="subtitle"
                 >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
               >
               <data-table
@@ -206,7 +209,10 @@
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
             <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
-              <vl-title tag-name="h3" :id="item?.id" class="subtitle"
+              <vl-title
+                tag-name="h3"
+                :id="item?.vocabularyLabel['nl']"
+                class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >
               <data-table
@@ -227,9 +233,12 @@
             </VlTypography>
           </ol>
           <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
-            <vl-title tag-name="h3" :id="item?.id" class="subtitle">{{
-              item?.vocabularyLabel['nl']
-            }}</vl-title>
+            <vl-title
+              tag-name="h3"
+              :id="item?.vocabularyLabel['nl']"
+              class="subtitle"
+              >{{ item?.vocabularyLabel['nl'] }}</vl-title
+            >
             <data-table
               :headers="[]"
               :rows="filterExternalTerminologies(item)"
