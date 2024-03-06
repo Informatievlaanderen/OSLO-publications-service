@@ -44,8 +44,8 @@ export const getUsage = (c: Class, language: string, type?: string) => {
 
 const compareLabels = (a: Class, b: Class, language: string) => getLabel(a, language).localeCompare(getLabel(b, language));
 const toNestedNavigationLink = (c: Class, language: string, type?: string): NestedNavigationLink => ({
-    title: getLabel(c, language),
-    href: c?.id,
+    title: getLabel(c, language, type),
+    href: `#${getLabel(c, language, type)}`,
 });
 
 export const filterClasses = (classes: Class[], language: string, type?: string): NestedNavigationLink[] =>
@@ -78,6 +78,11 @@ export const filterClassValues = (c: Class, language: string): Array<string | nu
 
     return values;
 }
+
+export const filterScopedClasses = (classes: Class[], language: string): Class[] =>
+    classes
+        .filter(isScoped)
+        .sort((a: Class, b: Class) => compareLabels(a, b, language));
 
 export const filterPropertyValues = (c: Class, language: string): Array<string | number | NavigationLink>[] => {
     const values: Array<string | number | NavigationLink>[] = [];

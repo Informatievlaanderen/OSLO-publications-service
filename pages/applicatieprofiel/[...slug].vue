@@ -20,7 +20,7 @@
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
           <vl-region>
-            <introduction id="inleiding">
+            <introduction id="introduction">
               <VlTypography
                 v-if="data?.markdown?.introduction"
                 v-html="data?.markdown?.introduction"
@@ -45,7 +45,7 @@
             <VlTypography v-html="data?.markdown?.summary" class="typography" />
           </vl-region>
           <vl-region>
-            <vl-title tag-name="h2" id="status" class="subtitle"
+            <vl-title tag-name="h2" id="sotd" class="subtitle"
               >Status van dit document</vl-title
             >
             <VlTypography
@@ -110,6 +110,32 @@
               </p>
             </VlTypography>
           </vl-region>
+          <vl-region>
+            <vl-title tag-name="h2" id="overview" class="subtitle"
+              >Overzicht</vl-title
+            >
+            <vl-region>
+              <p>
+                In dit document wordt correct gebruik van de volgende entiteiten
+                toegelicht:
+              </p>
+              <links-overview
+                :links="filterClasses(data?.ap?.classes ?? [], 'nl', AP)"
+              />
+            </vl-region>
+            <vl-region>
+              <p>In dit document worden de volgende datatypes toegelicht:</p>
+              <links-overview
+                :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
+              />
+            </vl-region>
+            <a target="_blank" :href="`/doc/${params?.slug?.[0]}/overview.jpg`">
+              <img
+                :src="`${rootPath}/${params?.slug?.[0]}/overview.jpg`"
+                alt="Overview model"
+              />
+            </a>
+          </vl-region>
 
           <vl-region>
             <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
@@ -125,14 +151,31 @@
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
           <entity-region
-            v-for="item in filterInScopeClasses(
-              data?.ap?.dataTypes ?? [],
-              'nl',
-            )"
+            v-for="item in filterScopedClasses(data?.ap?.dataTypes ?? [], 'nl')"
             :item="item"
             language="nl"
             type="AP"
           />
+          <vl-region>
+            <vl-title tag-name="h2" id="jsonld" class="subtitle"
+              >JSON-LD context</vl-title
+            >
+            <p v-if="data?.ap?.jsonLD">
+              Een herbruikbare JSON-LD context definitie voor dit
+              applicatieprofiel is terug te vinden op:
+              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+            </p>
+          </vl-region>
+          <vl-region>
+            <vl-title tag-name="h2" id="shacl" class="subtitle"
+              >SHACL template</vl-title
+            >
+            <p v-if="data?.ap?.jsonLD">
+              Een herbruikbare JSON-LD context definitie voor dit
+              applicatieprofiel is terug te vinden op:
+              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+            </p>
+          </vl-region>
         </vl-column>
         <vl-column width="3" width-s="12">
           <side-navigation :links="links"></side-navigation>
@@ -145,39 +188,45 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
+import { AP } from '~/constants/constants'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
 const { params } = useRoute()
+const rootPath = import.meta.env.VITE_ROOT_PATH
 const links: NavigationLink[] = [
   {
-    href: '#inleiding',
+    href: '#introduction',
     title: 'Inleiding',
   },
   {
-    href: '#samenvatting',
+    href: '#summary',
     title: 'Samenvatting',
   },
   {
-    href: '#status-van-dit-document',
+    href: '#sotd',
     title: 'Status van dit document',
   },
   {
-    href: '#licentie',
+    href: '#license',
     title: 'Licentie',
   },
   {
-    href: '#conformiteit',
+    href: '#conformance',
     title: 'Conformiteit',
   },
   {
-    href: '#overzicht',
+    href: '#overview',
     title: 'Overzicht',
   },
   {
-    href: '#jsonld-context',
+    href: '#jsonld',
     title: 'JSON-LD context',
+  },
+  {
+    href: '#shacl',
+    title: 'SHACL template',
   },
 ]
 
