@@ -41,12 +41,14 @@ export const getUsage = (c: Class, language: string, type?: string) => {
     }
 };
 
+const replaceSpaceWithDash = (str: string) => str.replace(/\s/g, '-');
+
 export const getAnchorTag = (c: Class, language: string, type?: string) => {
     let domain: string = "";
     if (c?.domain && c?.domain?.includes('#')) {
         domain = `${c?.domain?.split('#').pop()}.`;
     }
-    return `${domain}${getLabel(c, language, type)}`;
+    return replaceSpaceWithDash(`${domain}${getLabel(c, language, type)}`)?.toLocaleLowerCase();
 }
 
 const compareLabels = (a: Class, b: Class, language: string) => getLabel(a, language).localeCompare(getLabel(b, language));
