@@ -190,7 +190,7 @@
             <vl-region v-for="item in data?.voc?.classes">
               <vl-title
                 tag-name="h3"
-                :id="item?.vocabularyLabel['nl']"
+                :id="getAnchorTag(item, 'nl', VOC)"
                 class="subtitle"
                 >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
               >
@@ -211,7 +211,7 @@
             <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
               <vl-title
                 tag-name="h3"
-                :id="item?.vocabularyLabel['nl']"
+                :id="getAnchorTag(item, 'nl', VOC)"
                 class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >
@@ -235,7 +235,7 @@
           <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
             <vl-title
               tag-name="h3"
-              :id="item?.vocabularyLabel['nl']"
+              :id="getAnchorTag(item, 'nl', VOC)"
               class="subtitle"
               >{{ item?.vocabularyLabel['nl'] }}</vl-title
             >
@@ -256,6 +256,7 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
+import { VOC } from '~/constants/constants'
 import type { Class } from '~/types/class'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'

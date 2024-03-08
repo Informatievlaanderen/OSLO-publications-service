@@ -2,7 +2,7 @@
   <vl-region>
     <entity
       :title="getLabel(item, language, type)"
-      :href="getLabel(item, language, type)"
+      :href="getAnchorTag(item, language, type)"
       :description="getDefinition(item, language, type)"
       :usage="getUsage(item, language, type)"
       :properties="item?.properties"

@@ -1,5 +1,4 @@
 import type { Class } from "~/types/class";
-import type { NestedNavigationLink } from "~/types/linksOverview";
 import type { NavigationLink } from '~/types/navigationLink'
 
 import { AP, VOC, SCOPE_EXTERNAL, SCOPE_IN_PACKAGE } from "~/constants/constants";
@@ -42,21 +41,30 @@ export const getUsage = (c: Class, language: string, type?: string) => {
     }
 };
 
+export const getAnchorTag = (c: Class, language: string, type?: string) => {
+    let domain: string = "";
+    if (c?.domain && c?.domain?.includes('#')) {
+        domain = `${c?.domain?.split('#').pop()}.`;
+    }
+    return `${domain}${getLabel(c, language, type)}`;
+}
+
 const compareLabels = (a: Class, b: Class, language: string) => getLabel(a, language).localeCompare(getLabel(b, language));
-const toNestedNavigationLink = (c: Class, language: string, type?: string): NestedNavigationLink => ({
+
+const toNavigationLink = (c: Class, language: string, type?: string): NavigationLink => ({
     title: getLabel(c, language, type),
-    href: `#${getLabel(c, language, type)}`,
+    href: `#${getAnchorTag(c, language, type)}`,
 });
 
-export const filterClasses = (classes: Class[], language: string, type?: string): NestedNavigationLink[] =>
+export const filterClasses = (classes: Class[], language: string, type?: string): NavigationLink[] =>
     classes.filter(isInPackage)
-        .map((c: Class) => toNestedNavigationLink(c, language))
-        .sort((a: NestedNavigationLink, b: NestedNavigationLink) => (a?.title ?? "").localeCompare(b?.title ?? ""));
+        .map((c: Class) => toNavigationLink(c, language, type))
+        .sort((a: NavigationLink, b: NavigationLink) => (a?.title ?? "").localeCompare(b?.title ?? ""));
 
-export const filterDatatypes = (classes: Class[], language: string, type?: string): NestedNavigationLink[] => classes
+export const filterDatatypes = (classes: Class[], language: string, type?: string): NavigationLink[] => classes
     .filter(isScoped)
-    .map((c: Class) => toNestedNavigationLink(c, language, type))
-    .sort((a: NestedNavigationLink, b: NestedNavigationLink) => (a?.title ?? "").localeCompare(b?.title ?? ""));
+    .map((c: Class) => toNavigationLink(c, language, type))
+    .sort((a: NavigationLink, b: NavigationLink) => (a?.title ?? "").localeCompare(b?.title ?? ""));
 
 export const filterInScopeClasses = (classes: Class[], language: string): Class[] =>
     classes
