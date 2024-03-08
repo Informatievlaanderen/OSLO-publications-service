@@ -129,12 +129,7 @@
                 :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
               />
             </vl-region>
-            <a target="_blank" :href="`/doc/${params?.slug?.[0]}/overview.jpg`">
-              <img
-                :src="`${rootPath}/${params?.slug?.[0]}/overview.jpg`"
-                alt="Overview model"
-              />
-            </a>
+            <overview-image />
           </vl-region>
 
           <vl-region>
@@ -194,7 +189,7 @@ import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
 const { params } = useRoute()
-const rootPath = import.meta.env.VITE_ROOT_PATH
+
 const links: NavigationLink[] = [
   {
     href: '#introduction',
