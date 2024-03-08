@@ -1,0 +1,12 @@
+{
+  "applicationProfile": "Application profile",
+  "lastModification": "Last modification",
+  "authors": "Authors",
+  "editors": "Editors",
+  "contributors": "Contributors",
+  "introduction": "Introduction",
+  "summary": "Summary",
+  "content": {
+    "introduction": "This document describes an <strong>application profile</strong>, in this case <strong>{title}</strong>. This application profile answers the question of how the corresponding domain model can be applied in practice. It explains the constraints (cardinality,code lists) and lists the corresponding (RDF) terms."
+  }
+}

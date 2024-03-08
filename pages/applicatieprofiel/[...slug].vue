@@ -2,17 +2,18 @@
   <content-header :hide-banner="true" />
   <vl-region>
     <vl-layout>
+      <languague-switcher />
       <div class="head">
         <vl-title tag-name="h1" class="title"
-          >Applicatieprofiel {{ data?.ap?.title }}</vl-title
+          >{{ $t('applicationProfile') }} {{ data?.ap?.title }}</vl-title
         >
         <dl>
-          <dt>Laatste aanpasing</dt>
+          <dt>{{ $t('lastModification') }}</dt>
           <dd>{{ data?.ap?.dateModified }}</dd>
-          <role-list :role="'authors'" :contributors="data?.ap?.authors" />
-          <role-list :role="'editors'" :contributors="data?.ap?.editors" />
+          <role-list :role="$t('authors')" :contributors="data?.ap?.authors" />
+          <role-list :role="$t('editors')" :contributors="data?.ap?.editors" />
           <role-list
-            :role="'contributors'"
+            :role="$t('contributors')"
             :contributors="data?.ap?.contributors"
           />
         </dl>
@@ -28,20 +29,18 @@
               >
               </VlTypography>
               <VlTypography v-else class="typography">
-                Dit document beschrijft een <strong>applicatieprofiel</strong>,
-                in dit geval <strong>{{ data?.ap?.title }}</strong
-                >. Dit applicatieprofiel beantwoordt de vraag over hoe het
-                corresponderende domeinmodel in de praktijk kan toegepast
-                worden. Daarbij worden de beperkingen (kardinaliteit,
-                codelijsten) toegelicht en de overeenkomstige (RDF) termen
-                opgelijst.
+                <p
+                  v-html="
+                    $t('content.introduction', { title: data?.ap?.title })
+                  "
+                ></p>
               </VlTypography>
             </introduction>
           </vl-region>
           <vl-region>
-            <vl-title tag-name="h2" id="summary" class="subtitle"
-              >Samenvatting</vl-title
-            >
+            <vl-title tag-name="h2" id="summary" class="subtitle">{{
+              $t('summary')
+            }}</vl-title>
             <VlTypography v-html="data?.markdown?.summary" class="typography" />
           </vl-region>
           <vl-region>
@@ -129,9 +128,12 @@
                 :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
               />
             </vl-region>
-            <a target="_blank" :href="`/doc/${params?.slug?.[0]}/overview.jpg`">
+            <a
+              target="_blank"
+              :href="`/doc/${params?.slug?.[0]}/${validateLocaleCookie(locale)}/overview.jpg`"
+            >
               <img
-                :src="`${rootPath}/${params?.slug?.[0]}/overview.jpg`"
+                :src="`${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale)}/overview.jpg`"
                 alt="Overview model"
               />
             </a>
@@ -170,10 +172,10 @@
             <vl-title tag-name="h2" id="shacl" class="subtitle"
               >SHACL template</vl-title
             >
-            <p v-if="data?.ap?.jsonLD">
-              Een herbruikbare JSON-LD context definitie voor dit
+            <p v-if="data?.ap?.shacl">
+              Een herbruikbare SHACL template definitie voor dit
               applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+              <a :href="data?.ap?.shacl">{{ data?.ap?.shacl }}</a>
             </p>
           </vl-region>
         </vl-column>
@@ -188,21 +190,24 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
+import languagueSwitcher from '~/components/language-switcher/languague-switcher.vue'
 import { AP } from '~/constants/constants'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
+const { locale, t } = useI18n()
 const { params } = useRoute()
+
 const rootPath = import.meta.env.VITE_ROOT_PATH
 const links: NavigationLink[] = [
   {
     href: '#introduction',
-    title: 'Inleiding',
+    title: t('introduction'),
   },
   {
     href: '#summary',
-    title: 'Samenvatting',
+    title: t('summary'),
   },
   {
     href: '#sotd',
@@ -231,19 +236,29 @@ const links: NavigationLink[] = [
 ]
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
-const { data } = await useAsyncData('data', async () => {
-  const [ap, content] = await Promise.all([
-    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`).find(),
-    queryContent<Content>(`${params?.slug?.[0]}/applicatieprofiel-content`)
-      .where({ _extension: 'md' })
-      .find(),
-  ])
+const { data } = await useAsyncData(
+  'data',
+  async () => {
+    const [ap, content] = await Promise.all([
+      queryContent<Configuration>(
+        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/configuration`,
+      ).find(),
+      queryContent<Content>(
+        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/applicatieprofiel-content`,
+      )
+        .where({ _extension: 'md' })
+        .find(),
+    ])
+    return {
+      ap: ap[0],
+      markdown: content[0],
+    }
+  },
+  { watch: [locale] },
+)
 
-  return {
-    ap: ap[0],
-    markdown: content[0],
-  }
-})
+console.log(data)
+
 if (!data?.value?.ap) {
   throw createError({
     statusCode: 404,
@@ -252,4 +267,3 @@ if (!data?.value?.ap) {
   })
 }
 </script>
-```

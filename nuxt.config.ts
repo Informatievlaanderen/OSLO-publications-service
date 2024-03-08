@@ -71,6 +71,8 @@ export default defineNuxtConfig({
     'nuxt-content-assets', // make sure to add before content!
     // https://content.nuxtjs.org/
     '@nuxt/content',
+    // https://i18n.nuxtjs.org/
+    '@nuxtjs/i18n',
   ],
   content: {
     documentDriven: true,
@@ -78,4 +80,31 @@ export default defineNuxtConfig({
       theme: 'light-plus'
     }
   },
+  i18n: {
+    //https://i18n.nuxtjs.org/docs/guide#strategies
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'nl',
+        name: 'NL',
+        file: 'nl.json'
+      },
+      {
+        code: 'en',
+        name: 'EN',
+        file: 'en.json'
+      },
+    ],
+    detectBrowserLanguage: {
+      alwaysRedirect: true,
+    },
+    lazy: false,
+    langDir: "locales/",
+    defaultLocale: 'nl',
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false
+    },
+    vueI18n: './i18n.config.ts' // if you are using custom path, default
+  }
 })
