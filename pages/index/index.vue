@@ -1,8 +1,5 @@
 <template>
-  <content-header
-    title="OSLO"
-    subtitle="Frontend template"
-  />
+  <content-header title="OSLO" subtitle="Frontend template" />
   <vl-region>
     <vl-layout>
       <vl-region>
