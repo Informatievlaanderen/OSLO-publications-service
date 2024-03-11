@@ -25,7 +25,10 @@
           </td>
           <td>
             <!-- "CARDINALITY TO ADD" -->
-            <!-- {{ property?.cardinality }} -->
+            <cardinality 
+              :min="property?.minCount"
+              :max="property?.maxCount"
+            />
           </td>
           <td>
             {{ getDefinition(property, 'nl', 'AP') }}

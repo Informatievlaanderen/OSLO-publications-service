@@ -26,4 +26,6 @@ export interface Class {
     domain: string;
     range: Class;
     parents?: Class[];
+    minCount?: string;
+    maxCount?: string;
 }
