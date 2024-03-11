@@ -41,14 +41,20 @@ export const getUsage = (c: Class, language: string, type?: string) => {
     }
 };
 
-const replaceSpaceWithDash = (str: string) => str.replace(/\s/g, '-');
+const replaceSpaces = (str: string) => str.replace(/\s/g, '');
 
-export const getAnchorTag = (c: Class, language: string, type?: string) => {
+
+export const getAnchorTag = (c: Class, language?: string, type?: string) => {
     let domain: string = "";
-    if (c?.domain && c?.domain?.includes('#')) {
-        domain = `${c?.domain?.split('#').pop()}.`;
+    // AP can be less strict since it's only being used for internal navigation
+    if (type === AP) {
+        return replaceSpaces(`${getLabel(c, language ?? "nl", type)}`)
     }
-    return replaceSpaceWithDash(`${domain}${getLabel(c, language, type)}`)?.toLocaleLowerCase();
+    // VOC needs to be strict since it's being used for external navigation
+    if (c?.id && c?.id?.includes('#')) {
+        domain = `${c?.id?.split('#').pop()}`;
+    }
+    return domain;
 }
 
 const compareLabels = (a: Class, b: Class, language: string) => getLabel(a, language).localeCompare(getLabel(b, language));

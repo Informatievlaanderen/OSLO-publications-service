@@ -141,7 +141,7 @@
               )"
               :item="item"
               language="nl"
-              type="AP"
+              :type="AP"
             />
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
@@ -149,7 +149,7 @@
             v-for="item in filterScopedClasses(data?.ap?.dataTypes ?? [], 'nl')"
             :item="item"
             language="nl"
-            type="AP"
+            :type="AP"
           />
           <vl-region>
             <vl-title tag-name="h2" id="jsonld" class="subtitle"
@@ -239,6 +239,7 @@ const { data } = await useAsyncData('data', async () => {
     markdown: content[0],
   }
 })
+
 if (!data?.value?.ap) {
   throw createError({
     statusCode: 404,

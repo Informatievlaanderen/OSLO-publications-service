@@ -188,10 +188,7 @@
               klasse.</VlTypography
             >
             <vl-region v-for="item in data?.voc?.classes">
-              <vl-title
-                tag-name="h3"
-                :id="getAnchorTag(item, 'nl', VOC)"
-                class="subtitle"
+              <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
                 >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
               >
               <data-table
@@ -209,10 +206,7 @@
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
             <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
-              <vl-title
-                tag-name="h3"
-                :id="getAnchorTag(item, 'nl', VOC)"
-                class="subtitle"
+              <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
                 >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
               >
               <data-table
@@ -233,12 +227,9 @@
             </VlTypography>
           </ol>
           <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
-            <vl-title
-              tag-name="h3"
-              :id="getAnchorTag(item, 'nl', VOC)"
-              class="subtitle"
-              >{{ item?.vocabularyLabel['nl'] }}</vl-title
-            >
+            <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle">{{
+              item?.vocabularyLabel['nl']
+            }}</vl-title>
             <data-table
               :headers="[]"
               :rows="filterExternalTerminologies(item)"
@@ -256,7 +247,6 @@
 
 <script setup lang="ts">
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
-import { VOC } from '~/constants/constants'
 import type { Class } from '~/types/class'
 import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
@@ -316,7 +306,7 @@ const { data } = await useAsyncData('data', async () => {
   }
 })
 
-const properties =
+const properties: Class[] =
   data?.value?.voc?.classes?.flatMap((entity: Class) => entity?.properties) ??
   []
 
