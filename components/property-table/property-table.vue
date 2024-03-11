@@ -14,9 +14,12 @@
       <tbody>
         <tr v-for="property in properties">
           <td>
-            <a :href="property?.id" v-vl-tooltip.right="property?.id">{{
-              getLabel(property, 'nl', 'AP')
-            }}</a>
+            <a
+              :href="property?.id"
+              :id="`${parentHref}.${getAnchorTag(property, language, type)}`"
+              v-vl-tooltip.right="property?.id"
+              >{{ getLabel(property, 'nl', 'AP') }}</a
+            >
           </td>
           <td>
             <a :href="`#${getLabel(property?.range, 'nl', 'AP')}`">{{
@@ -47,6 +50,18 @@ import type { Class } from '~/types/class'
 defineProps({
   properties: {
     type: Array<Class>,
+  },
+  language: {
+    type: String,
+    required: true,
+  },
+  parentHref: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
   },
 })
 </script>
