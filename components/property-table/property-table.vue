@@ -25,10 +25,7 @@
           </td>
           <td>
             <!-- "CARDINALITY TO ADD" -->
-            <cardinality 
-              :min="property?.minCount"
-              :max="property?.maxCount"
-            />
+            <cardinality :min="property?.minCount" :max="property?.maxCount" />
           </td>
           <td>
             {{ getDefinition(property, 'nl', 'AP') }}
@@ -37,8 +34,7 @@
             {{ getUsage(property, 'nl', 'AP') }}
           </td>
           <td>
-            <!-- <a :href="property.id">{{
-          }}</a> -->
+            <a v-if="property?.codelist" :href="property.codelist">LINK</a>
           </td>
         </tr>
       </tbody>

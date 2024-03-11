@@ -28,4 +28,5 @@ export interface Class {
     parents?: Class[];
     minCount?: string;
     maxCount?: string;
+    codelist?: string;
 }
