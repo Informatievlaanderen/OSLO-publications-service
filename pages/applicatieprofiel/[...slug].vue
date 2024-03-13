@@ -9,11 +9,17 @@
         <dl>
           <dt>Laatste aanpasing</dt>
           <dd>{{ data?.ap?.dateModified }}</dd>
-          <role-list :role="'authors'" :contributors="data?.ap?.authors" />
-          <role-list :role="'editors'" :contributors="data?.ap?.editors" />
+          <role-list
+            :role="'authors'"
+            :stakeholders="data?.stakeholders?.authors"
+          />
+          <role-list
+            :role="'editors'"
+            :stakeholders="data?.stakeholders?.editors"
+          />
           <role-list
             :role="'contributors'"
-            :contributors="data?.ap?.contributors"
+            :stakeholders="data?.stakeholders?.contributors"
           />
         </dl>
       </div>
@@ -185,6 +191,7 @@
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
 import { AP } from '~/constants/constants'
 import type { Configuration } from '~/types/configuration'
+import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
@@ -227,8 +234,13 @@ const links: NavigationLink[] = [
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {
-  const [ap, content] = await Promise.all([
-    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`).find(),
+  const [ap, stakeholders, content] = await Promise.all([
+    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Stakeholders>(`${params?.slug?.[0]}/stakeholders`)
+      .where({ _extension: 'json' })
+      .find(),
     queryContent<Content>(`${params?.slug?.[0]}/applicatieprofiel-content`)
       .where({ _extension: 'md' })
       .find(),
@@ -236,6 +248,7 @@ const { data } = await useAsyncData('data', async () => {
 
   return {
     ap: ap[0],
+    stakeholders: stakeholders[0],
     markdown: content[0],
   }
 })

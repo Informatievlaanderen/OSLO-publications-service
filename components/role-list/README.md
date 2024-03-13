@@ -6,6 +6,6 @@ This component is a reusable role list. it can be used to display all the person
 
 ```js
 <template>
-    <role-list :role="'authors'" :contributors="[]" />
+    <role-list :role="'authors'" :stakeholders="[]" />
 </template>
 ```

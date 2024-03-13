@@ -14,11 +14,17 @@
           <dd>{{ data?.voc?.dateModified }}</dd>
           <dt>Laatste versie</dt>
           <a :href="data?.voc?.lastVersion">{{ data?.voc?.lastVersion }}</a>
-          <role-list :role="'authors'" :contributors="data?.voc?.authors" />
-          <role-list :role="'editors'" :contributors="data?.voc?.editors" />
+          <role-list
+            :role="'authors'"
+            :stakeholders="data?.stakeholders?.authors"
+          />
+          <role-list
+            :role="'editors'"
+            :stakeholders="data?.stakeholders?.editors"
+          />
           <role-list
             :role="'contributors'"
-            :contributors="data?.voc?.contributors"
+            :stakeholders="data?.stakeholders?.contributors"
           />
         </dl>
       </div>
@@ -249,6 +255,7 @@
 import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
 import type { Class } from '~/types/class'
 import type { Configuration } from '~/types/configuration'
+import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
 
@@ -293,8 +300,13 @@ const overview: OverviewLinks = {
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {
-  const [voc, content] = await Promise.all([
-    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`).find(),
+  const [voc, stakeholders, content] = await Promise.all([
+    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Stakeholders>(`${params?.slug?.[0]}/stakeholders`)
+      .where({ _extension: 'json' })
+      .find(),
     queryContent<Content>(`${params?.slug?.[0]}/vocabularium-content`)
       .where({ _extension: 'md' })
       .find(),
@@ -302,6 +314,7 @@ const { data } = await useAsyncData('data', async () => {
 
   return {
     voc: voc[0],
+    stakeholders: stakeholders[0],
     markdown: content[0],
   }
 })
