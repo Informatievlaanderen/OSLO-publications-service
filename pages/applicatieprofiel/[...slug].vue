@@ -128,15 +128,7 @@
                 :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
               />
             </vl-region>
-            <a
-              target="_blank"
-              :href="`/doc/${params?.slug?.[0]}/${validateLocaleCookie(locale)}/overview.jpg`"
-            >
-              <img
-                :src="`${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale)}/overview.jpg`"
-                alt="Overview model"
-              />
-            </a>
+            <overview-image />
           </vl-region>
 
           <vl-region>
@@ -148,7 +140,7 @@
               )"
               :item="item"
               language="nl"
-              type="AP"
+              :type="AP"
             />
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
@@ -156,7 +148,7 @@
             v-for="item in filterScopedClasses(data?.ap?.dataTypes ?? [], 'nl')"
             :item="item"
             language="nl"
-            type="AP"
+            :type="AP"
           />
           <vl-region>
             <vl-title tag-name="h2" id="jsonld" class="subtitle"

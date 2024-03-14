@@ -15,9 +15,11 @@
     <dd v-if="properties?.length">
       Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
       <template v-for="(property, index) in properties">
-        <a :href="property?.id">{{ getLabel(property, 'nl') }}</a>
-        <template v-if="index < properties?.length - 1">&#44;&nbsp;</template>
-        <template v-else>&#46;</template>
+        <a :href="`#${href}.${getAnchorTag(property, language, type)}`">{{
+          getLabel(property, language, type)
+        }}</a>
+        <span v-if="index < properties?.length - 1">, </span>
+        <span v-else>.</span>
       </template>
     </dd>
     <dd v-else>Voor deze entiteit zijn geen eigenschappen gedefinieerd.</dd>
