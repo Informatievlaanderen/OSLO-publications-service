@@ -192,8 +192,16 @@ import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
-const { locale, defaultLocale, availableLocales, t } = useI18n()
-const { params } = useRoute()
+const { locale, defaultLocale, availableLocales, t, setLocale } = useI18n()
+const { params, query } = useRoute()
+
+// Check to see if query paramaters are set for lang and set the locale accordingly
+// Dont make this code reactive so that it only runs once
+const lang: string | undefined = query.lang?.toString()
+
+if (lang) {
+  setLocale(validateLocaleCookie(lang, defaultLocale, availableLocales))
+}
 
 const getNavigationLinks = (): NavigationLink[] => {
   return [
@@ -255,8 +263,6 @@ const { data } = await useAsyncData(
   },
   { watch: [locale] },
 ) // watch the locale value
-
-console.log(data)
 
 if (!data?.value?.ap) {
   throw createError({
