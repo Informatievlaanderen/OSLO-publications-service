@@ -1,13 +1,10 @@
-# OSLO-frontend-template
+# OSLO-publications-service
 
-This repository should be used as the starting point for every frontend-related project that gets build for the government of Flanders. This project is built using [Nuxt 3.x](https://nuxt.com/) and [Vue 3.x](https://vuejs.org/). Ever since these newer versions of these libraries got released, the government of Flanders also released a third version of their webcomponents which works with these newer versions. The needed configuration has already been set up, so that you can start using these components immediately. The libraries are
+This repository is the Nuxt project for all the publications of the OSLO initiative, which is a project of the Flemish government. The goal of this project is to provide a central place for all the publications. This project is built using the Nuxt framework, which is a Vue.js framework that is used to build static websites.
 
-```json
-"@govflanders/vl-ui-design-system-style"
-"@govflanders/vl-ui-design-system-vue3"
-```
+This repository is based on the [OSLO-frontend-template](https://github.com/Informatievlaanderen/OSLO-frontend-template) so the needed configuration has already been set up, so that you can start using these components immediately.
 
-Documentation about these webcomponents can be found in [Storybook page](https://642e92e0cda6c627a0601f07-bpunzfpjnm.chromatic.com/?path=/docs/about-getting-started--docs). If the link does not work anymore, feel free to contact someone from the development team via their Slack channel `#design-system-vue3-alpha`.
+Documentation about the webcomponents of the Flemish government can be found in their [Storybook page](https://642e92e0cda6c627a0601f07-bpunzfpjnm.chromatic.com/?path=/docs/about-getting-started--docs). If the link does not work anymore, feel free to contact someone from the development team via their Slack channel `#design-system-vue3-alpha`.
 
 ## Build Setup
 
@@ -50,11 +47,42 @@ The components directory contains your Vue.js components. Components make up the
 The content directory serves as the file-based CMS of the whole project. We use a library called `nuxt/content` that allows us to import all the content of our website into components/pages across the project.
 More information about the usage of this directory in [the documentation](https://content.nuxtjs.org/).
 
-### `layouts`
+#### i18n
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+In this project we also support multiple languages. This means that we have to create a separate folder for each language that we want to support. Inside these folders, we can create markdown/JSON files that contain the content for the specific language. An example of how a directory with internationalization should look like is:
 
-More information about the usage of this directory in [the documentation](https://nuxt.com/docs/guide/directory-structure/layouts#layouts-directory).
+```
+content
+├── mobiliteit-trips-en-aanbod
+├── slimme-raadpleegomgevingen
+├── ....
+│   ├── nl
+│   │   ├── configuration.json
+│   │   ├── stakeholders.json
+│   │   ├── vocabularium-content.md
+│   │   ├── applicatieprofiel-content.md
+│   │   ├── overview.svg
+│   ├── fr
+│   │   ├── configuration.json
+│   │   ├── stakeholders.json
+│   │   ├── vocabularium-content.md
+│   │   ├── applicatieprofiel-content.md
+│   │   ├── overview.svg
+│   ├── en
+│   │   ├── configuration.json
+│   │   ├── stakeholders.json
+│   │   ├── vocabularium-content.md
+│   │   ├── applicatieprofiel-content.md
+│   │   ├── overview.svg
+```
+
+### `enums`
+
+The enums directory contains all the enums that are used in the project. This is a custom directory that we created to store all the enums in one place. This is not a default directory in a Nuxt project.
+
+### `constants`
+
+The constants directory contains all the constants that are used in the project. This is a custom directory that we created to store all the constants in one place. This is not a default directory in a Nuxt project.
 
 ### `pages`
 
@@ -79,6 +107,10 @@ Custom directory that contains our customly defined typescript config files. Can
 ```typescript
 import { NavigationMenu } from '~/types/navigationMenu'
 ```
+
+### `locales`
+
+The locales directory contains all the translations for the website. This is a custom directory that we created to store all the translations in one place. This is not a default directory in a Nuxt project and is needed for the i18n library to work.
 
 ## Special files
 
@@ -111,6 +143,68 @@ import.meta.env.VITE_ENVIRONMENT
 ```
 
 > Only variables using the `VITE_` prefix are passed to the frontend. **Never** pass secret variables, such as API-tokens to the frontend as these will be up for grabs
+
+## i18n
+
+### Configuration
+
+In this project we also support multiple languages using the `nuxt-i18n` [library](https://i18n.nuxtjs.org/). This library offers out-of-the-box translation for your website. The configuration for this library can be found in the `nuxt.config.ts` file. There is also a separate `i18n.config.ts` with extra configuration options for the library.
+
+### Strategy
+
+`no-prefix` is the default strategy for our project. This means that the default language will not have a prefix in the URL. If you want to change this, you can do so in the `nuxt.config.ts` file. The default language is set to Dutch, but this can be changed in the `nuxt.config.ts` file. For more information about this strategy, please refer to the [documentation](https://i18n.nuxtjs.org/docs/guide#strategies).
+
+The language switcher that's present in the project will set a cookie in your browser that will maintain the `locale`. This means that this cookie is not publication-specific, but rather a global setting for the whole website.
+
+### Query params
+
+Since there is no way to directly navigate to a specific publication using a route, we also support a query-parameter that controls the language of the website. This means that you can navigate to a specific publication using the following URL:
+
+```
+{host}/doc/applicatieprofiel/{publicationName}/?lang=nl
+```
+
+### Fallback
+
+If at any point the translation fails, the library will fall back to the default language. This means that if a translation is not found for a specific language, because we do not support it or it's not translated, the default language will be used instead. The default language is set in the `nuxt.config.ts` file.
+
+### Reactivity in the code
+
+When using the `language-switcher` component, the application does not redirect to a different page. Instead it changes the locale in the cookie and the page will re-render with the new language. This means that you'll have to be careful with setting variables in the `data` function of your components. If you want to change the language of the website, you'll have to use the `watch` function to watch for changes in the `locale` variable or create a function around it.
+
+#### Wrapper function for reactivity
+
+```typescript
+const { t } = useI18n()
+
+const getNavigationLinks = (): NavigationLink[] => {
+  return [
+    {
+      href: '#introduction',
+      title: t('introduction'),
+    },
+  ]
+}
+```
+
+#### Watch dependency array
+
+```typescript
+const { data } = await useAsyncData(
+  'data',
+  async () => {
+    const [ap] = await Promise.all([
+      queryContent<Configuration>(
+        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/configuration`,
+      )
+        .find(),
+    ])
+    return {
+      ap: ap[0],
+    }
+  },
+  { watch: [locale] },
+```
 
 ## Developer tools
 
