@@ -2,10 +2,10 @@
   <dt>{{ role }}</dt>
   <dd v-for="stakeholder in stakeholders">
     <stakeholder
-      :firstName="stakeholder?.firstName"
+      :firstName="stakeholder.firstName"
       :lastName="stakeholder.lastName"
-      :email="stakeholder?.email"
-      :affiliation="stakeholder?.affiliation"
+      :email="stakeholder.email"
+      :affiliation="stakeholder.affiliation"
     />
   </dd>
 </template>
