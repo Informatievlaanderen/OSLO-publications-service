@@ -1,7 +1,6 @@
 
-export const validateLocaleCookie = (locale?: string) => {
-    const { defaultLocale, availableLocales } = useI18n()
 
+export const validateLocaleCookie = (locale: string, defaultLocale: string, availableLocales: string[]) => {
     if (locale && availableLocales?.includes(locale)) {
         return locale
     }

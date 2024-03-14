@@ -128,7 +128,11 @@
                 :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
               />
             </vl-region>
-            <overview-image />
+            <overview-image
+              :language="
+                validateLocaleCookie(locale, defaultLocale, availableLocales)
+              "
+            />
           </vl-region>
 
           <vl-region>
@@ -172,7 +176,7 @@
           </vl-region>
         </vl-column>
         <vl-column width="3" width-s="12">
-          <side-navigation :links="links"></side-navigation>
+          <side-navigation :links="getNavigationLinks()"></side-navigation>
         </vl-column>
       </vl-grid>
     </vl-layout>
@@ -188,44 +192,45 @@ import type { Configuration } from '~/types/configuration'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
 
-const { locale, t } = useI18n()
+const { locale, defaultLocale, availableLocales, t } = useI18n()
 const { params } = useRoute()
 
-const rootPath = import.meta.env.VITE_ROOT_PATH
-const links: NavigationLink[] = [
-  {
-    href: '#introduction',
-    title: t('introduction'),
-  },
-  {
-    href: '#summary',
-    title: t('summary'),
-  },
-  {
-    href: '#sotd',
-    title: 'Status van dit document',
-  },
-  {
-    href: '#license',
-    title: 'Licentie',
-  },
-  {
-    href: '#conformance',
-    title: 'Conformiteit',
-  },
-  {
-    href: '#overview',
-    title: 'Overzicht',
-  },
-  {
-    href: '#jsonld',
-    title: 'JSON-LD context',
-  },
-  {
-    href: '#shacl',
-    title: 'SHACL template',
-  },
-]
+const getNavigationLinks = (): NavigationLink[] => {
+  return [
+    {
+      href: '#introduction',
+      title: t('introduction'),
+    },
+    {
+      href: '#summary',
+      title: t('summary'),
+    },
+    {
+      href: '#sotd',
+      title: t('stateOfThisDocument'),
+    },
+    {
+      href: '#license',
+      title: t('license'),
+    },
+    {
+      href: '#conformance',
+      title: t('conformance'),
+    },
+    {
+      href: '#overview',
+      title: t('overview'),
+    },
+    {
+      href: '#jsonld',
+      title: 'JSON-LD context',
+    },
+    {
+      href: '#shacl',
+      title: 'SHACL template',
+    },
+  ]
+}
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData(
@@ -233,10 +238,12 @@ const { data } = await useAsyncData(
   async () => {
     const [ap, content] = await Promise.all([
       queryContent<Configuration>(
-        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/configuration`,
-      ).find(),
+        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/configuration`,
+      )
+        .where({ _extension: 'json' })
+        .find(),
       queryContent<Content>(
-        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/applicatieprofiel-content`,
+        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/applicatieprofiel-content`,
       )
         .where({ _extension: 'md' })
         .find(),
@@ -247,7 +254,7 @@ const { data } = await useAsyncData(
     }
   },
   { watch: [locale] },
-)
+) // watch the locale value
 
 console.log(data)
 

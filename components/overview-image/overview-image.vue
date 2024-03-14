@@ -1,23 +1,30 @@
 <template>
-  <a :href="imageHref" target="_blank">
+  <a :href="imageSrc" target="_blank">
     <img :src="imageSrc" @error="onImageError" alt="Overview model" />
   </a>
 </template>
 
 <script setup lang="ts" name="overviewImage">
-const { params } = useRoute()
-const { locale } = useI18n()
+const props = defineProps({
+  language: {
+    type: String,
+    required: true,
+  },
+})
 const rootPath = import.meta.env.VITE_ROOT_PATH
+const { params } = useRoute()
 
-const imageHref = ref(
-  `${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/overview.svg`,
-)
-const imageSrc = ref(
-  `${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/overview.svg`,
-)
+const getImageHref = () => {
+  return `${rootPath}/${params?.slug?.[0]}/${props?.language}/overview.svg`
+}
 
 const onImageError = () => {
-  imageHref.value = `${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/overview.jpg`
-  imageSrc.value = `${rootPath}/${params?.slug?.[0]}/${validateLocaleCookie(locale?.value)}/overview.jpg`
+  imageSrc.value = `${rootPath}/${params?.slug?.[0]}/${props?.language}/overview.jpg`
 }
+
+let imageSrc = ref(getImageHref())
+
+watch(props, () => {
+  imageSrc = ref(getImageHref())
+})
 </script>

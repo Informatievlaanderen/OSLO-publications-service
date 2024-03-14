@@ -6,6 +6,10 @@
   "contributors": "Medewerkers",
   "introduction": "Inleiding",
   "summary": "Samenvatting",
+  "stateOfThisDocument": "Status van dit document",
+  "license": "Licentie",
+  "conformance": "Conformiteit",
+  "overview": "Overzicht",
   "content": {
     "introduction": "Dit document beschrijft een <strong>applicatieprofiel</strong> in dit geval <strong>{title}</strong>. Dit applicatieprofiel beantwoordt de vraag over hoe het corresponderende domeinmodel in de praktijk kan toegepast worden. Daarbij worden de beperkingen (kardinaliteit, codelijsten) toegelicht en de overeenkomstige (RDF) termenopgelijst."
   }
