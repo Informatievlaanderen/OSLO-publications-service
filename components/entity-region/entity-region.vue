@@ -6,6 +6,7 @@
       :description="getDefinition(item, language, type)"
       :usage="getUsage(item, language, type)"
       :properties="item?.properties"
+      :parents="item?.parents"
       :vocHref="item?.id"
       :language="language ?? 'nl'"
       :type="type"

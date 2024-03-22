@@ -12,7 +12,10 @@ This component is a reusable table component. It's a custom component that shows
         description="Lorem ipsum"
         usage="How to use this"
         :properties="[]"
+        :parents="[]"
         vocHref="https://data.vlaanderen.be/ns/adres#AdresseerbaarObject"
+        :language="language ?? 'nl'"
+        :type=AP
     />
 </template>
 ```
