@@ -125,14 +125,12 @@
                 In dit document wordt correct gebruik van de volgende entiteiten
                 toegelicht:
               </p>
-              <links-overview
-                :links="filterClasses(data?.ap?.classes ?? [], 'nl', AP)"
-              />
+              <links-overview :links="filterEntities(classes, language, AP)" />
             </vl-region>
             <vl-region>
               <p>In dit document worden de volgende datatypes toegelicht:</p>
               <links-overview
-                :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
+                :links="filterDatatypes(dataTypes, language, AP)"
               />
             </vl-region>
             <overview-image />
@@ -141,10 +139,7 @@
           <vl-region>
             <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
             <entity-region
-              v-for="item in filterInScopeClasses(
-                data?.ap?.classes ?? [],
-                'nl',
-              )"
+              v-for="item in filterInScopeClasses(classes, language)"
               :item="item"
               language="nl"
               :type="AP"
@@ -152,7 +147,7 @@
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
           <entity-region
-            v-for="item in filterScopedClasses(data?.ap?.dataTypes ?? [], 'nl')"
+            v-for="item in filterScopedClasses(dataTypes, language)"
             :item="item"
             language="nl"
             :type="AP"
@@ -194,6 +189,7 @@ import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { NavigationLink } from '~/types/navigationLink'
+import { Languages } from '~/enum/language'
 
 const { params } = useRoute()
 
@@ -252,6 +248,9 @@ const { data } = await useAsyncData('data', async () => {
     markdown: content[0],
   }
 })
+
+const { classes = [], dataTypes = [] } = data?.value?.ap ?? {}
+const language: Languages = Languages.NL
 
 if (!data?.value?.ap) {
   throw createError({

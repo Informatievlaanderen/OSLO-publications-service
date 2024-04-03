@@ -69,8 +69,8 @@ const toNavigationLink = (c: Class, language: string, type?: string): Navigation
     href: `#${getAnchorTag(c, language, type)}`,
 });
 
-export const filterClasses = (classes: Class[], language: string, type?: string): NavigationLink[] =>
-    classes.filter(isInPackage)
+export const filterEntities = (entities: Class[], language: string, type?: string): NavigationLink[] =>
+entities.filter(isInPackage)
         .map((c: Class) => toNavigationLink(c, language, type))
         .sort((a: NavigationLink, b: NavigationLink) => (a?.title ?? "").localeCompare(b?.title ?? ""));
 

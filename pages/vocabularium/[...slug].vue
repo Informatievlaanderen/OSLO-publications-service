@@ -173,15 +173,16 @@
               <vl-title tag-name="h3" class="subtitle"
                 ><strong>Klassen</strong></vl-title
               >
+              <!-- Take both the datatypes as classes for the voc -->
               <links-overview
-                :links="filterClasses(data?.voc?.classes ?? [], 'nl')"
+                :links="filterEntities([...classes, ...dataTypes], language)"
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
               <strong>Eigenschappen</strong></vl-title
             >
             <vl-region>
-              <links-overview :links="filterClasses(properties, 'nl')" />
+              <links-overview :links="filterEntities(properties, language)" />
             </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
@@ -193,13 +194,14 @@
               >Deze sectie geeft een formele definitie aan elke
               klasse.</VlTypography
             >
-            <vl-region v-for="item in data?.voc?.classes">
+            <!-- Take both the datatypes as classes for the voc -->
+            <vl-region v-for="item in [...classes, ...dataTypes]">
               <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
-                >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
+                >Klasse <i>{{ item?.vocabularyLabel[language] }}</i></vl-title
               >
               <data-table
                 :headers="['Type', 'Klasse']"
-                :rows="filterClassValues(item, 'nl')"
+                :rows="filterClassValues(item, language)"
               />
             </vl-region>
             <!-- PROPERTIES -->
@@ -211,13 +213,15 @@
             <VlTypography
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
-            <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
+            <vl-region
+              v-for="item in filterInScopeClasses(properties, language)"
+            >
               <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
-                >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
+                >Eigenschap {{ item?.vocabularyLabel[language] }}</vl-title
               >
               <data-table
                 :headers="['Type', 'Eigenschap']"
-                :rows="filterPropertyValues(item, 'nl')"
+                :rows="filterPropertyValues(item, language)"
               />
             </vl-region>
             <!-- TERMINOLOGIES -->
@@ -232,9 +236,11 @@
               Nederlandstalige labels en definities.
             </VlTypography>
           </ol>
-          <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
+          <vl-region
+            v-for="item in filterExternalClasses(properties, language)"
+          >
             <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle">{{
-              item?.vocabularyLabel['nl']
+              item?.vocabularyLabel[language]
             }}</vl-title>
             <data-table
               :headers="[]"
@@ -258,6 +264,7 @@ import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
+import { Languages } from '~/enum/language'
 
 const { params } = useRoute()
 
@@ -319,8 +326,11 @@ const { data } = await useAsyncData('data', async () => {
   }
 })
 
+const { classes = [], dataTypes = [] } = data?.value?.voc ?? {}
+const language: Languages = Languages.NL
+
 const properties: Class[] =
-  data?.value?.voc?.classes?.flatMap((entity: Class) => entity?.properties) ??
+  [...classes, ...dataTypes]?.flatMap((entity: Class) => entity.properties) ??
   []
 
 if (!data?.value?.voc) {
