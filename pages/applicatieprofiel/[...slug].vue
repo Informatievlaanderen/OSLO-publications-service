@@ -3,25 +3,7 @@
   <vl-region>
     <vl-layout>
       <div class="head">
-        <vl-title tag-name="h1" class="title"
-          >Applicatieprofiel {{ data?.ap?.title }}</vl-title
-        >
-        <dl>
-          <dt>Laatste aanpasing</dt>
-          <dd>{{ data?.ap?.dateModified }}</dd>
-          <role-list
-            :role="'authors'"
-            :stakeholders="data?.stakeholders?.authors"
-          />
-          <role-list
-            :role="'editors'"
-            :stakeholders="data?.stakeholders?.editors"
-          />
-          <role-list
-            :role="'contributors'"
-            :stakeholders="data?.stakeholders?.contributors"
-          />
-        </dl>
+        <Meta :metadata="data?.metadata" :stakeholders="data?.stakeholders" />
       </div>
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
@@ -125,12 +107,14 @@
                 In dit document wordt correct gebruik van de volgende entiteiten
                 toegelicht:
               </p>
-              <links-overview :links="filterEntities(classes, language, AP)" />
+              <links-overview
+                :links="entitiesToNavigation(entities, language, AP)"
+              />
             </vl-region>
             <vl-region>
               <p>In dit document worden de volgende datatypes toegelicht:</p>
               <links-overview
-                :links="filterDatatypes(dataTypes, language, AP)"
+                :links="entitiesToNavigation(scopedDataTypes, language, AP)"
               />
             </vl-region>
             <overview-image />
@@ -139,7 +123,7 @@
           <vl-region>
             <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
             <entity-region
-              v-for="item in filterInScopeClasses(classes, language)"
+              v-for="item in entities"
               :item="item"
               language="nl"
               :type="AP"
@@ -147,29 +131,44 @@
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
           <entity-region
-            v-for="item in filterScopedClasses(dataTypes, language)"
+            v-for="item in scopedDataTypes"
             :item="item"
             language="nl"
             :type="AP"
           />
-          <vl-region>
+          <vl-region
+            v-if="data?.metadata?.filename && data.metadata.documentroot"
+          >
             <vl-title tag-name="h2" id="jsonld" class="subtitle"
               >JSON-LD context</vl-title
             >
-            <p v-if="data?.ap?.jsonLD">
+            <p>
               Een herbruikbare JSON-LD context definitie voor dit
               applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+              <a
+                :href="`${data.metadata.documentroot}/context/${data.metadata.filename}.jsonld`"
+              >
+                {{
+                  `${data.metadata.documentroot}/context/${data.metadata.filename}.jsonld`
+                }}
+              </a>
             </p>
           </vl-region>
-          <vl-region>
+          <vl-region
+            v-if="data?.metadata?.filename && data.metadata.documentroot"
+          >
             <vl-title tag-name="h2" id="shacl" class="subtitle"
               >SHACL template</vl-title
             >
-            <p v-if="data?.ap?.jsonLD">
-              Een herbruikbare JSON-LD context definitie voor dit
+            <p>
+              Een herbruikbare SHACL template definitie voor dit
               applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+              <a
+                :href="`${data.metadata.documentroot}/shacl/${data.metadata.filename}-SHACL.ttl`"
+                >{{
+                  `${data.metadata.documentroot}/shacl/${data.metadata.filename}-SHACL.ttl`
+                }}</a
+              >
             </p>
           </vl-region>
         </vl-column>
@@ -183,11 +182,12 @@
 </template>
 
 <script setup lang="ts">
-import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
 import { AP } from '~/constants/constants'
+import Meta from '~/components/meta/meta.vue'
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
+import type { Metadata } from '~/types/metadata'
 import type { NavigationLink } from '~/types/navigationLink'
 import { Languages } from '~/enum/language'
 
@@ -230,11 +230,14 @@ const links: NavigationLink[] = [
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {
-  const [ap, stakeholders, content] = await Promise.all([
+  const [ap, stakeholders, metadata, content] = await Promise.all([
     queryContent<Configuration>(`${params?.slug?.[0]}/configuration`)
       .where({ _extension: 'json' })
       .find(),
     queryContent<Stakeholders>(`${params?.slug?.[0]}/stakeholders`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Metadata>(`${params?.slug?.[0]}/metadata-ap`)
       .where({ _extension: 'json' })
       .find(),
     queryContent<Content>(`${params?.slug?.[0]}/applicatieprofiel-content`)
@@ -245,11 +248,12 @@ const { data } = await useAsyncData('data', async () => {
   return {
     ap: ap[0],
     stakeholders: stakeholders[0],
+    metadata: metadata[0],
     markdown: content[0],
   }
 })
 
-const { classes = [], dataTypes = [] } = data?.value?.ap ?? {}
+const { entities = [], scopedDataTypes = [] } = data?.value?.ap ?? {}
 const language: Languages = Languages.NL
 
 if (!data?.value?.ap) {
