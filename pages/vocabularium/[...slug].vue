@@ -3,24 +3,7 @@
   <vl-region>
     <vl-layout>
       <div class="head">
-        <vl-title tag-name="h1" class="title"
-          >Vocabularium {{ data?.voc?.title }}</vl-title
-        >
-        <vl-title tag-name="h2" class="subtitle"
-          >Uitgegeven op {{ data?.voc?.datePublished }}</vl-title
-        >
-        <dl>
-          <dt>Laatste aanpasing</dt>
-          <dd>{{ data?.voc?.dateModified }}</dd>
-          <dt>Laatste versie</dt>
-          <a :href="data?.voc?.lastVersion">{{ data?.voc?.lastVersion }}</a>
-          <role-list :role="'authors'" :contributors="data?.voc?.authors" />
-          <role-list :role="'editors'" :contributors="data?.voc?.editors" />
-          <role-list
-            :role="'contributors'"
-            :contributors="data?.voc?.contributors"
-          />
-        </dl>
+        <Meta :stakeholders="data?.stakeholders" :metadata="data?.metadata" />
       </div>
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
@@ -168,14 +151,32 @@
                 ><strong>Klassen</strong></vl-title
               >
               <links-overview
-                :links="filterClasses(data?.voc?.classes ?? [], 'nl')"
+                :links="entitiesToNavigation(inPackageMerged, language, VOC)"
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
               <strong>Eigenschappen</strong></vl-title
             >
             <vl-region>
-              <links-overview :links="filterClasses(properties, 'nl')" />
+              <links-overview
+                :links="
+                  entitiesToNavigation(inPackageProperties, language, VOC)
+                "
+              />
+            </vl-region>
+            <vl-title tag-name="h3" class="subtitle">
+              <strong>Externe terminologie</strong></vl-title
+            >
+            <vl-region>
+              <links-overview
+                :links="
+                  externalEntitiesToNavigation(
+                    externalProperties,
+                    language,
+                    VOC,
+                  )
+                "
+              />
             </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
@@ -187,13 +188,17 @@
               >Deze sectie geeft een formele definitie aan elke
               klasse.</VlTypography
             >
-            <vl-region v-for="item in data?.voc?.classes">
-              <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
-                >Klasse <i>{{ item?.vocabularyLabel['nl'] }}</i></vl-title
+            <!-- Take both the datatypes as classes for the voc -->
+            <vl-region v-for="item in inPackageMerged">
+              <vl-title
+                tag-name="h3"
+                :id="getAnchorTag(item, language, VOC)"
+                class="subtitle"
+                >Klasse <i>{{ item?.vocabularyLabel[language] }}</i></vl-title
               >
               <data-table
                 :headers="['Type', 'Klasse']"
-                :rows="filterClassValues(item, 'nl')"
+                :rows="filterClassValues(item, language)"
               />
             </vl-region>
             <!-- PROPERTIES -->
@@ -205,13 +210,16 @@
             <VlTypography
               >Deze sectie geeft een formele definitie aan elke eigenschap.
             </VlTypography>
-            <vl-region v-for="item in filterInScopeClasses(properties, 'nl')">
-              <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle"
-                >Eigenschap {{ item?.vocabularyLabel['nl'] }}</vl-title
+            <vl-region v-for="item in inPackageProperties">
+              <vl-title
+                tag-name="h3"
+                :id="getAnchorTag(item, language, VOC)"
+                class="subtitle"
+                >Eigenschap {{ item?.vocabularyLabel[language] }}</vl-title
               >
               <data-table
                 :headers="['Type', 'Eigenschap']"
-                :rows="filterPropertyValues(item, 'nl')"
+                :rows="filterPropertyValues(item, language)"
               />
             </vl-region>
             <!-- TERMINOLOGIES -->
@@ -226,10 +234,13 @@
               Nederlandstalige labels en definities.
             </VlTypography>
           </ol>
-          <vl-region v-for="item in filterExternalClasses(properties, 'nl')">
-            <vl-title tag-name="h3" :id="getAnchorTag(item)" class="subtitle">{{
-              item?.vocabularyLabel['nl']
-            }}</vl-title>
+          <vl-region v-for="item in externalProperties">
+            <vl-title
+              tag-name="h3"
+              :id="getLabel(item, language, VOC)"
+              class="subtitle"
+              >{{ item?.vocabularyLabel[language] }}</vl-title
+            >
             <data-table
               :headers="[]"
               :rows="filterExternalTerminologies(item)"
@@ -246,11 +257,14 @@
 </template>
 
 <script setup lang="ts">
-import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
-import type { Class } from '~/types/class'
+import Meta from '~/components/meta/meta.vue'
+import { VOC } from '~/constants/constants'
+import type { Metadata } from '~/types/metadata'
 import type { Configuration } from '~/types/configuration'
+import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
+import { Languages } from '~/enum/language'
 
 const { params } = useRoute()
 
@@ -293,8 +307,16 @@ const overview: OverviewLinks = {
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
 const { data } = await useAsyncData('data', async () => {
-  const [voc, content] = await Promise.all([
-    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`).find(),
+  const [voc, stakeholders, metadata, content] = await Promise.all([
+    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Stakeholders>(`${params?.slug?.[0]}/stakeholders`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Metadata>(`${params?.slug?.[0]}/metadata-voc`)
+      .where({ _extension: 'json' })
+      .find(),
     queryContent<Content>(`${params?.slug?.[0]}/vocabularium-content`)
       .where({ _extension: 'md' })
       .find(),
@@ -302,13 +324,18 @@ const { data } = await useAsyncData('data', async () => {
 
   return {
     voc: voc[0],
+    stakeholders: stakeholders[0],
+    metadata: metadata[0],
     markdown: content[0],
   }
 })
 
-const properties: Class[] =
-  data?.value?.voc?.classes?.flatMap((entity: Class) => entity?.properties) ??
-  []
+const {
+  inPackageMerged = [],
+  inPackageProperties = [],
+  externalProperties = [],
+} = data?.value?.voc ?? {}
+const language: Languages = Languages.NL
 
 if (!data?.value?.voc) {
   throw createError({

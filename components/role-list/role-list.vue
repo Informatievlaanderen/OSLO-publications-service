@@ -1,20 +1,20 @@
 <template>
   <dt>{{ role }}</dt>
-  <dd v-for="contributor in contributors">
-    <contributor
-      :firstName="contributor?.firstName"
-      :lastName="contributor.lastName"
-      :email="contributor?.email"
-      :workplace="contributor?.workplace"
+  <dd v-for="stakeholder in stakeholders">
+    <stakeholder
+      :firstName="stakeholder.firstName"
+      :lastName="stakeholder.lastName"
+      :email="stakeholder.email"
+      :affiliation="stakeholder.affiliation"
     />
   </dd>
 </template>
 
 <script setup lang="ts">
-import type { Contributor } from '~/types/contributor'
+import type { Stakeholder } from '~/types/stakeholder'
 
 defineProps({
   role: String,
-  contributors: Array<Contributor>,
+  stakeholders: Array<Stakeholder>,
 })
 </script>

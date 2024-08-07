@@ -6,13 +6,14 @@
       :description="getDefinition(item, language, type)"
       :usage="getUsage(item, language, type)"
       :properties="item?.properties"
+      :parents="item?.parents"
       :vocHref="item?.id"
       :language="language ?? 'nl'"
       :type="type"
     />
     <div v-if="item?.properties?.length" class="content">
       <property-table
-        :properties="sortClasses(item?.properties, language, type)"
+        :properties="item.properties"
         :parentHref="getAnchorTag(item, language, type)"
         :language="language ?? 'nl'"
         :type="type"

@@ -4,19 +4,7 @@
     <vl-layout>
       <languague-switcher />
       <div class="head">
-        <vl-title tag-name="h1" class="title"
-          >{{ $t('applicationProfile') }} {{ data?.ap?.title }}</vl-title
-        >
-        <dl>
-          <dt>{{ $t('lastModification') }}</dt>
-          <dd>{{ data?.ap?.dateModified }}</dd>
-          <role-list :role="$t('authors')" :contributors="data?.ap?.authors" />
-          <role-list :role="$t('editors')" :contributors="data?.ap?.editors" />
-          <role-list
-            :role="$t('contributors')"
-            :contributors="data?.ap?.contributors"
-          />
-        </dl>
+        <Meta :metadata="data?.metadata" :stakeholders="data?.stakeholders" />
       </div>
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
@@ -119,13 +107,13 @@
                 toegelicht:
               </p>
               <links-overview
-                :links="filterClasses(data?.ap?.classes ?? [], 'nl', AP)"
+                :links="entitiesToNavigation(entities, language, AP)"
               />
             </vl-region>
             <vl-region>
               <p>In dit document worden de volgende datatypes toegelicht:</p>
               <links-overview
-                :links="filterDatatypes(data?.ap?.dataTypes ?? [], 'nl', AP)"
+                :links="entitiesToNavigation(scopedDataTypes, language, AP)"
               />
             </vl-region>
             <overview-image
@@ -138,10 +126,7 @@
           <vl-region>
             <vl-title tag-name="h2" class="subtitle">Entiteiten</vl-title>
             <entity-region
-              v-for="item in filterInScopeClasses(
-                data?.ap?.classes ?? [],
-                'nl',
-              )"
+              v-for="item in entities"
               :item="item"
               language="nl"
               :type="AP"
@@ -149,29 +134,44 @@
           </vl-region>
           <vl-title tag-name="h2" class="subtitle">Datatypes</vl-title>
           <entity-region
-            v-for="item in filterScopedClasses(data?.ap?.dataTypes ?? [], 'nl')"
+            v-for="item in scopedDataTypes"
             :item="item"
             language="nl"
             :type="AP"
           />
-          <vl-region>
+          <vl-region
+            v-if="data?.metadata?.filename && data.metadata.documentroot"
+          >
             <vl-title tag-name="h2" id="jsonld" class="subtitle"
               >JSON-LD context</vl-title
             >
-            <p v-if="data?.ap?.jsonLD">
+            <p>
               Een herbruikbare JSON-LD context definitie voor dit
               applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.jsonLD">{{ data?.ap?.jsonLD }}</a>
+              <a
+                :href="`${data.metadata.documentroot}/context/${data.metadata.filename}.jsonld`"
+              >
+                {{
+                  `${data.metadata.documentroot}/context/${data.metadata.filename}.jsonld`
+                }}
+              </a>
             </p>
           </vl-region>
-          <vl-region>
+          <vl-region
+            v-if="data?.metadata?.filename && data.metadata.documentroot"
+          >
             <vl-title tag-name="h2" id="shacl" class="subtitle"
               >SHACL template</vl-title
             >
-            <p v-if="data?.ap?.shacl">
+            <p>
               Een herbruikbare SHACL template definitie voor dit
               applicatieprofiel is terug te vinden op:
-              <a :href="data?.ap?.shacl">{{ data?.ap?.shacl }}</a>
+              <a
+                :href="`${data.metadata.documentroot}/shacl/${data.metadata.filename}-SHACL.ttl`"
+                >{{
+                  `${data.metadata.documentroot}/shacl/${data.metadata.filename}-SHACL.ttl`
+                }}</a
+              >
             </p>
           </vl-region>
         </vl-column>
@@ -185,12 +185,17 @@
 </template>
 
 <script setup lang="ts">
-import type { VlTypography } from '@govflanders/vl-ui-design-system-vue3'
-import languagueSwitcher from '~/components/language-switcher/languague-switcher.vue'
 import { AP } from '~/constants/constants'
+import Meta from '~/components/meta/meta.vue'
 import type { Configuration } from '~/types/configuration'
+import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
+import type { Metadata } from '~/types/metadata'
 import type { NavigationLink } from '~/types/navigationLink'
+import { validateLocaleCookie } from '~/utils/locale-validator'
+import { entitiesToNavigation } from '~/utils/publication-filter'
+
+import { Languages } from '~/enum/language'
 
 const { locale, defaultLocale, availableLocales, t, setLocale } = useI18n()
 const { params, query } = useRoute()
@@ -241,28 +246,32 @@ const getNavigationLinks = (): NavigationLink[] => {
 }
 
 // Multiple queryContents require to await them all at the same time: https://github.com/nuxt/content/issues/1368
-const { data } = await useAsyncData(
-  'data',
-  async () => {
-    const [ap, content] = await Promise.all([
-      queryContent<Configuration>(
-        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/configuration`,
-      )
-        .where({ _extension: 'json' })
-        .find(),
-      queryContent<Content>(
-        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/applicatieprofiel-content`,
-      )
-        .where({ _extension: 'md' })
-        .find(),
-    ])
-    return {
-      ap: ap[0],
-      markdown: content[0],
-    }
-  },
-  { watch: [locale] },
-) // watch the locale value
+const { data } = await useAsyncData('data', async () => {
+  const [ap, stakeholders, metadata, content] = await Promise.all([
+    queryContent<Configuration>(`${params?.slug?.[0]}/configuration`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Stakeholders>(`${params?.slug?.[0]}/stakeholders`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Metadata>(`${params?.slug?.[0]}/metadata-ap`)
+      .where({ _extension: 'json' })
+      .find(),
+    queryContent<Content>(`${params?.slug?.[0]}/applicatieprofiel-content`)
+      .where({ _extension: 'md' })
+      .find(),
+  ])
+
+  return {
+    ap: ap[0],
+    stakeholders: stakeholders[0],
+    metadata: metadata[0],
+    markdown: content[0],
+  }
+})
+
+const { entities = [], scopedDataTypes = [] } = data?.value?.ap ?? {}
+const language: Languages = Languages.NL
 
 if (!data?.value?.ap) {
   throw createError({
