@@ -17,7 +17,7 @@
               <VlTypography v-else>
                 <p>
                   Dit document beschrijft een <strong>vocabularium</strong>, in
-                  dit geval <strong>{{ data?.voc?.title }}</strong
+                  dit geval <strong>{{ data?.metadata?.title }}</strong
                   >. Een vocabularium is een verzameling van herbruikbare
                   termen, namelijk klassen en eigenschappen, waarvan hun
                   betekenis is vastgelegd door middel van een label en
@@ -169,13 +169,8 @@
             >
             <vl-region>
               <links-overview
-                :links="
-                  externalEntitiesToNavigation(
-                    externalProperties,
-                    language,
-                    VOC,
-                  )
-                "
+                :links="entitiesToNavigation(externalProperties, language, VOC)"
+              />
               />
             </vl-region>
             <!-- CLASSES -->
@@ -265,6 +260,14 @@ import type { Stakeholders } from '~/types/stakeholder'
 import type { Content } from '~/types/content'
 import type { OverviewLinks } from '~/types/linksOverview'
 import { Languages } from '~/enum/language'
+import {
+  entitiesToNavigation,
+  getAnchorTag,
+  filterClassValues,
+  filterPropertyValues,
+  filterExternalTerminologies,
+  getLabel,
+} from '~/utils/publication-filter'
 
 const { params } = useRoute()
 

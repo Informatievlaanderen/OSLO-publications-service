@@ -1,16 +1,25 @@
 {
   "applicationProfile": "Applicatieprofiel",
+  "status": "Status",
+  "issued": "Uitgegeven op",
+  "thisVersion": "Laatste versie",
   "lastModification": "Laatste aanpassing",
   "authors": "Auteurs",
   "editors": "Editoren",
   "contributors": "Medewerkers",
   "introduction": "Inleiding",
   "summary": "Samenvatting",
-  "stateOfThisDocument": "Status van dit document",
+  "documentState": "Status van dit document",
   "license": "Licentie",
   "conformance": "Conformiteit",
   "overview": "Overzicht",
+  "entities": "Entiteiten",
+  "entitiesOverview": "In dit document wordt correct gebruik van de volgende entiteiten toegelicht",
+  "dataTypes": "Datatypes",
+  "dataTypesOverview": "In dit document worden de volgende datatypes toegelicht",
   "content": {
-    "introduction": "Dit document beschrijft een <strong>applicatieprofiel</strong> in dit geval <strong>{title}</strong>. Dit applicatieprofiel beantwoordt de vraag over hoe het corresponderende domeinmodel in de praktijk kan toegepast worden. Daarbij worden de beperkingen (kardinaliteit, codelijsten) toegelicht en de overeenkomstige (RDF) termenopgelijst."
-  }
+    "introduction": "Dit document beschrijft een <strong>applicatieprofiel</strong> in dit geval <strong>{ title }</strong>. Dit applicatieprofiel beantwoordt de vraag over hoe het corresponderende domeinmodel in de praktijk kan toegepast worden. Daarbij worden de beperkingen (kardinaliteit, codelijsten) toegelicht en de overeenkomstige (RDF) termenopgelijst."
+  },
+  "jsonldContext": "Een herbruikbare JSON-LD context definitie voor dit applicatieprofiel is terug te vinden op",
+  "shaclTemplate": "Een herbruikbare SHACL template definitie voor dit applicatieprofiel is terug te vinden op"
 }

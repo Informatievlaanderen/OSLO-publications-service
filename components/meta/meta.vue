@@ -1,16 +1,16 @@
 <template>
   <vl-title tag-name="h1" class="title">{{ metadata?.title }}</vl-title>
   <dl>
-    <dt>Status</dt>
+    <dt>{{ $t('status') }}</dt>
     <a :href="metadata?.status">{{ metadata?.status }}</a>
-    <dt>Uitgegeven op</dt>
+    <dt>{{ $t('issued') }}</dt>
     <p>{{ metadata?.issued }}</p>
-    <dt>Laatste versie</dt>
+    <dt>{{ $t('thisVersion') }}</dt>
     <a :href="metadata?.uri">{{ metadata?.uri }}</a>
-    <role-list :role="'authors'" :stakeholders="stakeholders?.authors" />
-    <role-list :role="'editors'" :stakeholders="stakeholders?.editors" />
+    <role-list :role="$t('authors')" :stakeholders="stakeholders?.authors" />
+    <role-list :role="$t('editors')" :stakeholders="stakeholders?.editors" />
     <role-list
-      :role="'contributors'"
+      :role="$t('contributors')"
       :stakeholders="stakeholders?.contributors"
     />
   </dl>
