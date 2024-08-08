@@ -1,16 +1,25 @@
 {
-  "applicationProfile": "Application profile",
+  "applicationProfile": "Application Profile",
+  "status": "Status",
+  "issued": "Issued on",
+  "thisVersion": "Latest version",
   "lastModification": "Last modification",
   "authors": "Authors",
   "editors": "Editors",
   "contributors": "Contributors",
   "introduction": "Introduction",
   "summary": "Summary",
-  "documentState": "State of this document",
+  "documentState": "Document status",
   "license": "License",
   "conformance": "Conformance",
   "overview": "Overview",
+  "entities": "Entities",
+  "entitiesOverview": "This document explains the correct use of the following entities",
+  "dataTypes": "Data types",
+  "dataTypesOverview": "This document explains the following data types",
   "content": {
-    "introduction": "This document describes an <strong>application profile</strong>, in this case <strong>{title}</strong>. This application profile answers the question of how the corresponding domain model can be applied in practice. It explains the constraints (cardinality,code lists) and lists the corresponding (RDF) terms."
-  }
+    "introduction": "This document describes an <strong>application profile</strong>, in this case <strong>{ title }</strong>. This application profile answers the question of how the corresponding domain model can be applied in practice. It explains the constraints (cardinality, code lists) and lists the corresponding (RDF) terms."
+  },
+  "jsonldContext": "A reusable JSON-LD context definition for this application profile can be found at",
+  "shaclTemplate": "A reusable SHACL template definition for this application profile can be found at"
 }

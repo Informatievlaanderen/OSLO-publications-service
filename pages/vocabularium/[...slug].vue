@@ -38,9 +38,9 @@
               class="typography"
             />
             <VlTypography v-else class="typography">
-              Het {{ data?.voc?.title }} vocabularium specificeert een aantal
-              klassen en eigenschappen om een
-              {{ data?.voc?.title?.toLowerCase() }} te beschrijven.
+              Het {{ data?.metadata?.title }} vocabularium specificeert een
+              aantal klassen en eigenschappen om een
+              {{ data?.metadata?.title?.toLowerCase() }} te beschrijven.
             </VlTypography>
           </vl-region>
           <vl-region>
@@ -155,7 +155,7 @@
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
-              <strong>Eigenschappen</strong></vl-title
+              <strong>{{ $t('properties') }}</strong></vl-title
             >
             <vl-region>
               <links-overview
@@ -198,9 +198,9 @@
             </vl-region>
             <!-- PROPERTIES -->
             <li class="list__item">
-              <vl-title tag-name="h2" id="properties" class="subtitle"
-                >Eigenschappen</vl-title
-              >
+              <vl-title tag-name="h2" id="properties" class="subtitle">{{
+                $t('entities')
+              }}</vl-title>
             </li>
             <VlTypography
               >Deze sectie geeft een formele definitie aan elke eigenschap.
