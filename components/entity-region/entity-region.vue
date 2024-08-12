@@ -23,6 +23,12 @@
 </template>
 
 <script setup lang="ts" name="entityRegion">
+import {
+  getLabel,
+  getAnchorTag,
+  getDefinition,
+  getUsage,
+} from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
 defineProps({
   item: {

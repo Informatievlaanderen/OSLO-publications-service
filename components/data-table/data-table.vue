@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <tr v-for="row in rows">
-        <td v-for="item in row">
+        <td v-for="item in row" v-if="!row.includes('')">
           {{ item }}
         </td>
       </tr>

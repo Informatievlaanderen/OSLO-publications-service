@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   // https://nuxt.com/docs/getting-started/deployment#static-hosting
   ssr: true,
+
   app: {
     baseURL: import.meta.env.VITE_ROOT_PATH,
     head: {
@@ -49,6 +50,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   // needed for nuxt content assets that keeps hanging on build: https://github.com/davestewart/nuxt-content-assets/issues/49#issuecomment-1812810278
   hooks: {
     close: (nuxt) => {
@@ -56,6 +58,7 @@ export default defineNuxtConfig({
         process.exit()
     }
   },
+
   // Alias declaration for easier access to components directory
   alias: {
     "@components": fileURLToPath(new URL('./components', import.meta.url)),
@@ -63,15 +66,19 @@ export default defineNuxtConfig({
     "@constants": fileURLToPath(new URL('./constants', import.meta.url)),
     "@types": fileURLToPath(new URL('./types', import.meta.url)),
   },
+
   // Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
   css: ['~/css/styles.scss'],
+
   build: {
     transpile: ['@govflanders/vl-widget-polyfill'],
   },
+
   // Plugins to run before rendering page: https://nuxt.com/docs/api/configuration/nuxt-config#plugins-1
   plugins: [
     { src: '~/plugins/webcomponents.js', mode: 'client' },
   ],
+
   // Modules: https://nuxt.com/docs/api/configuration/nuxt-config#modules-1
   modules: [
     // https://github.com/davestewart/nuxt-content-assets
@@ -81,6 +88,7 @@ export default defineNuxtConfig({
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
   ],
+
   // ADD DYNAMIC PRERENDER ROUTES HERE
   nitro: {
     // define preset for nitro and which backend to serve the project
@@ -89,6 +97,7 @@ export default defineNuxtConfig({
       // routes: ['/doc/vocabularium/', 'doc/applicatieprofiel/'],
     }
   },
+
   i18n: {
     //https://i18n.nuxtjs.org/docs/guide#strategies
     strategy: 'no_prefix',
@@ -115,5 +124,7 @@ export default defineNuxtConfig({
       escapeHtml: false
     },
     vueI18n: './i18n.config.ts' // if you are using custom path, default
-  }
+  },
+
+  compatibilityDate: '2024-08-12',
 })

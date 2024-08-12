@@ -14,12 +14,68 @@
   "conformance": "Conformiteit",
   "overview": "Overzicht",
   "entities": "Entiteiten",
+  "class": "Klasse",
+  "classes": "Klassen",
   "properties": "Eigenschappen",
+  "externalTerminology": "Externe terminologie",
   "entitiesOverview": "In dit document wordt correct gebruik van de volgende entiteiten toegelicht",
   "dataTypes": "Datatypes",
   "dataTypesOverview": "In dit document worden de volgende datatypes toegelicht",
+  "usage": "Gebruik",
+  "description": "Beschrijving",
+  "range": "Bereik",
+  "type": "Type",
+  "domain": "Domein",
+  "URI": "URI",
+  "definition": "Definitie",
+  "onThisPage": "Op deze pagina",
   "content": {
-    "introduction": "Dit document beschrijft een <strong>applicatieprofiel</strong> in dit geval <strong>{ title }</strong>. Dit applicatieprofiel beantwoordt de vraag over hoe het corresponderende domeinmodel in de praktijk kan toegepast worden. Daarbij worden de beperkingen (kardinaliteit, codelijsten) toegelicht en de overeenkomstige (RDF) termenopgelijst."
+    "introduction": {
+      "ap": "<p>Dit document beschrijft een <strong>applicatieprofiel</strong> in dit geval <strong>{ title }</strong>. Dit applicatieprofiel beantwoordt de vraag over hoe het corresponderende domeinmodel in de praktijk kan toegepast worden. Daarbij worden de beperkingen (kardinaliteit, codelijsten) toegelicht en de overeenkomstige (RDF) termenopgelijst.</p>",
+      "voc": "<p>Dit document beschrijft een <strong>vocabularium</strong>, in dit geval <strong>{ title }</strong >. Een vocabularium is een verzameling van herbruikbare termen, namelijk klassen en eigenschappen, waarvan hun betekenis is vastgelegd door middel van een label en definitie. Voor termen gedefinieerd in dit domein zijn er nog bijkomende formele afspraken beschikbaar. Voor externe termen worden de formele afspraken overgenomen van de externe bron.</p>"
+    },
+    "overview": {
+      "voc": "<p>Deze sectie somt alle klassen en eigenschappen van het vocabularium op.</p>"
+    },
+    "summary": {
+      "voc": "<p>Het {title} vocabularium specificeert een aantal klassen en eigenschappen om een {lowercaseTitle} te beschrijven.</p>"
+    },
+    "status": {
+      "voc": "<p><em>Deze sectie beschrijft de status van dit document op het moment van publicatie. Het kan zijn dat er ondertussen al nieuwere versies zijn uitgebracht.</em></p><p>Een lijst van de recentste vocabularia is terug te vinden op <a href=\"https://data.vlaanderen.be/ns\">https://data.vlaanderen.be/ns</a></p><p>Dit document is een offici&#235;le specificatie van een vocabularium en biedt een gedeeld begrippenkader voor bepaalde concepten. Deze specificatie dient om de definitie, gebruik, domein en bereik van de RDF termen binnen dit domein te verduidelijken. De termen gedefinieerd in dit vocabularium zijn persistent en zullen bijgevolg nooit verdwijnen, noch zullen de definities veranderen behalve dan om een bestaande definitie verder te verduidelijken. Termen kunnen echter wel als verouderd worden bestempeld en vervangen worden in nieuwere versies van deze specificatie.</p>",
+      "ap": "<p>Dit applicatieprofiel heeft status <a href={ status }>{ statuslabel }</a> en werd uitgegeven op { issued }.</p><p>Informatie over het gevolgde proces en de beslissingen om tot deze specificatie te komen zijn beschikbaar in het <a href=\"https://data.vlaanderen.be/standaarden\">standaardenregister</a>.</p>"
+    },
+    "license": {
+      "voc": "<p>Deze specificatie van <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> is gepubliceerd onder de <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Modellicentie Gratis Hergebruik - v1.0\"</a>.</p>",
+      "ap": "Deze specificatie van <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> is gepubliceerd onder de <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Modellicentie Gratis Hergebruik - v1.0\"</a>."
+    },
+    "conformance": {
+      "voc": "<p>Een uitwisseling van gegevens, op welke manier deze uitwisseling ook gebeurt, is conform aan dit vocabularium wanneer het de terminologie (klassen en eigenschappen) gebruikt op een manier die consistent is met de semantiek zoals opgesteld in de nieuwste versie van de specificatie (domein, bereik, definitie en gebruik) en het geen terminologie gebruikt uit andere vocabularia als alternatief voor de voorgestelde terminologie opgenomen in dit vocabularium.</p>",
+      "ap": "<p>De conformiteit voor applicatieprofielen is <a href=\"https://data.vlaanderen.be/doc/begeleidend/applicatieprofielen/conformiteit/\">hier</a> te vinden.</p>"
+    },
+    "classes": {
+      "voc": "<p>Deze sectie geeft een formele definitie aan elke klasse.</p>"
+    },
+    "properties": {
+      "voc": "<p>Deze sectie geeft een formele definitie aan elke eigenschap.</p>"
+    },
+    "externalTerminology": {
+      "voc": "<p>Deze sectie geeft een overzicht van terminologie uit andere vocabularia die relevant is voor dit domeinmodel samen met hun Nederlandstalige labels en definities.</p>"
+    }
+  },
+  "entity": {
+    "properties": "Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:",
+    "noProperties": "Voor deze entiteit zijn geen eigenschappen gedefinieerd.",
+    "description": "Beschrijving",
+    "usage": "Gebruik",
+    "subClassOf": "Subklasse van"
+  },
+  "property": {
+    "property": "Eigenschap",
+    "expectedType": "Verwacht type",
+    "description": "Beschrijving",
+    "cardinality": "Kardinaliteit",
+    "usage": "Gebruik",
+    "codelist": "Codelijst"
   },
   "jsonldContext": "Een herbruikbare JSON-LD context definitie voor dit applicatieprofiel is terug te vinden op",
   "shaclTemplate": "Een herbruikbare SHACL template definitie voor dit applicatieprofiel is terug te vinden op"

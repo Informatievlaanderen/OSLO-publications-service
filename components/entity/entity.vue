@@ -4,33 +4,34 @@
   >
   <dl>
     <template v-if="description">
-      <dt>Beschrijving</dt>
+      <dt>{{ $t('entity.description') }}</dt>
       <dd>{{ description }}</dd>
     </template>
     <template v-if="usage">
-      <dt>Gebruik</dt>
+      <dt>{{ $t('entity.usage') }}</dt>
       <dd>{{ usage }}</dd>
     </template>
     <template v-if="parents?.length">
-      <dt>Subklasse van</dt>
+      <dt>{{ $t('entity.subClassOf') }}</dt>
       <template v-for="(parent, index) in parents">
         <a :href="parent.id">{{ getLabel(parent, language, type) }}</a>
         <span v-if="index < parents?.length - 1">, </span>
         <span v-else>.</span>
       </template>
     </template>
-    <dt>Eigenschappen</dt>
+    <dt>{{ $t('properties') }}</dt>
     <dd v-if="properties?.length">
-      Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+      {{ $t('entity.properties') }}
       <template v-for="(property, index) in properties">
         <span v-html="generateLink(property, index, properties?.length)"></span>
       </template>
     </dd>
-    <dd v-else>Voor deze entiteit zijn geen eigenschappen gedefinieerd.</dd>
+    <dd v-else>{{ $t('entity.noProperties') }}</dd>
   </dl>
 </template>
 
 <script setup lang="ts" name="entity">
+import { getLabel, getAnchorTag } from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
 import type { Entity } from '~/types/entity'
 const props = defineProps<Entity>()

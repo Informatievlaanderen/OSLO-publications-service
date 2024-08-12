@@ -1,5 +1,5 @@
 <template>
-  <vl-side-navigation class="sticky" title="Op deze pagina">
+  <vl-side-navigation class="sticky" :title="$t('onThisPage')">
     <vl-side-navigation-list>
       <template v-for="item in links">
         <vl-side-navigation-item

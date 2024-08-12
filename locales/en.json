@@ -9,16 +9,73 @@
   "contributors": "Contributors",
   "introduction": "Introduction",
   "summary": "Summary",
-  "documentState": "Document status",
+  "documentState": "Status of this document",
   "license": "License",
   "conformance": "Conformance",
   "overview": "Overview",
   "entities": "Entities",
+  "class": "Class",
+  "classes": "Classes",
+  "properties": "Properties",
+  "externalTerminology": "External terminology",
   "entitiesOverview": "This document explains the correct use of the following entities",
   "dataTypes": "Data types",
   "dataTypesOverview": "This document explains the following data types",
+  "usage": "Usage",
+  "description": "Description",
+  "range": "Range",
+  "type": "Type",
+  "domain": "Domain",
+  "URI": "URI",
+  "definition": "Definition",
+  "onThisPage": "On this page",
   "content": {
-    "introduction": "This document describes an <strong>application profile</strong>, in this case <strong>{ title }</strong>. This application profile answers the question of how the corresponding domain model can be applied in practice. It explains the constraints (cardinality, code lists) and lists the corresponding (RDF) terms."
+    "introduction": {
+      "ap": "<p>This document describes an <strong>application profile</strong>, in this case <strong>{ title }</strong>. This application profile answers the question of how the corresponding domain model can be applied in practice. The constraints (cardinality, code lists) are explained and the corresponding (RDF) terms are listed.</p>",
+      "voc": "<p>This document describes a <strong>vocabulary</strong>, in this case <strong>{ title }</strong>. A vocabulary is a collection of reusable terms, namely classes and properties, whose meanings are defined by a label and definition. For terms defined in this domain, additional formal agreements are available. For external terms, the formal agreements are adopted from the external source.</p>"
+    },
+    "overview": {
+      "voc": "<p>This section lists all classes and properties of the vocabulary.</p>"
+    },
+    "summary": {
+      "voc": "<p>The {title} vocabulary specifies a number of classes and properties to describe a {lowercaseTitle}.</p>"
+    },
+    "status": {
+      "voc": "<p><em>This section describes the status of this document at the time of publication. There may be newer versions released in the meantime.</em></p><p>A list of the most recent vocabularies can be found at <a href=\"https://data.vlaanderen.be/ns\">https://data.vlaanderen.be/ns</a></p><p>This document is an official specification of a vocabulary and provides a shared conceptual framework for certain concepts. This specification serves to clarify the definition, use, domain, and scope of the RDF terms within this domain. The terms defined in this vocabulary are persistent and will therefore never disappear, nor will the definitions change except to further clarify an existing definition. However, terms may be marked as deprecated and replaced in newer versions of this specification.</p>",
+      "ap": "<p>This application profile has status <a href={ status }>{ statuslabel }</a> and was issued on { issued }.</p><p>Information about the process followed and the decisions made to arrive at this specification is available in the <a href=\"https://data.vlaanderen.be/standaarden\">standards register</a>.</p>"
+    },
+    "license": {
+      "voc": "<p>This specification from <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> is published under the <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Model License Free Reuse - v1.0\"</a>.</p>",
+      "ap": "This specification from <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> is published under the <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Model License Free Reuse - v1.0\"</a>."
+    },
+    "conformance": {
+      "voc": "<p>An exchange of data, however it occurs, conforms to this vocabulary when it uses the terminology (classes and properties) in a manner consistent with the semantics as set out in the latest version of the specification (domain, scope, definition, and use) and does not use terminology from other vocabularies as an alternative to the proposed terminology included in this vocabulary.</p>",
+      "ap": "<p>The conformance for application profiles can be found <a href=\"https://data.vlaanderen.be/doc/begeleidend/applicatieprofielen/conformiteit/\">here</a>.</p>"
+    },
+    "classes": {
+      "voc": "<p>This section provides a formal definition for each class.</p>"
+    },
+    "properties": {
+      "voc": "<p>This section provides a formal definition for each property.</p>"
+    },
+    "externalTerminology": {
+      "voc": "<p>This section provides an overview of terminology from other vocabularies that is relevant to this domain model along with their Dutch labels and definitions.</p>"
+    }
+  },
+  "entity": {
+    "properties": "The following properties are defined for this entity:",
+    "noProperties": "No properties are defined for this entity.",
+    "description": "Description",
+    "usage": "Usage",
+    "subClassOf": "Subclass of"
+  },
+  "property": {
+    "property": "Property",
+    "expectedType": "Expected type",
+    "description": "Description",
+    "cardinality": "Cardinality",
+    "usage": "Usage",
+    "codelist": "Code List"
   },
   "jsonldContext": "A reusable JSON-LD context definition for this application profile can be found at",
   "shaclTemplate": "A reusable SHACL template definition for this application profile can be found at"

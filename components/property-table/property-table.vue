@@ -3,12 +3,11 @@
     <vl-data-table mod-zebra>
       <thead>
         <tr>
-          <th>Eigenschap</th>
-          <th>Verwacht Type</th>
-          <th>Kardinaliteit</th>
-          <th>Beschrijving</th>
-          <th>Gebruik</th>
-          <th>Codelijst</th>
+          <th>{{ $t('property.property') }}</th>
+          <th>{{ $t('property.expectedType') }}</th>
+          <th>{{ $t('property.cardinality') }}</th>
+          <th>{{ $t('property.usage') }}</th>
+          <th>{{ $t('property.codelist') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -46,6 +45,12 @@
 </template>
 
 <script setup lang="ts" name="propertyTable">
+import {
+  getLabel,
+  getAnchorTag,
+  getDefinition,
+  getUsage,
+} from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
 defineProps({
   properties: {
