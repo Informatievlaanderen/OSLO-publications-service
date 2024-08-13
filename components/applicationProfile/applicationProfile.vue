@@ -2,7 +2,7 @@
   <content-header :hide-banner="true" />
   <vl-region>
     <vl-layout>
-      <languague-switcher />
+      <LanguageSwitcher />
       <div class="head">
         <Meta :metadata="metadata" :stakeholders="stakeholders" />
       </div>

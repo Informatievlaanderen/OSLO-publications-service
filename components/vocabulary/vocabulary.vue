@@ -1,7 +1,9 @@
 <template>
   <content-header :hide-banner="true" />
+
   <vl-region>
     <vl-layout>
+      <LanguageSwitcher />
       <div class="head">
         <Meta :stakeholders="stakeholders" :metadata="metadata" />
       </div>
