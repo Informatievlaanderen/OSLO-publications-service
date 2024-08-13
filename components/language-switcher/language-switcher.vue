@@ -21,7 +21,6 @@ const router = useRouter()
 const route = useRoute()
 
 const updateLocale = (lang: string) => {
-  setLocale(lang)
   locale.value = lang
   router.push({ query: { ...route.query, lang } })
 }
