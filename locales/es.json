@@ -1,0 +1,82 @@
+{
+  "applicationProfile": "Perfil de Aplicación",
+  "status": "Estado",
+  "issued": "Emitido el",
+  "thisVersion": "Última versión",
+  "lastModification": "Última modificación",
+  "authors": "Autores",
+  "editors": "Editores",
+  "contributors": "Colaboradores",
+  "introduction": "Introducción",
+  "summary": "Resumen",
+  "documentState": "Estado de este documento",
+  "license": "Licencia",
+  "conformance": "Conformidad",
+  "overview": "Visión general",
+  "entities": "Entidades",
+  "class": "Clase",
+  "classes": "Clases",
+  "properties": "Propiedades",
+  "externalTerminology": "Terminología externa",
+  "entitiesOverview": "Este documento explica el uso correcto de las siguientes entidades",
+  "dataTypes": "Tipos de datos",
+  "dataTypesOverview": "Este documento explica los siguientes tipos de datos",
+  "usage": "Uso",
+  "description": "Descripción",
+  "range": "Rango",
+  "type": "Tipo",
+  "domain": "Dominio",
+  "URI": "URI",
+  "definition": "Definición",
+  "onThisPage": "En esta página",
+  "content": {
+    "introduction": {
+      "ap": "<p>Este documento describe un <strong>perfil de aplicación</strong>, en este caso <strong>{ title }</strong>. Este perfil de aplicación responde a la pregunta de cómo se puede aplicar en la práctica el modelo de dominio correspondiente. Se explican las restricciones (cardinalidad, listas de códigos) y se enumeran los términos (RDF) correspondientes.</p>",
+      "voc": "<p>Este documento describe un <strong>vocabulario</strong>, en este caso <strong>{ title }</strong>. Un vocabulario es una colección de términos reutilizables, a saber, clases y propiedades, cuyos significados están definidos por una etiqueta y una definición. Para los términos definidos en este dominio, hay disponibles acuerdos formales adicionales. Para los términos externos, los acuerdos formales se adoptan de la fuente externa.</p>"
+    },
+    "overview": {
+      "voc": "<p>Esta sección enumera todas las clases y propiedades del vocabulario.</p>"
+    },
+    "summary": {
+      "voc": "<p>El vocabulario {title} especifica una serie de clases y propiedades para describir un {lowercaseTitle}.</p>"
+    },
+    "status": {
+      "voc": "<p><em>Esta sección describe el estado de este documento en el momento de la publicación. Puede haber versiones más recientes publicadas en el ínterin.</em></p><p>Se puede encontrar una lista de los vocabularios más recientes en <a href=\"https://data.vlaanderen.be/ns\">https://data.vlaanderen.be/ns</a></p><p>Este documento es una especificación oficial de un vocabulario y proporciona un marco conceptual compartido para ciertos conceptos. Esta especificación sirve para aclarar la definición, uso, dominio y alcance de los términos RDF dentro de este dominio. Los términos definidos en este vocabulario son persistentes y, por lo tanto, nunca desaparecerán, ni cambiarán las definiciones excepto para aclarar aún más una definición existente. Sin embargo, los términos pueden ser marcados como obsoletos y reemplazados en versiones más nuevas de esta especificación.</p>",
+      "ap": "<p>Este perfil de aplicación tiene el estado <a href={ status }>{ statuslabel }</a> y fue emitido el { issued }.</p><p>La información sobre el proceso seguido y las decisiones tomadas para llegar a esta especificación está disponible en el <a href=\"https://data.vlaanderen.be/standaarden\">registro de estándares</a>.</p>"
+    },
+    "license": {
+      "voc": "<p>Esta especificación de <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> se publica bajo la <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Licencia Modelo de Reutilización Gratuita - v1.0\"</a>.</p>",
+      "ap": "Esta especificación de <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> se publica bajo la <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Licencia Modelo de Reutilización Gratuita - v1.0\"</a>."
+    },
+    "conformance": {
+      "voc": "<p>Un intercambio de datos, sin importar cómo ocurra, se ajusta a este vocabulario cuando utiliza la terminología (clases y propiedades) de manera consistente con la semántica establecida en la última versión de la especificación (dominio, alcance, definición y uso) y no utiliza terminología de otros vocabularios como alternativa a la terminología propuesta incluida en este vocabulario.</p>",
+      "ap": "<p>La conformidad para los perfiles de aplicación se puede encontrar <a href=\"https://data.vlaanderen.be/doc/begeleidend/applicatieprofielen/conformiteit/\">aquí</a>.</p>"
+    },
+    "classes": {
+      "voc": "<p>Esta sección proporciona una definición formal para cada clase.</p>"
+    },
+    "properties": {
+      "voc": "<p>Esta sección proporciona una definición formal para cada propiedad.</p>"
+    },
+    "externalTerminology": {
+      "voc": "<p>Esta sección proporciona una visión general de la terminología de otros vocabularios que es relevante para este modelo de dominio junto con sus etiquetas y definiciones en holandés.</p>"
+    }
+  },
+  "entity": {
+    "properties": "Se definen las siguientes propiedades para esta entidad:",
+    "noProperties": "No se definen propiedades para esta entidad.",
+    "description": "Descripción",
+    "usage": "Uso",
+    "subClassOf": "Subclase de"
+  },
+  "property": {
+    "property": "Propiedad",
+    "expectedType": "Tipo esperado",
+    "description": "Descripción",
+    "cardinality": "Cardinalidad",
+    "usage": "Uso",
+    "codelist": "Lista de códigos"
+  },
+  "jsonldContext": "Se puede encontrar una definición de contexto JSON-LD reutilizable para este perfil de aplicación en",
+  "shaclTemplate": "Se puede encontrar una definición de plantilla SHACL reutilizable para este perfil de aplicación en"
+}

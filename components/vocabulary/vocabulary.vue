@@ -3,7 +3,7 @@
 
   <vl-region>
     <vl-layout>
-      <LanguageSwitcher />
+      <LanguageSwitcher :locales="locales" />
       <div class="head">
         <Meta :stakeholders="stakeholders" :metadata="metadata" />
       </div>
@@ -221,6 +221,10 @@ import {
 const { t, locale } = useI18n()
 
 const props = defineProps({
+  locales: {
+    required: true,
+    type: Array<string>,
+  },
   voc: {
     type: Object as PropType<Configuration>,
   },

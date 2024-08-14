@@ -1,10 +1,26 @@
+import fs from 'fs'
+import path from 'path'
 import { defineNuxtConfig } from 'nuxt/config'
 import { fileURLToPath } from 'url'
+
+// Function to generate locales array
+const generateLocales = () => {
+  const localesDir = path.resolve(__dirname, 'locales')
+  const files = fs.readdirSync(localesDir)
+
+  return files.map((file) => {
+    const code = path.basename(file, '.json')
+    return {
+      code,
+      name: code.toUpperCase(),
+      file,
+    }
+  })
+}
 
 export default defineNuxtConfig({
   // https://nuxt.com/docs/getting-started/deployment#static-hosting
   ssr: true,
-
   app: {
     baseURL: import.meta.env.VITE_ROOT_PATH,
     head: {
@@ -13,8 +29,12 @@ export default defineNuxtConfig({
         lang: 'nl',
       },
       script: [
-        { src: 'https://prod.widgets.burgerprofiel.vlaanderen.be/api/v1/node_modules/@govflanders/vl-widget-polyfill/dist/index.js', },
-        { src: 'https://prod.widgets.burgerprofiel.vlaanderen.be/api/v1/node_modules/@govflanders/vl-widget-client/dist/index.js' },
+        {
+          src: 'https://prod.widgets.burgerprofiel.vlaanderen.be/api/v1/node_modules/@govflanders/vl-widget-polyfill/dist/index.js',
+        },
+        {
+          src: 'https://prod.widgets.burgerprofiel.vlaanderen.be/api/v1/node_modules/@govflanders/vl-widget-client/dist/index.js',
+        },
       ],
       meta: [
         { charset: 'utf-8' },
@@ -54,17 +74,16 @@ export default defineNuxtConfig({
   // needed for nuxt content assets that keeps hanging on build: https://github.com/davestewart/nuxt-content-assets/issues/49#issuecomment-1812810278
   hooks: {
     close: (nuxt) => {
-      if (!nuxt.options._prepare)
-        process.exit()
-    }
+      if (!nuxt.options._prepare) process.exit()
+    },
   },
 
   // Alias declaration for easier access to components directory
   alias: {
-    "@components": fileURLToPath(new URL('./components', import.meta.url)),
-    "@content": fileURLToPath(new URL('./content', import.meta.url)),
-    "@constants": fileURLToPath(new URL('./constants', import.meta.url)),
-    "@types": fileURLToPath(new URL('./types', import.meta.url)),
+    '@components': fileURLToPath(new URL('./components', import.meta.url)),
+    '@content': fileURLToPath(new URL('./content', import.meta.url)),
+    '@constants': fileURLToPath(new URL('./constants', import.meta.url)),
+    '@types': fileURLToPath(new URL('./types', import.meta.url)),
   },
 
   // Global CSS: https://nuxt.com/docs/api/configuration/nuxt-config#css
@@ -75,9 +94,7 @@ export default defineNuxtConfig({
   },
 
   // Plugins to run before rendering page: https://nuxt.com/docs/api/configuration/nuxt-config#plugins-1
-  plugins: [
-    { src: '~/plugins/webcomponents.js', mode: 'client' },
-  ],
+  plugins: [{ src: '~/plugins/webcomponents.js', mode: 'client' }],
 
   // Modules: https://nuxt.com/docs/api/configuration/nuxt-config#modules-1
   modules: [
@@ -92,38 +109,27 @@ export default defineNuxtConfig({
   // ADD DYNAMIC PRERENDER ROUTES HERE
   nitro: {
     // define preset for nitro and which backend to serve the project
-    preset: "node-server",
+    preset: 'node-server',
     prerender: {
       // routes: ['/doc/vocabularium/', 'doc/applicatieprofiel/'],
-    }
+    },
   },
 
   i18n: {
     //https://i18n.nuxtjs.org/docs/guide#strategies
     strategy: 'no_prefix',
-    locales: [
-      {
-        code: 'nl',
-        name: 'NL',
-        file: 'nl.json'
-      },
-      {
-        code: 'en',
-        name: 'EN',
-        file: 'en.json'
-      },
-    ],
+    locales: generateLocales(),
     detectBrowserLanguage: {
       alwaysRedirect: true,
     },
     lazy: false,
-    langDir: "locales/",
+    langDir: 'locales/',
     defaultLocale: 'nl',
     compilation: {
       strictMessage: false,
-      escapeHtml: false
+      escapeHtml: false,
     },
-    vueI18n: './i18n.config.ts' // if you are using custom path, default
+    vueI18n: './i18n.config.ts', // if you are using custom path, default
   },
 
   compatibilityDate: '2024-08-12',

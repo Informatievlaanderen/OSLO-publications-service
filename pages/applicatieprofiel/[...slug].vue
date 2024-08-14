@@ -1,5 +1,6 @@
 <template>
   <ApplicationProfile
+    :locales="data?.locales ?? [defaultLocale]"
     :ap="data?.ap"
     :stakeholders="data?.stakeholders"
     :metadata="data?.metadata"
@@ -20,7 +21,7 @@ const { params, query } = useRoute()
 // Dont make this code reactive so that it only runs once
 const lang: string = query.lang?.toString() ?? defaultLocale
 
-setLocale(
+await setLocale(
   lang
     ? validateLocaleCookie(lang, defaultLocale, availableLocales)
     : defaultLocale,
@@ -30,11 +31,12 @@ setLocale(
 const { data } = await useAsyncData(
   'data',
   async () => {
-    const basePath = `${params?.slug?.[0]}/${locale.value}`
+    const basePath = `${params?.slug?.[0]}/${locale?.value}`
     const jsonQuery = { _extension: 'json' }
     const mdQuery = { _extension: 'md' }
 
-    const [ap, stakeholders, metadata, content] = await Promise.all([
+    const [locales, ap, stakeholders, metadata, content] = await Promise.all([
+      queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
       queryContent<Configuration>(`${basePath}/configuration`)
         .where(jsonQuery)
         .find(),
@@ -46,6 +48,7 @@ const { data } = await useAsyncData(
     ])
 
     return {
+      locales: Array.from(new Set(locales.map((dir: any) => dir._dir))),
       ap: ap[0],
       stakeholders: stakeholders[0],
       metadata: metadata[0],

@@ -1,5 +1,6 @@
 <template>
   <Vocabulary
+    :locales="data?.locales ?? [defaultLocale]"
     :voc="data?.voc"
     :stakeholders="data?.stakeholders"
     :metadata="data?.metadata"
@@ -20,7 +21,7 @@ const { params, query } = useRoute()
 // Dont make this code reactive so that it only runs once
 const lang: string = query.lang?.toString() ?? defaultLocale
 
-setLocale(
+await setLocale(
   lang
     ? validateLocaleCookie(lang, defaultLocale, availableLocales)
     : defaultLocale,
@@ -34,7 +35,8 @@ const { data } = await useAsyncData(
     const jsonQuery = { _extension: 'json' }
     const mdQuery = { _extension: 'md' }
 
-    const [voc, stakeholders, metadata, content] = await Promise.all([
+    const [locales, voc, stakeholders, metadata, content] = await Promise.all([
+      queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
       queryContent<Configuration>(`${basePath}/configuration`)
         .where(jsonQuery)
         .find(),
@@ -48,6 +50,7 @@ const { data } = await useAsyncData(
     ])
 
     return {
+      locales: Array.from(new Set(locales.map((dir: any) => dir._dir))),
       voc: voc[0],
       stakeholders: stakeholders[0],
       metadata: metadata[0],

@@ -2,10 +2,12 @@
   <content-header :hide-banner="true" />
   <vl-region>
     <vl-layout>
-      <LanguageSwitcher />
-      <div class="head">
-        <Meta :metadata="metadata" :stakeholders="stakeholders" />
-      </div>
+      <vl-grid>
+        <LanguageSwitcher :locales="locales" />
+        <vl-column class="head">
+          <Meta :metadata="metadata" :stakeholders="stakeholders" />
+        </vl-column>
+      </vl-grid>
       <vl-grid class="content">
         <vl-column width="9" width-s="12">
           <vl-region>
@@ -149,6 +151,10 @@ import { entitiesToNavigation } from '~/utils/publication-filter'
 const { locale, defaultLocale, availableLocales, t } = useI18n()
 
 const props = defineProps({
+  locales: {
+    required: true,
+    type: Array<string>,
+  },
   ap: {
     type: Object as PropType<Configuration>,
   },

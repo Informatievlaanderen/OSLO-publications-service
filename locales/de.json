@@ -1,0 +1,82 @@
+{
+  "applicationProfile": "Anwendungsprofil",
+  "status": "Status",
+  "issued": "Ausgestellt am",
+  "thisVersion": "Neueste Version",
+  "lastModification": "Letzte Änderung",
+  "authors": "Autoren",
+  "editors": "Redakteure",
+  "contributors": "Mitwirkende",
+  "introduction": "Einführung",
+  "summary": "Zusammenfassung",
+  "documentState": "Status dieses Dokuments",
+  "license": "Lizenz",
+  "conformance": "Konformität",
+  "overview": "Übersicht",
+  "entities": "Entitäten",
+  "class": "Klasse",
+  "classes": "Klassen",
+  "properties": "Eigenschaften",
+  "externalTerminology": "Externe Terminologie",
+  "entitiesOverview": "Dieses Dokument erklärt die korrekte Verwendung der folgenden Entitäten",
+  "dataTypes": "Datentypen",
+  "dataTypesOverview": "Dieses Dokument erklärt die folgenden Datentypen",
+  "usage": "Verwendung",
+  "description": "Beschreibung",
+  "range": "Bereich",
+  "type": "Typ",
+  "domain": "Domäne",
+  "URI": "URI",
+  "definition": "Definition",
+  "onThisPage": "Auf dieser Seite",
+  "content": {
+    "introduction": {
+      "ap": "<p>Dieses Dokument beschreibt ein <strong>Anwendungsprofil</strong>, in diesem Fall <strong>{ title }</strong>. Dieses Anwendungsprofil beantwortet die Frage, wie das entsprechende Domänenmodell in der Praxis angewendet werden kann. Die Einschränkungen (Kardinalität, Code-Listen) werden erklärt und die entsprechenden (RDF) Begriffe aufgelistet.</p>",
+      "voc": "<p>Dieses Dokument beschreibt ein <strong>Vokabular</strong>, in diesem Fall <strong>{ title }</strong>. Ein Vokabular ist eine Sammlung wiederverwendbarer Begriffe, nämlich Klassen und Eigenschaften, deren Bedeutungen durch ein Label und eine Definition definiert sind. Für in dieser Domäne definierte Begriffe sind zusätzliche formale Vereinbarungen verfügbar. Für externe Begriffe werden die formalen Vereinbarungen aus der externen Quelle übernommen.</p>"
+    },
+    "overview": {
+      "voc": "<p>Dieser Abschnitt listet alle Klassen und Eigenschaften des Vokabulars auf.</p>"
+    },
+    "summary": {
+      "voc": "<p>Das {title} Vokabular spezifiziert eine Reihe von Klassen und Eigenschaften zur Beschreibung eines {lowercaseTitle}.</p>"
+    },
+    "status": {
+      "voc": "<p><em>Dieser Abschnitt beschreibt den Status dieses Dokuments zum Zeitpunkt der Veröffentlichung. Es können inzwischen neuere Versionen veröffentlicht worden sein.</em></p><p>Eine Liste der neuesten Vokabulare finden Sie unter <a href=\"https://data.vlaanderen.be/ns\">https://data.vlaanderen.be/ns</a></p><p>Dieses Dokument ist eine offizielle Spezifikation eines Vokabulars und bietet einen gemeinsamen konzeptionellen Rahmen für bestimmte Konzepte. Diese Spezifikation dient dazu, die Definition, Verwendung, Domäne und den Umfang der RDF-Begriffe innerhalb dieser Domäne zu klären. Die in diesem Vokabular definierten Begriffe sind persistent und werden daher niemals verschwinden, noch werden sich die Definitionen ändern, außer um eine bestehende Definition weiter zu klären. Begriffe können jedoch als veraltet markiert und in neueren Versionen dieser Spezifikation ersetzt werden.</p>",
+      "ap": "<p>Dieses Anwendungsprofil hat den Status <a href={ status }>{ statuslabel }</a> und wurde am { issued } ausgestellt.</p><p>Informationen über den befolgten Prozess und die getroffenen Entscheidungen, um zu dieser Spezifikation zu gelangen, sind im <a href=\"https://data.vlaanderen.be/standaarden\">Standardsregister</a> verfügbar.</p>"
+    },
+    "license": {
+      "voc": "<p>Diese Spezifikation von <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> wird unter der <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Modelllizenz für kostenlose Wiederverwendung - v1.0\"</a> veröffentlicht.</p>",
+      "ap": "Diese Spezifikation von <a href=\"https://overheid.vlaanderen.be/digitaal-vlaanderen/informatie-vlaanderen\">Informatie Vlaanderen</a> wird unter der <a href=\"https://overheid.vlaanderen.be/sites/default/files/documenten/ict-egov/licenties/hergebruik/modellicentie_gratis_hergebruik_v1_0.html\">\"Modelllizenz für kostenlose Wiederverwendung - v1.0\"</a> veröffentlicht."
+    },
+    "conformance": {
+      "voc": "<p>Ein Datenaustausch, wie auch immer er erfolgt, entspricht diesem Vokabular, wenn er die Terminologie (Klassen und Eigenschaften) in einer Weise verwendet, die mit der in der neuesten Version der Spezifikation festgelegten Semantik (Domäne, Umfang, Definition und Verwendung) übereinstimmt und keine Terminologie aus anderen Vokabularen als Alternative zur vorgeschlagenen Terminologie in diesem Vokabular verwendet.</p>",
+      "ap": "<p>Die Konformität für Anwendungsprofile finden Sie <a href=\"https://data.vlaanderen.be/doc/begeleidend/applicatieprofielen/conformiteit/\">hier</a>.</p>"
+    },
+    "classes": {
+      "voc": "<p>Dieser Abschnitt bietet eine formale Definition für jede Klasse.</p>"
+    },
+    "properties": {
+      "voc": "<p>Dieser Abschnitt bietet eine formale Definition für jede Eigenschaft.</p>"
+    },
+    "externalTerminology": {
+      "voc": "<p>Dieser Abschnitt bietet einen Überblick über die Terminologie aus anderen Vokabularen, die für dieses Domänenmodell relevant ist, zusammen mit ihren niederländischen Labels und Definitionen.</p>"
+    }
+  },
+  "entity": {
+    "properties": "Die folgenden Eigenschaften sind für diese Entität definiert:",
+    "noProperties": "Für diese Entität sind keine Eigenschaften definiert.",
+    "description": "Beschreibung",
+    "usage": "Verwendung",
+    "subClassOf": "Unterklasse von"
+  },
+  "property": {
+    "property": "Eigenschaft",
+    "expectedType": "Erwarteter Typ",
+    "description": "Beschreibung",
+    "cardinality": "Kardinalität",
+    "usage": "Verwendung",
+    "codelist": "Code-Liste"
+  },
+  "jsonldContext": "Eine wiederverwendbare JSON-LD-Kontextdefinition für dieses Anwendungsprofil finden Sie unter",
+  "shaclTemplate": "Eine wiederverwendbare SHACL-Vorlagendefinition für dieses Anwendungsprofil finden Sie unter"
+}
