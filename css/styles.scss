@@ -1,7 +1,6 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable import-notation */
 $vl-font-location: "/assets/font/flanders/";
-$vl-icon-font-location: "/assets/font/iconfont/";
 
 @import '@govflanders/vl-ui-design-system-style/scss/core/_core.scss';
 @import '@govflanders/vl-ui-design-system-style/scss';
@@ -9,11 +8,11 @@ $vl-icon-font-location: "/assets/font/iconfont/";
 .head {
     border-bottom: 1px solid #cbd2da;
 }
-  
+
 .content {
     margin-top: 2rem
 }
-  
+
 .title {
     margin-bottom: 3rem;
     text-transform: capitalize;
@@ -27,11 +26,11 @@ $vl-icon-font-location: "/assets/font/iconfont/";
     padding-top: 6rem;
 
     a {
-        margin: 0; 
+        margin: 0;
         padding: 0.2rem;
     }
 }
-  
+
 .subtitle {
     font-weight: 400;
 }
@@ -44,37 +43,37 @@ $vl-icon-font-location: "/assets/font/iconfont/";
 
     h2, h3, h4 {
         margin: 3rem 0;
-        
+
         @extend .vl-title--h2;
         @extend .subtitle;
-        
+
         a, a:visited {
             color: inherit;
             text-decoration: none;
         }
     }
 }
-  
+
 .numbered-list {
     list-style-type: decimal;
 }
-  
+
 dt {
     font-weight: bold;
 }
-  
+
 dt,
 dd {
     margin-top: 0;
     margin-bottom: 0;
 }
-  
+
 .list__item {
     margin-bottom: 2rem;
     margin-left: 3rem;
-  
+
     list-style: decimal;
-  
+
     font-size: 3.2rem;
     font-family: "Flanders Art Sans", sans-serif;
 }

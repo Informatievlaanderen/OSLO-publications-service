@@ -114,7 +114,6 @@ export default defineNuxtConfig({
       // routes: ['/doc/vocabularium/', 'doc/applicatieprofiel/'],
     },
   },
-
   i18n: {
     //https://i18n.nuxtjs.org/docs/guide#strategies
     strategy: 'no_prefix',
