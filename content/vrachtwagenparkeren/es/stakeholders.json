@@ -1,0 +1,215 @@
+{
+  "contributors": [
+    {
+      "firstName": "Isabelle",
+      "lastName": "De Maegt",
+      "affiliation": {
+        "affiliationName": "FEBETRA",
+        "homepage": "https://www.febetra.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Marc",
+      "lastName": "Bax",
+      "affiliation": {
+        "affiliationName": "Greenyard",
+        "homepage": "https://www.greenyard.group"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Dries",
+      "lastName": "Meers",
+      "affiliation": {
+        "affiliationName": "Stad Gent",
+        "homepage": "https://www.stad.gent"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Benjamin",
+      "lastName": "Vermeulen",
+      "affiliation": {
+        "affiliationName": "Stad Mechelen",
+        "homepage": "https://www.mechelen.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Gwynne",
+      "lastName": "van Kaauwen",
+      "affiliation": {
+        "affiliationName": "Tractebel",
+        "homepage": "https://www.tractebel-engie.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Frederic",
+      "lastName": "Keymeulen",
+      "affiliation": {
+        "affiliationName": "Transport en Logistiek Vlaanderen",
+        "homepage": "https://www.tlv.be/nl"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "Delcroix",
+      "affiliation": {
+        "affiliationName": "DBT",
+        "homepage": "https://www.dbt-logistics.com"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Sven",
+      "lastName": "Maerivoet",
+      "affiliation": {
+        "affiliationName": "Transport & Mobility Leuven",
+        "homepage": "https://www.tmleuven.be/en"
+      },
+      "email": "   mail   "
+    },
+    {
+      "firstName": "Alain",
+      "lastName": "Glickman",
+      "affiliation": {
+        "affiliationName": "VLOCA",
+        "homepage": "https://www.vloca.vlaanderen.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Mieke",
+      "lastName": "Van Cauwenberghe",
+      "affiliation": {
+        "affiliationName": "VLOCA",
+        "homepage": "https://www.vloca.vlaanderen.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Laurien",
+      "lastName": "Renders",
+      "affiliation": {
+        "affiliationName": "VLOCA",
+        "homepage": "https://www.vloca.vlaanderen.be"
+      },
+      "email": ""
+    },
+    {
+      "firstName": "Gert",
+      "lastName": "Bellekens",
+      "affiliation": {
+        "affiliationName": "Intrabel",
+        "homepage": "https://www.vloca.vlaanderen.be"
+      },
+      "email": "     mail   "
+    },
+    {
+      "firstName": "Gert",
+      "lastName": "Bellekens",
+      "affiliation": {
+        "affiliationName": "Intrabel",
+        "homepage": "https://www.intrabel.be"
+      },
+      "email": "     mail   "
+    }
+  ],
+  "authors": [
+    {
+      "firstName": "Felipe",
+      "lastName": "Garcia Del Pino",
+      "affiliation": {
+        "affiliationName": "IGEMO",
+        "homepage": "https://www.igemo.be/"
+      },
+      "email": "felipe.garciadelpino@igemo.be"
+    },
+    {
+      "firstName": "Pieter",
+      "lastName": "Dresselaers",
+      "affiliation": {
+        "affiliationName": "IGEMO",
+        "homepage": "https://www.igemo.be/"
+      },
+      "email": "pieter.dresselaers@igemo.be"
+    },
+    {
+      "firstName": "Emmi",
+      "lastName": "Suvaal",
+      "affiliation": {
+        "affiliationName": "IGEMO",
+        "homepage": "https://www.igemo.be/"
+      },
+      "email": "emmi.suvaal@igemo.be"
+    }
+  ],
+  "editors": [
+    {
+      "firstName": "Lorenzo",
+      "lastName": "Vylders",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "lorenzo.vylders@vlaanderen.be"
+    },
+    {
+      "firstName": "Jef",
+      "lastName": "Liekens",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "jef.liekens@vlaanderen.be"
+    },
+    {
+      "firstName": "Raf",
+      "lastName": "Buyle",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "raf.buyle@vlaanderen.be"
+    },
+    {
+      "firstName": "Veerle",
+      "lastName": "Beyaert",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "veerle.beyaert@vlaanderen.be"
+    },
+    {
+      "firstName": "Eveline",
+      "lastName": "Vlassenroot",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "eveline.vlassenroot@vlaanderen.be"
+    },
+    {
+      "firstName": "Liesbeth",
+      "lastName": "Van der Haegen",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "liesbeth.vanderhaegen@vlaanderen.be"
+    },
+    {
+      "firstName": "Laurens",
+      "lastName": "Vercauteren",
+      "affiliation": {
+        "affiliationName": "Digitaal Vlaanderen",
+        "homepage": "https://www.vlaanderen.be/digitaal-vlaanderen"
+      },
+      "email": "laurens.vercauteren@vlaanderen.be"
+    }
+  ]
+}

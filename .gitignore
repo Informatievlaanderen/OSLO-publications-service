@@ -92,6 +92,3 @@ sw.*
 
 # Generated folder of static website
 .output/
-
-# Any generated configuration files in the content folder
-content/*
