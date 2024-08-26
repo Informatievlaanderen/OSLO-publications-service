@@ -193,17 +193,23 @@ const getNavigationLinks = (): NavigationLink[] => {
 const { data } = await useAsyncData(
   'data',
   async () => {
-    const [ap] = await Promise.all([
-      queryContent<Configuration>(
-        `${params?.slug?.[0]}/${validateLocaleCookie(locale?.value, defaultLocale, availableLocales)}/configuration`,
-      )
+    const basePath = `${params?.slug?.[0]}/${locale?.value}`
+    const jsonQuery = { _extension: 'json' }
+
+    const [voc] = await Promise.all([
+      queryContent<Configuration>(`${basePath}/configuration`)
+        .where(jsonQuery)
         .find(),
     ])
+
     return {
-      ap: ap[0],
+      voc: voc[0],
     }
   },
-  { watch: [locale] },
+  {
+    watch: [locale],
+  },
+)
 ```
 
 ## Developer tools
@@ -215,3 +221,19 @@ For code formatting purposes, we use a tool called [Prettier](https://prettier.i
 ### ESLint
 
 ESlint is a linting tool that will try and find problems with your JavaScript/TypeScript code as you are writing it. This will help minimize any potential bugs in our production code. For this tool, there is a separate configuration file called `eslintrc.ts` that contains the ruleset we want to enforce. This ruleset can be extended with any amount of rules that can be found [here](https://eslint.org/docs/latest/rules/). Don't forget to install ESlint itself in your IDE to get the full effect of this tool.
+
+## Updating this project
+
+### Setup
+
+There are two important branches in this project: `main` and `publicaties`. The `main` branch is the branch that contains the latest version of the project with just the code and features. There should **never** be any config files in this branch. The `publicaties` branch is the branch that contains the latest version of the project with the latest version of all the required config files of each publication.
+
+### New features
+
+When you want to add a new feature to the project, you should follow these steps:
+
+- Create a new branch from the `main` branch. This can be done automatically from JIRA or manually.
+- Develop the feature in this branch.
+- When the feature is ready, create a pull request to the `main` branch.
+- When the pull request is approved, merge the feature into the `main` branch.
+- Merge the main branch with the `publicaties` branch.
