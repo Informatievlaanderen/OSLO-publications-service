@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts" name="overviewImage">
+
 const props = defineProps({
   language: {
     type: String,

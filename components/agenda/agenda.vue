@@ -77,11 +77,10 @@
 import type { AgendaItem } from '~/types/agenda'
 const paginationIndex = ref(1)
 const eventsPerPage = 10
-const props = defineProps({
-  events: {
-    type: Array<AgendaItem>,
-  },
-})
+
+const props = defineProps<{
+  events: Array<AgendaItem>
+}>()
 
 const setPreviousIndex = () => {
   const value = paginationIndex.value - eventsPerPage

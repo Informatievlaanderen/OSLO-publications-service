@@ -38,7 +38,7 @@
       "voc": "<p>This section lists all classes and properties of the vocabulary.</p>"
     },
     "summary": {
-      "voc": "<p>The {title} vocabulary specifies a number of classes and properties to describe a {lowercaseTitle}.</p>"
+      "voc": "The {title} vocabulary specifies a number of classes and properties to describe a {lowercaseTitle}."
     },
     "status": {
       "voc": "<p><em>This section describes the status of this document at the time of publication. There may be newer versions released in the meantime.</em></p><p>A list of the most recent vocabularies can be found at <a href=\"https://data.vlaanderen.be/ns\">https://data.vlaanderen.be/ns</a></p><p>This document is an official specification of a vocabulary and provides a shared conceptual framework for certain concepts. This specification serves to clarify the definition, use, domain, and scope of the RDF terms within this domain. The terms defined in this vocabulary are persistent and will therefore never disappear, nor will the definitions change except to further clarify an existing definition. However, terms may be marked as deprecated and replaced in newer versions of this specification.</p>",

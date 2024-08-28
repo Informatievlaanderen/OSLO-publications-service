@@ -13,8 +13,8 @@
 <script setup lang="ts">
 import type { Stakeholder } from '~/types/stakeholder'
 
-defineProps({
-  role: String,
-  stakeholders: Array<Stakeholder>,
-})
+defineProps<{
+  role: String
+  stakeholders: Array<Stakeholder>
+}>()
 </script>
