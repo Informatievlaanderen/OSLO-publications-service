@@ -4,6 +4,4 @@
   </vl-introduction>
 </template>
 
-<script setup lang="ts" name="introduction">
-
-</script>
+<script setup lang="ts" name="introduction" />

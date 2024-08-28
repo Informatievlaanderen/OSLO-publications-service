@@ -25,9 +25,7 @@
 <script setup lang="ts">
 import type { NavigationMenu } from '~/types/navigationMenu'
 
-defineProps({
-  tiles: {
-    type: Array<NavigationMenu>,
-  },
-})
+defineProps<{
+  tiles: Array<NavigationMenu>,
+}>()
 </script>

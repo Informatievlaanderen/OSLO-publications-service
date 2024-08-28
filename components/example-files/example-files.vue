@@ -36,9 +36,8 @@ const { params } = useRoute()
 
 const { locale } = useI18n()
 import type { Metadata } from '~/types/metadata'
-defineProps({
-  metadata: {
-    type: Object as PropType<Metadata>,
-  },
-})
+
+defineProps<{
+  metadata: Metadata
+}>()
 </script>

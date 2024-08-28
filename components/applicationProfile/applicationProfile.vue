@@ -12,13 +12,9 @@
         <vl-column width="9" width-s="12">
           <vl-region>
             <introduction id="introduction">
-              <VlTypography
-                v-if="markdown?.introduction"
-                v-html="markdown?.introduction"
-                class="typography"
-              >
-              </VlTypography>
-              <VlTypography v-else class="typography">
+              <Markdown v-if="introduction" :markdown="introduction">
+              </Markdown>
+              <vl-typography v-else class="typography">
                 <p
                   v-html="
                     $t('content.introduction.ap', {
@@ -26,25 +22,21 @@
                     })
                   "
                 ></p>
-              </VlTypography>
+              </vl-typography>
             </introduction>
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="summary" class="subtitle">{{
               $t('summary')
             }}</vl-title>
-            <VlTypography v-html="markdown?.summary" class="typography" />
+            <Markdown v-if="summary" :markdown="summary" />
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="sotd" class="subtitle">{{
               $t('documentState')
             }}</vl-title>
-            <VlTypography
-              v-if="markdown?.status"
-              v-html="markdown?.status"
-              class="typography"
-            />
-            <VlTypography
+            <Markdown v-if="status" :markdown="status" />
+            <vl-typography
               v-else
               class="typography"
               v-html="
@@ -55,33 +47,28 @@
                 })
               "
             >
-            </VlTypography>
+            </vl-typography>
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="license" class="subtitle">{{
               $t('license')
             }}</vl-title>
-            <VlTypography
-              v-if="markdown?.license"
-              v-html="markdown?.license"
-              class="typography"
-            />
-            <VlTypography v-else v-html="$t('content.license.ap')" />
+            <Markdown v-if="license" :markdown="license" />
+            <vl-typography v-else v-html="$t('content.license.ap')" />
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="conformance" class="subtitle">{{
               $t('conformance')
             }}</vl-title>
-            <VlTypography
-              v-if="markdown?.conformance"
-              v-html="markdown?.conformance"
-              class="typography"
-            />
-            <VlTypography
+            <Markdown v-if="conformance" :markdown="conformance" />
+            <vl-typography
               v-else
               class="typography"
               v-html="$t('content.conformance.ap')"
             />
+          </vl-region>
+          <vl-region>
+            <Markdown v-if="other" :markdown="other" />
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="overview" class="subtitle">{{
@@ -140,9 +127,10 @@
 <script setup lang="ts" name="ApplicationProfile">
 import { AP } from '~/constants/constants'
 import Meta from '~/components/meta/meta.vue'
+import Introduction from '~/components/introduction/introduction.vue'
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
-import type { Content } from '~/types/content'
+import type { Markdown } from '~/types/markdown'
 import type { Metadata } from '~/types/metadata'
 import type { NavigationLink } from '~/types/navigationLink'
 import { validateLocaleCookie } from '~/utils/i18n'
@@ -150,24 +138,23 @@ import { entitiesToNavigation } from '~/utils/publication-filter'
 
 const { locale, defaultLocale, availableLocales, t } = useI18n()
 
-const props = defineProps({
+const props = defineProps<{
   locales: {
-    required: true,
-    type: Array<string>,
-  },
-  ap: {
-    type: Object as PropType<Configuration>,
-  },
-  metadata: {
-    type: Object as PropType<Metadata>,
-  },
-  stakeholders: {
-    type: Object as PropType<Stakeholders>,
-  },
-  markdown: {
-    type: Object as PropType<Content>,
-  },
-})
+    required: true
+    type: Array<string>
+  }
+  ap: Configuration
+  metadata: Metadata
+  stakeholders: Stakeholders
+  markdown: Array<Markdown>
+}>()
+
+const introduction = findMarkdownByTitle('Introduction', props.markdown)
+const summary = findMarkdownByTitle('Summary', props.markdown)
+const license = findMarkdownByTitle('License', props.markdown)
+const status = findMarkdownByTitle('Status', props.markdown)
+const conformance = findMarkdownByTitle('Conformance', props.markdown)
+const other = findMarkdownByTitle('Other', props.markdown)
 
 const getNavigationLinks = (): NavigationLink[] => {
   return [
