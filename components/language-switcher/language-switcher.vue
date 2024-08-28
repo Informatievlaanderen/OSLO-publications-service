@@ -26,9 +26,9 @@ const props = defineProps({
 })
 
 const configuredLocales = computed(() => {
-  return availableLocales.value.filter((locale) =>
-    props.locales.includes(locale.code),
-  )
+  return availableLocales.value
+    .filter((locale) => props.locales.includes(locale.code))
+    .sort((a, b) => (a?.name ?? '').localeCompare(b?.name ?? ''))
 })
 
 const changeLocale = async (code: string) => {
