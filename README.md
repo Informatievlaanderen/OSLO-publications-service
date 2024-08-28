@@ -47,6 +47,34 @@ The components directory contains your Vue.js components. Components make up the
 The content directory serves as the file-based CMS of the whole project. We use a library called `nuxt/content` that allows us to import all the content of our website into components/pages across the project.
 More information about the usage of this directory in [the documentation](https://content.nuxtjs.org/).
 
+#### Markdown
+
+We use markdown files to store the content of the website. For each publication, we have a separate folder that contains all the markdown files for that publication. These markdown files can contain markdown syntax, but also html. An example of how a markdown file could look like is:
+
+##### HTML
+
+```html
+<p>Het implementatiemodel OSLO Vrachtwagenparkeren toont hoe termen uit het overeenstemmend vocabularium gebruikt moeten worden om gegevens uit te wisselen omtrent vrachtwagenparkeren.</p>
+<p>Deze standaard is ontstaan vanuit het <a href="https://www.vlaio.be/nl/vlaio-netwerk/city-things-slimme-steden-en-gemeenten/city-things#:~:text=Slim%20Vrachtwagenparkeren">Slim Vrachtwagenparkeren-project</a>, met Vrachtwagenparkeren willen de initiatiefnemers, waaronder IGEMO, kennis en ervaring delen om een digitaal hulpmiddel te ontwikkelen dat bijdraagt aan de creatie van een duurzame relatie tussen vrachtwagenchauffeurs en terreineigenaars</p>
+<p>Het model bestaat uit verschillende onderdelen die werden hergebruikt uit bestaande standaarden.</p>
+<p>Het eerste deel van het model bespreekt de vrachtwagen en hoe deze op een bepaalde parkeerplaats terecht kan. Om dit proces te verduidelijken, wordt gebruik gemaakt van klassen zoals Route, Parkeerplaats en Aanbieder.</p>
+<p>Enumeraties worden in principe buiten het applicatieprofiel beschreven, de in het diagram weergegeven enumeratiewaarden zijn dus illustratief.</p>
+```
+
+##### Markdown
+
+```markdown
+Het implementatiemodel OSLO Vrachtwagenparkeren toont hoe termen uit het overeenstemmend vocabularium gebruikt moeten worden om gegevens uit te wisselen omtrent vrachtwagenparkeren.
+
+Deze standaard is ontstaan vanuit het [Slim Vrachtwagenparkeren-project](https://www.vlaio.be/nl/vlaio-netwerk/city-things-slimme-steden-en-gemeenten/city-things#:~:text=Slim%20Vrachtwagenparkeren), met Vrachtwagenparkeren willen de initiatiefnemers, waaronder IGEMO, kennis en ervaring delen om een digitaal hulpmiddel te ontwikkelen dat bijdraagt aan de creatie van een duurzame relatie tussen vrachtwagenchauffeurs en terreineigenaars.
+
+Het model bestaat uit verschillende onderdelen die werden hergebruikt uit bestaande standaarden.
+
+Het eerste deel van het model bespreekt de vrachtwagen en hoe deze op een bepaalde parkeerplaats terecht kan. Om dit proces te verduidelijken, wordt gebruik gemaakt van klassen zoals Route, Parkeerplaats en Aanbieder.
+
+Enumeraties worden in principe buiten het applicatieprofiel beschreven, de in het diagram weergegeven enumeratiewaarden zijn dus illustratief.
+```
+
 #### i18n
 
 In this project we also support multiple languages. This means that we have to create a separate folder for each language that we want to support. Inside these folders, we can create markdown/JSON files that contain the content for the specific language. An example of how a directory with internationalization should look like is:
@@ -59,21 +87,42 @@ content
 │   ├── nl
 │   │   ├── configuration.json
 │   │   ├── stakeholders.json
-│   │   ├── vocabularium-content.md
-│   │   ├── applicatieprofiel-content.md
 │   │   ├── overview.svg
+│   │   ├── markdown
+│   │   │   ├── ap
+│   │   │   ├── voc
+│   │   │   │   ├── summary.md
+│   │   │   │   ├── conformance.md
+│   │   │   │   ├── status.md
+│   │   │   │   ├── introduction.md
+│   │   │   │   ├── license.md
+│   │   │   │   ├── other.md
 │   ├── fr
 │   │   ├── configuration.json
 │   │   ├── stakeholders.json
-│   │   ├── vocabularium-content.md
-│   │   ├── applicatieprofiel-content.md
 │   │   ├── overview.svg
+│   │   ├── markdown
+│   │   │   ├── ap
+│   │   │   ├── voc
+│   │   │   │   ├── summary.md
+│   │   │   │   ├── conformance.md
+│   │   │   │   ├── status.md
+│   │   │   │   ├── introduction.md
+│   │   │   │   ├── license.md
+│   │   │   │   ├── other.md
 │   ├── en
 │   │   ├── configuration.json
 │   │   ├── stakeholders.json
-│   │   ├── vocabularium-content.md
-│   │   ├── applicatieprofiel-content.md
 │   │   ├── overview.svg
+│   │   ├── markdown
+│   │   │   ├── ap
+│   │   │   ├── voc
+│   │   │   │   ├── summary.md
+│   │   │   │   ├── conformance.md
+│   │   │   │   ├── status.md
+│   │   │   │   ├── introduction.md
+│   │   │   │   ├── license.md
+│   │   │   │   ├── other.md
 ```
 
 ### `enums`
