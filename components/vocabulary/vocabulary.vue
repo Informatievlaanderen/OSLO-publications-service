@@ -11,12 +11,8 @@
         <vl-column width="9" width-s="12">
           <vl-region>
             <introduction id="inleiding">
-              <VlTypography
-                v-if="markdown?.introduction"
-                v-html="markdown?.introduction"
-              >
-              </VlTypography>
-              <VlTypography
+              <Markdown v-if="introduction" :markdown="introduction" />
+              <vl-typography
                 v-else
                 v-html="
                   $t('content.introduction.voc', {
@@ -30,30 +26,22 @@
             <vl-title tag-name="h2" id="abstract" class="subtitle">{{
               $t('summary')
             }}</vl-title>
-            <VlTypography
-              v-if="markdown?.summary"
-              v-html="markdown?.summary"
-              class="typography"
-            />
-            <VlTypography v-else class="typography">
+            <Markdown v-if="summary" :markdown="summary" />
+            <vl-typography v-else class="typography">
               {{
                 $t('content.summary.voc', {
                   title: metadata?.title,
                   lowercaseTitle: metadata?.title?.toLowerCase(),
                 })
               }}
-            </VlTypography>
+            </vl-typography>
           </vl-region>
           <vl-region>
             <vl-title tag-name="h2" id="sotd" class="subtitle">{{
               $t('documentState')
             }}</vl-title>
-            <VlTypography
-              v-if="markdown?.status"
-              v-html="markdown?.status"
-              class="typography"
-            />
-            <VlTypography
+            <Markdown v-if="status" :markdown="status" />
+            <vl-typography
               v-else
               class="typography"
               v-html="$t('content.status.voc')"
@@ -66,12 +54,8 @@
               }}</vl-title>
             </li>
             <vl-region>
-              <VlTypography
-                v-if="markdown?.license"
-                v-html="markdown?.license"
-                class="typography"
-              />
-              <VlTypography v-else v-html="$t('content.license.voc')" />
+              <Markdown v-if="license" :markdown="license" />
+              <vl-typography v-else v-html="$t('content.license.voc')" />
             </vl-region>
             <li class="list__item">
               <vl-title tag-name="h2" id="conformance" class="subtitle">{{
@@ -79,23 +63,22 @@
               }}</vl-title>
             </li>
             <vl-region>
-              <VlTypography
-                v-if="markdown?.conformance"
-                v-html="markdown?.conformance"
-                class="typography"
-              />
-              <VlTypography
+              <Markdown v-if="conformance" :markdown="conformance" />
+              <vl-typography
                 v-else
                 class="typography"
                 v-html="$t('content.conformance.voc')"
               />
+            </vl-region>
+            <vl-region>
+              <Markdown v-if="other" :markdown="other" />
             </vl-region>
             <li class="list__item">
               <vl-title tag-name="h2" id="overview" class="subtitle">{{
                 $t('overview')
               }}</vl-title>
             </li>
-            <VlTypography
+            <vl-typography
               v-html="$t('content.overview.voc')"
               class="typography"
             />
@@ -129,7 +112,7 @@
                 $t('classes')
               }}</vl-title>
             </li>
-            <VlTypography v-html="$t('content.classes.voc')" />
+            <vl-typography v-html="$t('content.classes.voc')" />
             <!-- Take both the datatypes and classes for the voc -->
             <vl-region v-for="item in inPackageMerged">
               <vl-title
@@ -154,7 +137,7 @@
                 $t('entities')
               }}</vl-title>
             </li>
-            <VlTypography v-html="$t('content.properties.voc')" />
+            <vl-typography v-html="$t('content.properties.voc')" />
             <vl-region v-for="item in inPackageProperties">
               <vl-title
                 tag-name="h3"
@@ -180,8 +163,8 @@
                 $t('externalTerminology')
               }}</vl-title>
             </li>
-            <VlTypography v-html="$t('content.externalTerminology.voc')">
-            </VlTypography>
+            <vl-typography v-html="$t('content.externalTerminology.voc')">
+            </vl-typography>
           </ol>
           <vl-region v-for="item in externalProperties">
             <vl-title
@@ -204,11 +187,12 @@
 
 <script setup lang="ts">
 import Meta from '~/components/meta/meta.vue'
+import Introduction from '~/components/introduction/introduction.vue'
 import { VOC } from '~/constants/constants'
 import type { Metadata } from '~/types/metadata'
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
-import type { Content } from '~/types/content'
+import type { Markdown } from '~/types/markdown'
 import type { OverviewLinks } from '~/types/linksOverview'
 import {
   entitiesToNavigation,
@@ -220,24 +204,23 @@ import {
 
 const { t, locale } = useI18n()
 
-const props = defineProps({
+const props = defineProps<{
   locales: {
-    required: true,
-    type: Array<string>,
-  },
-  voc: {
-    type: Object as PropType<Configuration>,
-  },
-  metadata: {
-    type: Object as PropType<Metadata>,
-  },
-  stakeholders: {
-    type: Object as PropType<Stakeholders>,
-  },
-  markdown: {
-    type: Object as PropType<Content>,
-  },
-})
+    required: true
+    type: Array<string>
+  }
+  voc: Configuration
+  metadata: Metadata
+  stakeholders: Stakeholders
+  markdown: Array<Markdown>
+}>()
+
+const introduction = findMarkdownByTitle('Introduction', props.markdown)
+const summary = findMarkdownByTitle('Summary', props.markdown)
+const license = findMarkdownByTitle('License', props.markdown)
+const status = findMarkdownByTitle('Status', props.markdown)
+const conformance = findMarkdownByTitle('Conformance', props.markdown)
+const other = findMarkdownByTitle('Other', props.markdown)
 
 const overview: OverviewLinks = {
   links: [

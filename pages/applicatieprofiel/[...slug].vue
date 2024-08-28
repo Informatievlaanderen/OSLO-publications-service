@@ -11,8 +11,8 @@
 <script setup lang="ts">
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
-import type { Content } from '~/types/content'
 import type { Metadata } from '~/types/metadata'
+import type { Markdown } from '~/types/markdown'
 
 const { defaultLocale, availableLocales, locale, setLocale } = useI18n()
 const { params, query } = useRoute()
@@ -35,7 +35,7 @@ const { data } = await useAsyncData(
     const jsonQuery = { _extension: 'json' }
     const mdQuery = { _extension: 'md' }
 
-    const [locales, ap, stakeholders, metadata, content] = await Promise.all([
+    const [locales, ap, stakeholders, metadata, markdown] = await Promise.all([
       queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
       queryContent<Configuration>(`${basePath}/configuration`)
         .where(jsonQuery)
@@ -44,7 +44,7 @@ const { data } = await useAsyncData(
         .where(jsonQuery)
         .find(),
       queryContent<Metadata>(`${basePath}/metadata-ap`).where(jsonQuery).find(),
-      queryContent<Content>(`${basePath}/content-ap`).where(mdQuery).find(),
+      queryContent<Markdown>(`${basePath}/markdown/ap/`).where(mdQuery).find(),
     ])
 
     return {
@@ -52,7 +52,7 @@ const { data } = await useAsyncData(
       ap: ap[0],
       stakeholders: stakeholders[0],
       metadata: metadata[0],
-      markdown: content[0],
+      markdown,
     }
   },
   {

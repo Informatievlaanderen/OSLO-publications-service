@@ -12,7 +12,7 @@
 import type { Metadata } from '~/types/metadata'
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
-import type { Content } from '~/types/content'
+import type { Markdown } from '~/types/markdown'
 
 const { defaultLocale, availableLocales, locale, setLocale } = useI18n()
 const { params, query } = useRoute()
@@ -35,7 +35,7 @@ const { data } = await useAsyncData(
     const jsonQuery = { _extension: 'json' }
     const mdQuery = { _extension: 'md' }
 
-    const [locales, voc, stakeholders, metadata, content] = await Promise.all([
+    const [locales, voc, stakeholders, metadata, markdown] = await Promise.all([
       queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
       queryContent<Configuration>(`${basePath}/configuration`)
         .where(jsonQuery)
@@ -46,7 +46,7 @@ const { data } = await useAsyncData(
       queryContent<Metadata>(`${basePath}/metadata-voc`)
         .where(jsonQuery)
         .find(),
-      queryContent<Content>(`${basePath}/content-voc`).where(mdQuery).find(),
+      queryContent<Markdown>(`${basePath}/markdown/voc/`).where(mdQuery).find(),
     ])
 
     return {
@@ -54,7 +54,7 @@ const { data } = await useAsyncData(
       voc: voc[0],
       stakeholders: stakeholders[0],
       metadata: metadata[0],
-      markdown: content[0],
+      markdown,
     }
   },
   {

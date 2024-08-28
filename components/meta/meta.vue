@@ -19,12 +19,9 @@
 <script setup lang="ts" name="meta">
 import type { Metadata } from '~/types/metadata'
 import type { Stakeholders } from '~/types/stakeholder'
-defineProps({
-  stakeholders: {
-    type: Object as PropType<Stakeholders>,
-  },
-  metadata: {
-    type: Object as PropType<Metadata>,
-  },
-})
+
+defineProps<{
+  stakeholders: Stakeholders,
+  metadata: Metadata
+}>()
 </script>
