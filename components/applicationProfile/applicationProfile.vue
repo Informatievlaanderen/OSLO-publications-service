@@ -1,9 +1,10 @@
 <template>
+  <div></div>
   <content-header :hide-banner="true" />
   <vl-region>
     <vl-layout>
       <vl-grid>
-        <LanguageSwitcher :locales="locales" />
+        <!-- <LanguageSwitcher :locales="locales" /> -->
         <vl-column class="head">
           <Meta :metadata="metadata" :stakeholders="stakeholders" />
         </vl-column>
@@ -77,13 +78,13 @@
             <vl-region>
               <p>{{ $t('entitiesOverview') }}:</p>
               <links-overview
-                :links="entitiesToNavigation(entities, locale, AP)"
+                :links="entitiesToNavigation(classes, locale, AP)"
               />
             </vl-region>
             <vl-region>
               <p>{{ $t('dataTypesOverview') }}:</p>
               <links-overview
-                :links="entitiesToNavigation(scopedDataTypes, locale, AP)"
+                :links="entitiesToNavigation(datatypes, locale, AP)"
               />
             </vl-region>
             <overview-image
@@ -98,7 +99,7 @@
               $t('entities')
             }}</vl-title>
             <entity-region
-              v-for="item in entities"
+              v-for="item in classes"
               :item="item"
               :language="locale"
               :type="AP"
@@ -108,12 +109,17 @@
             $t('dataTypes')
           }}</vl-title>
           <entity-region
-            v-for="item in scopedDataTypes"
+            v-for="item in datatypes"
             :item="item"
             :language="locale"
             :type="AP"
           />
           <example-files :metadata="metadata" />
+          <external-terms
+            v-if="metadata?.inDomainNamespaces"
+            :ap="props.ap"
+            :metadata="metadata"
+          />
         </vl-column>
         <vl-column width="3" width-s="12">
           <side-navigation :links="getNavigationLinks()"></side-navigation>
@@ -139,13 +145,9 @@ import { entitiesToNavigation } from '~/utils/publication-filter'
 const { locale, defaultLocale, availableLocales, t } = useI18n()
 
 const props = defineProps<{
-  locales: {
-    required: true
-    type: Array<string>
-  }
-  ap: Configuration
-  metadata: Metadata
-  stakeholders: Stakeholders
+  ap?: Configuration
+  metadata?: Metadata
+  stakeholders?: Stakeholders
   markdown: Array<Markdown>
 }>()
 
@@ -190,8 +192,9 @@ const getNavigationLinks = (): NavigationLink[] => {
       href: '#shacl',
       title: 'SHACL template',
     },
+    { href: '#mappingext', title: 'Externe terminologie' },
   ]
 }
 
-const { entities = [], scopedDataTypes = [] } = props?.ap ?? {}
+const { classes = [], datatypes = [] } = props?.ap ?? {}
 </script>

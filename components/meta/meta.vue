@@ -7,11 +7,17 @@
     <p>{{ metadata?.issued }}</p>
     <dt>{{ $t('thisVersion') }}</dt>
     <a :href="metadata?.uri">{{ metadata?.uri }}</a>
-    <role-list :role="$t('authors')" :stakeholders="stakeholders?.authors" />
-    <role-list :role="$t('editors')" :stakeholders="stakeholders?.editors" />
+    <role-list
+      :role="$t('authors')"
+      :stakeholders="stakeholders?.authors ?? []"
+    />
+    <role-list
+      :role="$t('editors')"
+      :stakeholders="stakeholders?.editors ?? []"
+    />
     <role-list
       :role="$t('contributors')"
-      :stakeholders="stakeholders?.contributors"
+      :stakeholders="stakeholders?.contributors ?? []"
     />
   </dl>
 </template>
@@ -21,7 +27,7 @@ import type { Metadata } from '~/types/metadata'
 import type { Stakeholders } from '~/types/stakeholder'
 
 defineProps<{
-  stakeholders: Stakeholders,
-  metadata: Metadata
+  stakeholders?: Stakeholders
+  metadata?: Metadata
 }>()
 </script>

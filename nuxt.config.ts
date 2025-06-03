@@ -39,35 +39,34 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
       ],
-      link: [
-        {
-          rel: 'icon',
-          sizes: '192x192',
-          href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/icon-highres-precomposed.png',
-        },
-        {
-          rel: 'apple-touch-icon',
-          href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-iphone-precomposed.png',
-        },
-        {
-          rel: 'apple-touch-icon',
-          sizes: '76x76',
-          href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-ipad-precomposed.png',
-        },
-        {
-          rel: 'apple-touch-icon',
-          sizes: '120x120',
-          href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-iphone-retina-precomposed.png',
-        },
-        {
-          rel: 'apple-touch-icon',
-          sizes: '152x152',
-          href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-ipad-retina-precomposed.png',
-        },
-      ],
+      // link: [
+      //   {
+      //     rel: 'icon',
+      //     sizes: '192x192',
+      //     href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/icon-highres-precomposed.png',
+      //   },
+      //   {
+      //     rel: 'apple-touch-icon',
+      //     href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-iphone-precomposed.png',
+      //   },
+      //   {
+      //     rel: 'apple-touch-icon',
+      //     sizes: '76x76',
+      //     href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-ipad-precomposed.png',
+      //   },
+      //   {
+      //     rel: 'apple-touch-icon',
+      //     sizes: '120x120',
+      //     href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-iphone-retina-precomposed.png',
+      //   },
+      //   {
+      //     rel: 'apple-touch-icon',
+      //     sizes: '152x152',
+      //     href: 'https://dij151upo6vad.cloudfront.net/2.latest/icons/app-icon/touch-icon-ipad-retina-precomposed.png',
+      //   },
+      // ],
     },
   },
 
@@ -117,7 +116,7 @@ export default defineNuxtConfig({
   content: {
     markdown: {
       anchorLinks: false,
-    }
+    },
   },
   i18n: {
     //https://i18n.nuxtjs.org/docs/guide#strategies
@@ -135,6 +134,4 @@ export default defineNuxtConfig({
     },
     vueI18n: './i18n.config.ts', // if you are using custom path, default
   },
-
-  compatibilityDate: '2024-08-12',
 })

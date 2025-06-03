@@ -17,4 +17,9 @@ export interface Metadata {
   changelogurl: string
   feedbackurl: string
   standaardregisterurl: string
+  namespaces: string[]
+  inDomainNamespaces: string[]
+  uridomain: string
+  hostname: string
+  primaryLanguage: string
 }

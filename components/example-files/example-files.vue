@@ -38,6 +38,6 @@ const { locale } = useI18n()
 import type { Metadata } from '~/types/metadata'
 
 defineProps<{
-  metadata: Metadata
+  metadata?: Metadata
 }>()
 </script>

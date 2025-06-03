@@ -4,7 +4,7 @@
     :ap="data?.ap"
     :stakeholders="data?.stakeholders"
     :metadata="data?.metadata"
-    :markdown="data?.markdown"
+    :markdown="data?.markdown ?? []"
   />
 </template>
 
