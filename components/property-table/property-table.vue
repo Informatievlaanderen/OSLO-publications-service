@@ -15,7 +15,10 @@
           <td>
             <a
               :href="property?.id"
-              :id="`${parentHref}.${getAnchorTag(property, language, type)}`"
+              :id="`${parentHref}${encodeURIComponent(':')}${generateAnchorTag({
+                entity: property,
+                language: language as Languages,
+              })}`"
               v-vl-tooltip.right="property?.id"
               >{{ getLabel(property, 'nl', 'AP') }}</a
             >
@@ -45,13 +48,10 @@
 </template>
 
 <script setup lang="ts" name="propertyTable">
-import {
-  getLabel,
-  getAnchorTag,
-  getDefinition,
-  getUsage,
-} from '~/utils/publication-filter'
+import { getLabel, getDefinition, getUsage } from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
+import { Languages } from '~/enum/language'
+import { generateAnchorTag } from '~/utils/anchor-tag'
 defineProps({
   properties: {
     type: Array<Class>,

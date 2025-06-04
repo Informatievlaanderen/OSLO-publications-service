@@ -18,6 +18,7 @@
   "classes": "Classes",
   "properties": "Properties",
   "externalTerminology": "External terminology",
+  "usedExternalTerminology": "Used (external) terminologys",
   "entitiesOverview": "This document explains the correct use of the following entities",
   "dataTypes": "Data types",
   "dataTypesOverview": "This document explains the following data types",

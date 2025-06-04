@@ -84,7 +84,7 @@
             <vl-region>
               <p>{{ $t('dataTypesOverview') }}:</p>
               <links-overview
-                :links="entitiesToNavigation(datatypes, locale, AP)"
+                :links="entitiesToNavigation(dataTypes, locale, AP)"
               />
             </vl-region>
             <overview-image
@@ -109,15 +109,18 @@
             $t('dataTypes')
           }}</vl-title>
           <entity-region
-            v-for="item in datatypes"
+            v-for="item in dataTypes"
             :item="item"
             :language="locale"
             :type="AP"
           />
           <example-files :metadata="metadata" />
+          <vl-title tag-name="h2" class="subtitle">{{
+            $t('usedExternalTerminology')
+          }}</vl-title>
           <external-terms
             v-if="metadata?.inDomainNamespaces"
-            :ap="props.ap"
+            :ap="ap"
             :metadata="metadata"
           />
         </vl-column>
@@ -134,6 +137,7 @@
 import { AP } from '~/constants/constants'
 import Meta from '~/components/meta/meta.vue'
 import Introduction from '~/components/introduction/introduction.vue'
+import ExternalTerms from '~/components/external-terms/external-terms.vue'
 import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
 import type { Markdown } from '~/types/markdown'
@@ -192,9 +196,9 @@ const getNavigationLinks = (): NavigationLink[] => {
       href: '#shacl',
       title: 'SHACL template',
     },
-    { href: '#mappingext', title: 'Externe terminologie' },
+    { href: '#mappingext', title: t('externalTerminology') },
   ]
 }
 
-const { classes = [], datatypes = [] } = props?.ap ?? {}
+const { classes = [], dataTypes = [] } = props?.ap ?? {}
 </script>

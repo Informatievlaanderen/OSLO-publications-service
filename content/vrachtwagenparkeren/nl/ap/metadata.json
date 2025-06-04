@@ -1,0 +1,47 @@
+{
+  "title": "OSLO Schuldbeheer - Applicatieprofiel",
+  "uri": "https://data.vlaanderen.be/doc/applicatieprofiel/schuldbeheer/erkendestandaard/2025-05-15",
+  "issued": "2025-05-15",
+  "filename": "schuldbeheer-ap",
+  "navigation": {
+    "prev": "/doc/applicatieprofiel/schuldbeheer/kandidaatstandaard/2025-03-03",
+    "self": "https://data.vlaanderen.be/doc/applicatieprofiel/schuldbeheer/erkendestandaard/2025-05-15"
+  },
+  "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+  "documenttype": "ap",
+  "documentconfig": {},
+  "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+  "statuslabel": "Erkende Standaard",
+  "documentroot": "/doc/applicatieprofiel/schuldbeheer/erkendestandaard/2025-05-15",
+  "repositoryurl": "https://github.com/Informatievlaanderen/OSLOthema-schuldbeheer/tree/1403d3746c8208ded4d371a0386f403594fa5ecc",
+  "changelogurl": "https://github.com/Informatievlaanderen/OSLOthema-schuldbeheer/blob/1403d3746c8208ded4d371a0386f403594fa5ecc/CHANGELOG",
+  "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-schuldbeheer/issues",
+  "standaardregisterurl": "https://data.vlaanderen.be/standaarden/applicatieprofiel-schuldbeheer/",
+  "usesVocs": [],
+  "usesAPs": [],
+  "namespaces": [
+    "https://data.vlaanderen.be/ns/persoon",
+    "http://www.w3.org/ns/person",
+    "http://www.w3.org/ns/org",
+    "http://www.w3.org/ns/prov",
+    "https://data.vlaanderen.be/ns/schuldbeheer",
+    "http://www.w3.org/ns/regorg",
+    "https://data.vlaanderen.be/ns/dossier",
+    "http://data.europa.eu/eli/ontology",
+    "http://www.w3.org/2004/02/skos/core",
+    "http://www.w3.org/2000/01/rdf-schema",
+    "http://purl.org/dc/terms",
+    "https://schema.org",
+    "http://www.w3.org/ns/adms",
+    "http://www.w3.org/2001/XMLSchema"
+  ],
+  "inDomainNamespaces": [
+    "https://data.vlaanderen.be/ns/persoon",
+    "https://data.vlaanderen.be/ns/schuldbeheer",
+    "https://data.vlaanderen.be/ns/dossier"
+  ],
+  "autotranslate": false,
+  "primaryLanguage": "Nederlands",
+  "hostname": "https://data.vlaanderen.be",
+  "uridomain": "data.vlaanderen.be"
+}

@@ -68,6 +68,14 @@ export const getUsage = (c: Class, language: string, type?: string) => {
   }
 }
 
+export const getSpecialization = (c: Class, language: string): string => {
+  return c.parents?.map((parent: Class) => parent.id).join(',') ?? ''
+}
+
+export const getStatus = (c: Class): string | undefined => {
+  return c.status
+}
+
 const toPascalCase = (str: string): string => {
   return str
     .split(' ')

@@ -3,7 +3,7 @@
 
   <vl-region>
     <vl-layout>
-      <LanguageSwitcher :locales="locales" />
+      <!-- <LanguageSwitcher :locales="locales" /> -->
       <div class="head">
         <Meta :stakeholders="stakeholders" :metadata="metadata" />
       </div>
@@ -87,7 +87,7 @@
                 ><strong>{{ $t('classes') }}</strong></vl-title
               >
               <links-overview
-                :links="entitiesToNavigation(inPackageMerged, locale, VOC)"
+                :links="entitiesToNavigation(classes, locale, VOC)"
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
@@ -95,17 +95,12 @@
             >
             <vl-region>
               <links-overview
-                :links="entitiesToNavigation(inPackageProperties, locale, VOC)"
+                :links="entitiesToNavigation(properties, locale, VOC)"
               />
             </vl-region>
             <vl-title tag-name="h3" class="subtitle">
               <strong>{{ $t('externalTerminology') }}</strong></vl-title
             >
-            <vl-region>
-              <links-overview
-                :links="entitiesToNavigation(externalProperties, locale, VOC)"
-              />
-            </vl-region>
             <!-- CLASSES -->
             <li class="list__item">
               <vl-title tag-name="h2" id="classes" class="subtitle">{{
@@ -114,10 +109,10 @@
             </li>
             <vl-typography v-html="$t('content.classes.voc')" />
             <!-- Take both the datatypes and classes for the voc -->
-            <vl-region v-for="item in inPackageMerged">
+            <vl-region v-for="item in classes">
               <vl-title
                 tag-name="h3"
-                :id="getAnchorTag(item, locale, VOC)"
+                :id="replaceBaseURI(item.id, voc?.baseURI)"
                 class="subtitle"
                 >{{ $t('class') }}
                 <i>{{ getLabel(item, locale, VOC) }}</i></vl-title
@@ -126,8 +121,10 @@
                 :headers="[$t('type'), $t('property.property')]"
                 :rows="[
                   [$t('URI'), item?.id],
+                  [$t('specializationOf'), getSpecialization(item, locale)],
                   [$t('definition'), getDefinition(item, locale, VOC)],
                   [$t('usage'), getUsage(item, locale, VOC)],
+                  [$t('status'), getStatus(item)],
                 ]"
               />
             </vl-region>
@@ -138,10 +135,10 @@
               }}</vl-title>
             </li>
             <vl-typography v-html="$t('content.properties.voc')" />
-            <vl-region v-for="item in inPackageProperties">
+            <vl-region v-for="item in properties">
               <vl-title
                 tag-name="h3"
-                :id="getAnchorTag(item, locale, VOC)"
+                :id="replaceBaseURI(item.id, voc?.baseURI)"
                 class="subtitle"
                 >{{ $t('property.property') }}
                 {{ getLabel(item, locale, VOC) }}</vl-title
@@ -150,10 +147,11 @@
                 :headers="[$t('type'), $t('property.property')]"
                 :rows="[
                   [$t('URI'), item?.id],
-                  [$t('range'), item?.range.id],
                   [$t('domain'), item?.domain],
+                  [$t('range'), item?.range.id],
                   [$t('definition'), getDefinition(item, locale, VOC)],
                   [$t('usage'), getUsage(item, locale, VOC)],
+                  [$t('status'), getStatus(item)],
                 ]"
               />
             </vl-region>
@@ -163,18 +161,8 @@
                 $t('externalTerminology')
               }}</vl-title>
             </li>
-            <vl-typography v-html="$t('content.externalTerminology.voc')">
-            </vl-typography>
+            <vl-typography v-html="$t('content.externalTerminology.voc')" />
           </ol>
-          <vl-region v-for="item in externalProperties">
-            <vl-title
-              tag-name="h3"
-              :id="getLabel(item, locale, VOC)"
-              class="subtitle"
-              >{{ getLabel(item, locale, VOC) }}</vl-title
-            >
-            <data-table :headers="[]" :rows="[[$t('URI'), item?.id]]" />
-          </vl-region>
         </vl-column>
         <vl-column width="3" width-s="12">
           <side-navigation :links="overview?.links"></side-navigation>
@@ -194,24 +182,22 @@ import type { Configuration } from '~/types/configuration'
 import type { Stakeholders } from '~/types/stakeholder'
 import type { Markdown } from '~/types/markdown'
 import type { OverviewLinks } from '~/types/linksOverview'
+import { replaceBaseURI } from '~/utils/anchor-tag'
 import {
   entitiesToNavigation,
   getUsage,
   getDefinition,
-  getAnchorTag,
+  getStatus,
+  getSpecialization,
   getLabel,
 } from '~/utils/publication-filter'
 
 const { t, locale } = useI18n()
 
 const props = defineProps<{
-  locales: {
-    required: true
-    type: Array<string>
-  }
-  voc: Configuration
-  metadata: Metadata
-  stakeholders: Stakeholders
+  voc?: Configuration
+  metadata?: Metadata
+  stakeholders?: Stakeholders
   markdown: Array<Markdown>
 }>()
 
@@ -259,9 +245,5 @@ const overview: OverviewLinks = {
   ],
 }
 
-const {
-  inPackageMerged = [],
-  inPackageProperties = [],
-  externalProperties = [],
-} = props.voc ?? {}
+const { classes = [], properties = [] } = props.voc ?? {}
 </script>

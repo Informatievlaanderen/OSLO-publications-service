@@ -37,13 +37,13 @@ const { data } = await useAsyncData(
 
     const [locales, ap, stakeholders, metadata, markdown] = await Promise.all([
       queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
-      queryContent<Configuration>(`${basePath}/configuration`)
+      queryContent<Configuration>(`${basePath}/ap/configuration`)
         .where(jsonQuery)
         .find(),
       queryContent<Stakeholders>(`${basePath}/stakeholders`)
         .where(jsonQuery)
         .find(),
-      queryContent<Metadata>(`${basePath}/metadata-ap`).where(jsonQuery).find(),
+      queryContent<Metadata>(`${basePath}/ap/metadata`).where(jsonQuery).find(),
       queryContent<Markdown>(`${basePath}/markdown/ap/`).where(mdQuery).find(),
     ])
 

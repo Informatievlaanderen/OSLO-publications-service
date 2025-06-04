@@ -4,7 +4,7 @@
     :voc="data?.voc"
     :stakeholders="data?.stakeholders"
     :metadata="data?.metadata"
-    :markdown="data?.markdown"
+    :markdown="data?.markdown ?? []"
   />
 </template>
 
@@ -37,15 +37,13 @@ const { data } = await useAsyncData(
 
     const [locales, voc, stakeholders, metadata, markdown] = await Promise.all([
       queryContent(`${params?.slug?.[0]}`).only(['_dir']).find(),
-      queryContent<Configuration>(`${basePath}/configuration`)
+      queryContent<Configuration>(`${basePath}/voc/configuration`)
         .where(jsonQuery)
         .find(),
       queryContent<Stakeholders>(`${basePath}/stakeholders`)
         .where(jsonQuery)
         .find(),
-      queryContent<Metadata>(`${basePath}/metadata-voc`)
-        .where(jsonQuery)
-        .find(),
+      queryContent<Metadata>(`${basePath}/voc/metadata`).where(jsonQuery).find(),
       queryContent<Markdown>(`${basePath}/markdown/voc/`).where(mdQuery).find(),
     ])
 

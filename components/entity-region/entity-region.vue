@@ -2,7 +2,9 @@
   <vl-region>
     <entity
       :title="getLabel(item, language, type)"
-      :href="getAnchorTag(item, language, type)"
+      :href="
+        generateAnchorTag({ entity: item, language: language as Languages })
+      "
       :description="getDefinition(item, language, type)"
       :usage="getUsage(item, language, type)"
       :properties="item?.properties"
@@ -14,7 +16,9 @@
     <div v-if="item?.properties?.length" class="content">
       <property-table
         :properties="item.properties"
-        :parentHref="getAnchorTag(item, language, type)"
+        :parentHref="
+          generateAnchorTag({ entity: item, language: language as Languages })
+        "
         :language="language ?? 'nl'"
         :type="type"
       />
@@ -23,13 +27,9 @@
 </template>
 
 <script setup lang="ts" name="entityRegion">
-import {
-  getLabel,
-  getAnchorTag,
-  getDefinition,
-  getUsage,
-} from '~/utils/publication-filter'
+import { getLabel, getDefinition, getUsage } from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
+import { Languages } from '~/enum/language'
 defineProps({
   item: {
     type: Object as () => Class,

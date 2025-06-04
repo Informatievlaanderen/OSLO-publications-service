@@ -1,13 +1,10 @@
 import type { Class } from '~/types/class'
 
 export interface Configuration {
-  entities: Class[]
-  inPackageMerged: Class[]
-  inPackageClasses: Class[]
-  scopedDataTypes: Class[]
-  inPackageDataTypes: Class[]
-  inPackageProperties: Class[]
-  externalProperties: Class[]
+  baseURI: string
+  classes: Class[]
+  dataTypes: Class[]
+  properties: Class[]
   metadata: Class[]
   stakeholders: Class[]
 }

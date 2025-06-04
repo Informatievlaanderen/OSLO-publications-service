@@ -18,6 +18,7 @@
   "classes": "Klassen",
   "properties": "Eigenschappen",
   "externalTerminology": "Externe terminologie",
+  "usedExternalTerminology": "Gebruikte (externe) terminologie",
   "entitiesOverview": "In dit document wordt correct gebruik van de volgende entiteiten toegelicht",
   "dataTypes": "Datatypes",
   "dataTypesOverview": "In dit document worden de volgende datatypes toegelicht",
@@ -27,6 +28,7 @@
   "type": "Type",
   "domain": "Domein",
   "URI": "URI",
+  "specializationOf": "Specialisatie van",
   "definition": "Definitie",
   "onThisPage": "Op deze pagina",
   "content": {
@@ -59,7 +61,9 @@
       "voc": "<p>Deze sectie geeft een formele definitie aan elke eigenschap.</p>"
     },
     "externalTerminology": {
-      "voc": "<p>Deze sectie geeft een overzicht van terminologie uit andere vocabularia die relevant is voor dit domeinmodel samen met hun Nederlandstalige labels en definities.</p>"
+      "voc": "<p>Vanaf 2025 worden externe termen niet meer opgenomen als niet-normatieve mapping in vocabularia van data.vlaanderen.be. In plaats daarvan is er een tabel met welke externe URIs er worden gebruikt, toegevoegd aan elk applicatieprofiel. Dat vereenvoudigt de doelstelling van dit document. Namelijk het oplijsten en beheren van termen die gedefinieerd worden in deze namespace. Om toch een harmonisatie van het gebruik van externe terminologie te bekomen wordt er een algemene mapping gepubliceerd.</p>",
+      "description": "<p>Deze sectie geeft een overzicht hoe terminologie uit vocabularia is gebruikt in dit applicatieprofiel. Dit applicatieprofiel steunt op termen uit deze eigen beheerde vocabularia:</p>",
+      "mappingExplanation": "<p>Voor termen uit vocabularia buiten de namespace { uriDomain } neemt de vorm aan van een mapping: voor de opgesomde termen in deze sectie is er gekozen om een term identifier (de URI) te gebruiken uit vocabularia die niet onder het beheer van Data.vlaanderen.be vallen. Deze vorm van hergebruik is het zich akkoord verklaren met de achterliggende definitie, labels en beperkingen geassocieerd met de URI in de context van dit applicatieprofiel. Dat betekent dat men de bovenstaande definities, labels en gebruiksnotas niet in tegenspraak zouden moeten zijn met deze van de URI. Deze mapping is echter een keuze geldig voor dit applicatieprofiel. Maar het vormt een sterke suggestie om deze mapping ook toe te passen in andere, aansluitende domeinen. Een wijziging aan de mapping is geen semantische wijziging van het appplicatieprofiel, echter het heeft mogelijks een grote implementatieimpact. Met onderstaande mapping is de impact is duidelijk en eenduidig te beschrijven. Merk op, dat de nood om een mapping wijziging door te voeren ook dikwijls ook semantische aanpassingen met zich mee brengt. Daarom is het aangewezen om wijzingen in het normale veranderingsbeheer van de standaard op te nemen.</p>"
     }
   },
   "entity": {

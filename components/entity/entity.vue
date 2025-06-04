@@ -31,13 +31,14 @@
 </template>
 
 <script setup lang="ts" name="entity">
-import { getLabel, getAnchorTag } from '~/utils/publication-filter'
+import { getLabel } from '~/utils/publication-filter'
 import type { Class } from '~/types/class'
 import type { Entity } from '~/types/entity'
+import { Languages } from '~/enum/language'
 const props = defineProps<Entity>()
 
 const generateLink = (property: Class, index: number, length?: number) => {
-  const href = `#${props.href}.${getAnchorTag(property, props.language, props.type)}`
+  const href = `#${props.href}${encodeURIComponent(':')}${generateAnchorTag({ entity: property, language: props.language as Languages })}`
   const label = getLabel(property, props.language, props.type)
   const separator = index < (length ?? 0) - 1 ? ', ' : '.'
 

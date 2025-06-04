@@ -1,0 +1,5103 @@
+{
+  "baseURI": "https://data.vlaanderen.be/ns/schuldbeheer#",
+  "classes": [
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+      "vocabularyLabel": {
+        "nl": "Aanmaning"
+      },
+      "applicationProfileLabel": {
+        "nl": "Aanmaning"
+      },
+      "vocabularyDefinition": {
+        "nl": "Schriftelijk berichtgeving van een schuldeiser naar een schuldenaar om deze schuldenaar te herinneren aan een schuldvordering die niet is voldaan terwijl de uiterste betaaldatum van deze schuldvordering reeds verstreken is."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Schriftelijk berichtgeving van een schuldeiser naar een schuldenaar om deze schuldenaar te herinneren aan een schuldvordering die niet is voldaan terwijl de uiterste betaaldatum van deze schuldvordering reeds verstreken is."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanmaningsdatum",
+          "vocabularyLabel": {
+            "nl": "aanmaningsdatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "aanmaningsdatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "Datum waarop de aanmaning werd verstuurd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de aanmaning werd verstuurd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#genereertWanbetalingsvergoeding",
+          "vocabularyLabel": {
+            "nl": "genereert wanbetalingsvergoeding"
+          },
+          "applicationProfileLabel": {
+            "nl": "genereert wanbetalingsvergoeding"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een wanbetalingsvergoeding die door de aanmaning wordt gegenereerd. Een wanbetalingsvergoeding wordt gegenereerd door een aanmaning maar heeft zijn grondslag in een algemene voorwaarde of een reglement"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een wanbetalingsvergoeding die door de aanmaning wordt gegenereerd. Een wanbetalingsvergoeding wordt gegenereerd door een aanmaning maar heeft zijn grondslag in een algemene voorwaarde of een reglement"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Wanbetalingsvergoeding"
+            },
+            "applicationProfileLabel": {
+              "nl": "Wanbetalingsvergoeding"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanvaarding",
+      "vocabularyLabel": {
+        "nl": "Aanvaarding"
+      },
+      "applicationProfileLabel": {
+        "nl": "Aanvaarding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het formeel akkoord gaan met een afbetalingsplan"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het formeel akkoord gaan met een afbetalingsplan"
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanvaardAfbetalingsplan",
+          "vocabularyLabel": {
+            "nl": "aanvaard afbetalingsplan"
+          },
+          "applicationProfileLabel": {
+            "nl": "aanvaard afbetalingsplan"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt aanvaard."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt aanvaard."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanvaarding",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplan"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplan"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetaling",
+      "vocabularyLabel": {
+        "nl": "Afbetaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "Afbetaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Betaling in het kader van een afbetalingsplan"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Betaling in het kader van een afbetalingsplan"
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "vocabularyLabel": {
+            "nl": "Betaling"
+          },
+          "applicationProfileLabel": {
+            "nl": "Betaling"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#gevolgdAfbetalingsplanonderdeel",
+          "vocabularyLabel": {
+            "nl": "gevolgd afbetalingsplanonderdeel"
+          },
+          "applicationProfileLabel": {
+            "nl": "gevolgd afbetalingsplanonderdeel"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplanonderdeel dat werd gevolgd bij het uitvoeren van de afbetaling."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplanonderdeel dat werd gevolgd bij het uitvoeren van de afbetaling."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetaling",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplanonderdeel"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplanonderdeel"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "vocabularyLabel": {
+        "nl": "Afbetalingsplan"
+      },
+      "applicationProfileLabel": {
+        "nl": "Afbetalingsplan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een gestructureerd schema dat wordt gebruikt om een schuld af te lossen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een gestructureerd schema dat wordt gebruikt om een schuld af te lossen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanvaarding",
+          "vocabularyLabel": {
+            "nl": "aanvaarding"
+          },
+          "applicationProfileLabel": {
+            "nl": "aanvaarding"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de aanvaarding van het afbetalingsplan."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de aanvaarding van het afbetalingsplan."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanvaarding",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Aanvaarding"
+            },
+            "applicationProfileLabel": {
+              "nl": "Aanvaarding"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplanonderdeel",
+          "vocabularyLabel": {
+            "nl": "afbetalingsplanonderdeel"
+          },
+          "applicationProfileLabel": {
+            "nl": "afbetalingsplanonderdeel"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een onderdeel van het afbetalingsplan."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een onderdeel van het afbetalingsplan."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplanonderdeel"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplanonderdeel"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplansaldo",
+          "vocabularyLabel": {
+            "nl": "afbetalingsplansaldo"
+          },
+          "applicationProfileLabel": {
+            "nl": "afbetalingsplansaldo"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een saldo van een afbetalingsplan, namelijk het nog af te betalen bedrag op een bepaalde datum."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een saldo van een afbetalingsplan, namelijk het nog af te betalen bedrag op een bepaalde datum."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplansaldo",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplansaldo"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplansaldo"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#herschikteSchuldvordering",
+          "vocabularyLabel": {
+            "nl": "herschikte schuldvordering"
+          },
+          "applicationProfileLabel": {
+            "nl": "herschikte schuldvordering"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzijng naar een schuldvordering waarvan de betaalmodaliteiten door het afbetalingsplan herschikt worden."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzijng naar een schuldvordering waarvan de betaalmodaliteiten door het afbetalingsplan herschikt worden."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvordering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvordering"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#schrapping",
+          "vocabularyLabel": {
+            "nl": "schrapping"
+          },
+          "applicationProfileLabel": {
+            "nl": "schrapping"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een schrapping van de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een schrapping van de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schrapping",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schrapping"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schrapping"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#startBedrag",
+          "vocabularyLabel": {
+            "nl": "startbedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "startbedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het totale verschuldigde bedrag dat wordt herschikt bij de aanvang van het afbetalingsplan."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het totale verschuldigde bedrag dat wordt herschikt bij de aanvang van het afbetalingsplan."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#voorstel",
+          "vocabularyLabel": {
+            "nl": "voorstel"
+          },
+          "applicationProfileLabel": {
+            "nl": "voorstel"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de activiteit die het afbetalingsplan voorstelt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de activiteit die het afbetalingsplan voorstelt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Voorstel"
+            },
+            "applicationProfileLabel": {
+              "nl": "Voorstel"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+      "vocabularyLabel": {
+        "nl": "Afbetalingsplanonderdeel"
+      },
+      "applicationProfileLabel": {
+        "nl": "Afbetalingsplanonderdeel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een afbetalingsplan bestaat uit verschillende onderdelen. Elk onderdeel specifieert een bedrag en tijdstip waarop dit bedrag ten laatste betaald moet zijn."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een afbetalingsplan bestaat uit verschillende onderdelen. Elk onderdeel specifieert een bedrag en tijdstip waarop dit bedrag ten laatste betaald moet zijn."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#afTeBetalenBedrag",
+          "vocabularyLabel": {
+            "nl": "af te betalen bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "af te betalen bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het geldbedrag dat voor de uiterste betaaldatum moet worden betaald."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het geldbedrag dat voor de uiterste betaaldatum moet worden betaald."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#isDeelVan",
+          "vocabularyLabel": {
+            "nl": "is deel van"
+          },
+          "applicationProfileLabel": {
+            "nl": "is deel van"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een afbetalingsplanonderdeel is een deel van een afbetalingsplan."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een afbetalingsplanonderdeel is een deel van een afbetalingsplan."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplan"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplan"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel.uitersteBetaaldatum",
+          "vocabularyLabel": {
+            "nl": "uiterste betaaldatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "uiterste betaaldatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De laatst mogelijke datum waarop het af te betalen bedrag moet betaald zijn om aan de betaaldverplichting van het aanvaarde afbetalingsplan te voldoen."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De laatst mogelijke datum waarop het af te betalen bedrag moet betaald zijn om aan de betaaldverplichting van het aanvaarde afbetalingsplan te voldoen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplansaldo",
+      "vocabularyLabel": {
+        "nl": "Afbetalingsplansaldo"
+      },
+      "applicationProfileLabel": {
+        "nl": "Afbetalingsplansaldo"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het nog af te betalen bedrag op een bepaalde datum."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het nog af te betalen bedrag op een bepaalde datum."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+          "vocabularyLabel": {
+            "nl": "Saldo"
+          },
+          "applicationProfileLabel": {
+            "nl": "Saldo"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+      "vocabularyLabel": {
+        "nl": "Betaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "Betaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "De overdracht van geld van één of meerdere partij(en) naar een andere partij."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De overdracht van geld van één of meerdere partij(en) naar een andere partij."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#bedoeldVoor",
+          "vocabularyLabel": {
+            "nl": "bedoeld voor"
+          },
+          "applicationProfileLabel": {
+            "nl": "bedoeld voor"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de schuldvordering die de betaler wenst af te lossen met de betaling."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de schuldvordering die de betaler wenst af te lossen met de betaling."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvordering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvordering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#betaaldBedrag",
+          "vocabularyLabel": {
+            "nl": "betaald bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "betaald bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het geldbedrag dat werd betaald."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het geldbedrag dat werd betaald."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#betalingsdatum",
+          "vocabularyLabel": {
+            "nl": "betalingsdatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "betalingsdatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "Datum waarop het overgedragen geld werd ontvangen door de ontvanger."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop het overgedragen geld werd ontvangen door de ontvanger."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/adms#identifier",
+          "vocabularyLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een identificator voor het betaling"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een identificator voor het betaling"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#wordtToegerekendDoor",
+          "vocabularyLabel": {
+            "nl": "wordt toegerekend door"
+          },
+          "applicationProfileLabel": {
+            "nl": "wordt toegerekend door"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de activiteit die (een deel van) een  betaald bedrag toewijst aan een schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de activiteit die (een deel van) een  betaald bedrag toewijst aan een schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Toerekening van Betaling"
+            },
+            "applicationProfileLabel": {
+              "nl": "Toerekening van Betaling"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betwisting",
+      "vocabularyLabel": {
+        "nl": "Betwisting"
+      },
+      "applicationProfileLabel": {
+        "nl": "Betwisting"
+      },
+      "vocabularyDefinition": {
+        "nl": "Formeel protest van een schuldenaar tegen een vermeende vordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Formeel protest van een schuldenaar tegen een vermeende vordering."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#betwistBedrag",
+          "vocabularyLabel": {
+            "nl": "betwist bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "betwist bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het geldbedrag dat wordt betwist."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het geldbedrag dat wordt betwist."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betwisting",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+      "vocabularyLabel": {
+        "nl": "Inkomst"
+      },
+      "applicationProfileLabel": {
+        "nl": "Inkomst"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag dat een persoon ontvangt voor geleverde prestaties, beschikbaar gestelde goederen, land of vermogen, of als ondersteuning."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag dat een persoon ontvangt voor geleverde prestaties, beschikbaar gestelde goederen, land of vermogen, of als ondersteuning."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "vocabularyLabel": {
+            "nl": "Solvabiliteitsindicator"
+          },
+          "applicationProfileLabel": {
+            "nl": "Solvabiliteitsindicator"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#bedrag",
+          "vocabularyLabel": {
+            "nl": "bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het bedrag van de inkomst."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het bedrag van de inkomst."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#periodiciteitInkomst",
+          "vocabularyLabel": {
+            "nl": "periodiciteit inkomst"
+          },
+          "applicationProfileLabel": {
+            "nl": "periodiciteit inkomst"
+          },
+          "vocabularyDefinition": {
+            "nl": "Laat toe om het verschil tussen een eenmalige inkomst en een periodieke inkomst te specifiëren."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Laat toe om het verschil tussen een eenmalige inkomst en een periodieke inkomst te specifiëren."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Bijvoorbeeld eenmalig, maandelijks, jaarlijks."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld eenmalig, maandelijks, jaarlijks."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Periodiciteit inkomst"
+            },
+            "applicationProfileLabel": {
+              "nl": "Periodiciteit inkomst"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van de inkomst, bijvoorbeeld beroepsinkomen, kadastraal inkomen, leefloon, kinderbijslag."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van de inkomst, bijvoorbeeld beroepsinkomen, kadastraal inkomen, leefloon, kinderbijslag."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Inkomsttype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Inkomsttype"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#JuridischStatuut",
+      "vocabularyLabel": {
+        "nl": "Juridisch statuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "Juridisch statuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een statuut dat rechtsgevolgen bepaalt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een statuut dat rechtsgevolgen bepaalt."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "vocabularyLabel": {
+            "nl": "Solvabiliteitsindicator"
+          },
+          "applicationProfileLabel": {
+            "nl": "Solvabiliteitsindicator"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#rechtsgrond",
+          "vocabularyLabel": {
+            "nl": "rechtsgrond"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtsgrond"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de juridische grondslag van het juridisch statuut."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de juridische grondslag van het juridisch statuut."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#JuridischStatuut",
+          "range": {
+            "id": "http://data.europa.eu/eli/ontology#LegalResource",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Rechtsgrond"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtsgrond"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van het juridisch statuut, bijvoorbeeld rechterlijke bescherming, collectieve schuldenregeling."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van het juridisch statuut, bijvoorbeeld rechterlijke bescherming, collectieve schuldenregeling."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Type jurische statuut"
+            },
+            "applicationProfileLabel": {
+              "nl": "Type jurische statuut"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+      "vocabularyLabel": {
+        "nl": "Krediet"
+      },
+      "applicationProfileLabel": {
+        "nl": "Krediet"
+      },
+      "vocabularyDefinition": {
+        "nl": "Financiële regeling waarbij een kredietverstrekker geld leent aan een persoon of organisatie met de belofte dat het geleende bedrag later zal worden terugbetaald, meestal met rente."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Financiële regeling waarbij een kredietverstrekker geld leent aan een persoon of organisatie met de belofte dat het geleende bedrag later zal worden terugbetaald, meestal met rente."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "vocabularyLabel": {
+            "nl": "Solvabiliteitsindicator"
+          },
+          "applicationProfileLabel": {
+            "nl": "Solvabiliteitsindicator"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#initieelKredietbedrag",
+          "vocabularyLabel": {
+            "nl": "initieel kredietbedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "initieel kredietbedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het bedrag dat wordt geleend bij het aangaan van een kredietovereenkomst."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het bedrag dat wordt geleend bij het aangaan van een kredietovereenkomst."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van het krediet, bijvoorbeeld hypothecair krediet, consumentenkrediet."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van het krediet, bijvoorbeeld hypothecair krediet, consumentenkrediet."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Krediettype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Krediettype"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet.wanbetaling",
+          "vocabularyLabel": {
+            "nl": "wanbetaling"
+          },
+          "applicationProfileLabel": {
+            "nl": "wanbetaling"
+          },
+          "vocabularyDefinition": {
+            "nl": "Laat toe te specifiëren of een schuldenaar zijn financiële verplichtingen al dan niet heeft nagekomen."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Laat toe te specifiëren of een schuldenaar zijn financiële verplichtingen al dan niet heeft nagekomen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#boolean",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Boolean"
+            },
+            "applicationProfileLabel": {
+              "nl": "Boolean"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Oninbaarheidsverklaring",
+      "vocabularyLabel": {
+        "nl": "Oninbaarheidsverklaring"
+      },
+      "applicationProfileLabel": {
+        "nl": "Oninbaarheidsverklaring"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het aangeven dat een bepaalde schuldvordering als oninbaar wordt beschouwd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het aangeven dat een bepaalde schuldvordering als oninbaar wordt beschouwd."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#oninbaarBedrag",
+          "vocabularyLabel": {
+            "nl": "oninbaar bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "oninbaar bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het bedrag dat als oninbaar beschouwd wordt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het bedrag dat als oninbaar beschouwd wordt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Oninbaarheidsverklaring",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+      "vocabularyLabel": {
+        "nl": "Saldo"
+      },
+      "applicationProfileLabel": {
+        "nl": "Saldo"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag dat overblijft als je het verschil berekent tussen twee grootheden, zoals inkomsten en uitgaven, kosten en opbrengsten, te betalen bedrag en betaald bedrag. Een saldo is een momentopname."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag dat overblijft als je het verschil berekent tussen twee grootheden, zoals inkomsten en uitgaven, kosten en opbrengsten, te betalen bedrag en betaald bedrag. Een saldo is een momentopname."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#saldobedrag",
+          "vocabularyLabel": {
+            "nl": "saldobedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "saldobedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het resterende bedrag zelf."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het resterende bedrag zelf."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#saldodatum",
+          "vocabularyLabel": {
+            "nl": "saldodatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "saldodatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De datum waarop het saldo geldt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De datum waarop het saldo geldt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schrapping",
+      "vocabularyLabel": {
+        "nl": "Schrapping"
+      },
+      "applicationProfileLabel": {
+        "nl": "Schrapping"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het formeel beëindigen of annuleren van een overeengekomen betalingsregeling, bijvoorbeeld omdat de schuldenaar zijn betaalverplichtingen niet naleeft."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het formeel beëindigen of annuleren van een overeengekomen betalingsregeling, bijvoorbeeld omdat de schuldenaar zijn betaalverplichtingen niet naleeft."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#geschraptAfbetalingsplan",
+          "vocabularyLabel": {
+            "nl": "geschrapt afbetalingsplan"
+          },
+          "applicationProfileLabel": {
+            "nl": "geschrapt afbetalingsplan"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt geschrapt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt geschrapt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schrapping",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplan"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplan"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "vocabularyLabel": {
+        "nl": "Schuldvordering"
+      },
+      "applicationProfileLabel": {
+        "nl": "Schuldvordering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Aanspraak van een partij (de schuldeiser) op een bepaalde prestatie vanwege een andere partij (de schuldenaar)."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Aanspraak van een partij (de schuldeiser) op een bepaalde prestatie vanwege een andere partij (de schuldenaar)."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Voor de doeleinden van dit applicatieprofiel is de opgelegde prestatie altijd de betaling van een geldsom."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Voor de doeleinden van dit applicatieprofiel is de opgelegde prestatie altijd de betaling van een geldsom."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanleiding",
+          "vocabularyLabel": {
+            "nl": "aanleiding"
+          },
+          "applicationProfileLabel": {
+            "nl": "aanleiding"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de aanleiding voor de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de aanleiding voor de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Resource"
+            },
+            "applicationProfileLabel": {
+              "nl": "Resource"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanmaning",
+          "vocabularyLabel": {
+            "nl": "aanmaning"
+          },
+          "applicationProfileLabel": {
+            "nl": "aanmaning"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een aanmaning  met betrekking tot de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een aanmaning  met betrekking tot de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Aanmaning"
+            },
+            "applicationProfileLabel": {
+              "nl": "Aanmaning"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplan",
+          "vocabularyLabel": {
+            "nl": "afbetalingsplan"
+          },
+          "applicationProfileLabel": {
+            "nl": "afbetalingsplan"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een afbetalingsplan dat voor de schuldvordering geldt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een afbetalingsplan dat voor de schuldvordering geldt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplan"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplan"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#betwisting",
+          "vocabularyLabel": {
+            "nl": "betwisting"
+          },
+          "applicationProfileLabel": {
+            "nl": "betwisting"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een betwisting van de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een betwisting van de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betwisting",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Betwisting"
+            },
+            "applicationProfileLabel": {
+              "nl": "Betwisting"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#grondslag",
+          "vocabularyLabel": {
+            "nl": "grondslag"
+          },
+          "applicationProfileLabel": {
+            "nl": "grondslag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de juridische basis voor de schuldvordering"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de juridische basis voor de schuldvordering"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://data.europa.eu/eli/ontology#LegalResource",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Rechtsgrond"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtsgrond"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#hoofdsom",
+          "vocabularyLabel": {
+            "nl": "hoofdsom"
+          },
+          "applicationProfileLabel": {
+            "nl": "hoofdsom"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het totale bedrag dat wordt gevorderd door de schuldeiser, exclusief eventuele wanbetalingskosten."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het totale bedrag dat wordt gevorderd door de schuldeiser, exclusief eventuele wanbetalingskosten."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#identificator",
+          "vocabularyLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een identificator voor de schuldvordering"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een identificator voor de schuldvordering"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#isGerelateerdMet",
+          "vocabularyLabel": {
+            "nl": "is gerelateerd met"
+          },
+          "applicationProfileLabel": {
+            "nl": "is gerelateerd met"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een andere schuldvordering die een verband heeft met de eerste schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een andere schuldvordering die een verband heeft met de eerste schuldvordering."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Men kan beslissen om een nieuwe schuldvordering aan te maken voor een wanbetalingskost, in plaats van de wanbetalingskost rechtstreeks aan de schuldvordering toe te voeging."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Men kan beslissen om een nieuwe schuldvordering aan te maken voor een wanbetalingskost, in plaats van de wanbetalingskost rechtstreeks aan de schuldvordering toe te voeging."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvordering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvordering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#oninbaarheidsverklaring",
+          "vocabularyLabel": {
+            "nl": "oninbaarheidsverklaring"
+          },
+          "applicationProfileLabel": {
+            "nl": "oninbaarheidsverklaring"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een oninbaarheidsverklaring voor de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een oninbaarheidsverklaring voor de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Oninbaarheidsverklaring",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Oninbaarheidsverklaring"
+            },
+            "applicationProfileLabel": {
+              "nl": "Oninbaarheidsverklaring"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldeiser",
+          "vocabularyLabel": {
+            "nl": "schuldeiser"
+          },
+          "applicationProfileLabel": {
+            "nl": "schuldeiser"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de agent (persoon of organisatie) die zijn recht uitoefent om een bedrag te innen van andere partijen."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de agent (persoon of organisatie) die zijn recht uitoefent om een bedrag te innen van andere partijen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/ns/prov#Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldenaar",
+          "vocabularyLabel": {
+            "nl": "schuldenaar"
+          },
+          "applicationProfileLabel": {
+            "nl": "schuldenaar"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de agent (persoon of organisatie) die de verplichting heeft om een schuld te voldoen aan een andere partij."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de agent (persoon of organisatie) die de verplichting heeft om een schuld te voldoen aan een andere partij."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/ns/prov#Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldvorderingscategorie",
+          "vocabularyLabel": {
+            "nl": "schuldvorderingscategorie"
+          },
+          "applicationProfileLabel": {
+            "nl": "schuldvorderingscategorie"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een schuldvordering behoort tot een categorie."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een schuldvordering behoort tot een categorie."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvorderingscategorie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvorderingscategorie"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldvordingssaldo",
+          "vocabularyLabel": {
+            "nl": "schuldvorderingssaldo"
+          },
+          "applicationProfileLabel": {
+            "nl": "schuldvorderingssaldo"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een saldo dat werd berekend voor de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een saldo dat werd berekend voor de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingssaldo",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvorderingssaldo"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvorderingssaldo"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#toerekeningVanBetaling",
+          "vocabularyLabel": {
+            "nl": "toerekening van betaling"
+          },
+          "applicationProfileLabel": {
+            "nl": "toerekening van betaling"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Toerekening van Betaling"
+            },
+            "applicationProfileLabel": {
+              "nl": "Toerekening van Betaling"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering.uitersteBetaaldatum",
+          "vocabularyLabel": {
+            "nl": "uiterste betaaldatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "uiterste betaaldatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De laatst mogelijke datum waarop een betaling moet worden gedaan om te voorkomen dat er eventuele boetes, interesten of andere sancties worden opgelegd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De laatst mogelijke datum waarop een betaling moet worden gedaan om te voorkomen dat er eventuele boetes, interesten of andere sancties worden opgelegd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#verjaringsdatum",
+          "vocabularyLabel": {
+            "nl": "verjaringsdatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "verjaringsdatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De datum waarna de schuldeiser zijn recht om juridische stappen te ondernemen verliest en de vordering niet langer inbaar is. Wordt berekend op basis van de verjaringstermijn, vanaf de startdatum van de vordering of de datum van de stuitende activiteit, bijvoorbeeld een betaling."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De datum waarna de schuldeiser zijn recht om juridische stappen te ondernemen verliest en de vordering niet langer inbaar is. Wordt berekend op basis van de verjaringstermijn, vanaf de startdatum van de vordering of de datum van de stuitende activiteit, bijvoorbeeld een betaling."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#vermindering",
+          "vocabularyLabel": {
+            "nl": "vermindering"
+          },
+          "applicationProfileLabel": {
+            "nl": "vermindering"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een vermindering voor de schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een vermindering voor de schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Vermindering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Vermindering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Vermindering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering.wanbetaling",
+          "vocabularyLabel": {
+            "nl": "wanbetaling"
+          },
+          "applicationProfileLabel": {
+            "nl": "wanbetaling"
+          },
+          "vocabularyDefinition": {
+            "nl": "Laat toe om aan te duiden of de hoofdsom voor de uiterste betaaldatum werd betaald."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Laat toe om aan te duiden of de hoofdsom voor de uiterste betaaldatum werd betaald."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#boolean",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Boolean"
+            },
+            "applicationProfileLabel": {
+              "nl": "Boolean"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#wanbetalingsvergoeding",
+          "vocabularyLabel": {
+            "nl": "wanbetalingsvergoeding"
+          },
+          "applicationProfileLabel": {
+            "nl": "wanbetalingsvergoeding"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een schuldvordering kan verhoogd worden met een wanbetalingsvergoeding."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een schuldvordering kan verhoogd worden met een wanbetalingsvergoeding."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Wanbetalingsvergoeding"
+            },
+            "applicationProfileLabel": {
+              "nl": "Wanbetalingsvergoeding"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+      "vocabularyLabel": {
+        "nl": "Schuldvorderingscategorie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Schuldvorderingscategorie"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een soort schuldvordering met bepaalde kenmerken."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een soort schuldvordering met bepaalde kenmerken."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#fiscaal",
+          "vocabularyLabel": {
+            "nl": "fiscaal"
+          },
+          "applicationProfileLabel": {
+            "nl": "fiscaal"
+          },
+          "vocabularyDefinition": {
+            "nl": "Laat toe om te specifiëren of het om fiscale of niet-fiscale schuldvorderingen gaat."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Laat toe om te specifiëren of het om fiscale of niet-fiscale schuldvorderingen gaat."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#boolean",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Boolean"
+            },
+            "applicationProfileLabel": {
+              "nl": "Boolean"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/title",
+          "vocabularyLabel": {
+            "nl": "naam"
+          },
+          "applicationProfileLabel": {
+            "nl": "naam"
+          },
+          "vocabularyDefinition": {
+            "nl": "De naam van de vorderingscategorie, bijvoorbeeld gemeentebelasting, schoolfactuur, GAS-boete."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De naam van de vorderingscategorie, bijvoorbeeld gemeentebelasting, schoolfactuur, GAS-boete."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#verjaringstermijn",
+          "vocabularyLabel": {
+            "nl": "verjaringstermijn"
+          },
+          "applicationProfileLabel": {
+            "nl": "verjaringstermijn"
+          },
+          "vocabularyDefinition": {
+            "nl": "De verjaringstermijn die voor schuldvorderingen van deze categorie geldt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De verjaringstermijn die voor schuldvorderingen van deze categorie geldt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#duration",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Duration"
+            },
+            "applicationProfileLabel": {
+              "nl": "Duration"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingssaldo",
+      "vocabularyLabel": {
+        "nl": "Schuldvorderingssaldo"
+      },
+      "applicationProfileLabel": {
+        "nl": "Schuldvorderingssaldo"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het verschil tussen het totale verschuldigde bedrag (hoofdsom en eventuele wanbetalingsvergoedingen) en het totale betaalde bedrag dat aan de schuldvordering werd toegerekend."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het verschil tussen het totale verschuldigde bedrag (hoofdsom en eventuele wanbetalingsvergoedingen) en het totale betaalde bedrag dat aan de schuldvordering werd toegerekend."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+          "vocabularyLabel": {
+            "nl": "Saldo"
+          },
+          "applicationProfileLabel": {
+            "nl": "Saldo"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#SociaalStatuut",
+      "vocabularyLabel": {
+        "nl": "Sociaal Statuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "Sociaal Statuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een statuut dat bepaalt welke sociale rechten een persoon geniet."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een statuut dat bepaalt welke sociale rechten een persoon geniet."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "vocabularyLabel": {
+            "nl": "Solvabiliteitsindicator"
+          },
+          "applicationProfileLabel": {
+            "nl": "Solvabiliteitsindicator"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegekendDoor",
+          "vocabularyLabel": {
+            "nl": "toegekend door"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegekend door"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de organisatie die het sociaal statuut heeft toegekend."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de organisatie die het sociaal statuut heeft toegekend."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#SociaalStatuut",
+          "range": {
+            "id": "http://www.w3.org/ns/prov#Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van een sociaal statuut, bijvoorbeeld verhoogde tegemoetkoming, vermindering verdienvermogen door handicap."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van een sociaal statuut, bijvoorbeeld verhoogde tegemoetkoming, vermindering verdienvermogen door handicap."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#SociaalStatuut",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Type sociaal statuut"
+            },
+            "applicationProfileLabel": {
+              "nl": "Type sociaal statuut"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+      "vocabularyLabel": {
+        "nl": "Solvabiliteitsindicator"
+      },
+      "applicationProfileLabel": {
+        "nl": "Solvabiliteitsindicator"
+      },
+      "vocabularyDefinition": {
+        "nl": "Informatie die een aanwijzing geeft over het vermogen van een persoon om schulden af te betalen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie die een aanwijzing geeft over het vermogen van een persoon om schulden af te betalen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel.einddatum",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De einddatum voor de geldigheid van de solvabiliteitsindicator."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De einddatum voor de geldigheid van de solvabiliteitsindicator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicatoprofiel.startdatum",
+          "vocabularyLabel": {
+            "nl": "startdatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "startdatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De startdatum voor de geldigheid van de solvabiliteitsindicator."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De startdatum voor de geldigheid van de solvabiliteitsindicator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van de solvibiliteitsindicator."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van de solvibiliteitsindicator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Solvabiliteitsindicatortype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Solvabiliteitsindicatortype"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+      "vocabularyLabel": {
+        "nl": "Solvabiliteitsprofiel"
+      },
+      "applicationProfileLabel": {
+        "nl": "Solvabiliteitsprofiel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Categorisatie van  het vermogen van een persoon om schulden af te betalen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Categorisatie van  het vermogen van een persoon om schulden af te betalen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#afgeleidVan",
+          "vocabularyLabel": {
+            "nl": "afgeleid van"
+          },
+          "applicationProfileLabel": {
+            "nl": "afgeleid van"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar een solvabiliteitsindicator waarvan het solvabilitetisprofiel werd afgeleid."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar een solvabiliteitsindicator waarvan het solvabilitetisprofiel werd afgeleid."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Solvabiliteitsindicator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Solvabiliteitsindicator"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#bepaaldDoor",
+          "vocabularyLabel": {
+            "nl": "bepaald door"
+          },
+          "applicationProfileLabel": {
+            "nl": "bepaald door"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de agent die het solvabiliteitsprofiel bepaald heeft."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de agent die het solvabiliteitsprofiel bepaald heeft."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+          "range": {
+            "id": "http://www.w3.org/ns/prov#Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator.einddatum",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De einddatum van het solvabiliteitsprofiel. Wanneer de finaciële situatie van een persoon wijzigt, kan het nodig zijn om een nieuw solvabiliteitsprofiel voor de persoon aan te maken."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De einddatum van het solvabiliteitsprofiel. Wanneer de finaciële situatie van een persoon wijzigt, kan het nodig zijn om een nieuw solvabiliteitsprofiel voor de persoon aan te maken."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator.startdatum",
+          "vocabularyLabel": {
+            "nl": "startdatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "startdatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "De startdatum van het solvabiliteitsprofiel."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De startdatum van het solvabiliteitsprofiel."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van het solvabiliteitsprofiel."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van het solvabiliteitsprofiel."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Solvabiliteitstype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Solvabiliteitstype"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+      "vocabularyLabel": {
+        "nl": "Toerekening van Betaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "Toerekening van Betaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Een expliciete modellering van een eventueel terugbetaling werd niet voorzien."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Een expliciete modellering van een eventueel terugbetaling werd niet voorzien."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#rekentToeAan",
+          "vocabularyLabel": {
+            "nl": "rekent toe aan"
+          },
+          "applicationProfileLabel": {
+            "nl": "rekent toe aan"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een toerekening van betaling rekent een (deel van het) betaalde bedrag toe aan een schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een toerekening van betaling rekent een (deel van het) betaalde bedrag toe aan een schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Schuldvordering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Schuldvordering"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegerekendBedrag",
+          "vocabularyLabel": {
+            "nl": "toegerekend bedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegerekend bedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het geldbedrag dat werd toegerekend aan een schuldvordering."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het geldbedrag dat werd toegerekend aan een schuldvordering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegerekendeBetaling",
+          "vocabularyLabel": {
+            "nl": "toegerekende betaling"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegerekende betaling"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de betaling die werd toegerekend."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de betaling die werd toegerekend."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Betaling"
+            },
+            "applicationProfileLabel": {
+              "nl": "Betaling"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Vermindering",
+      "vocabularyLabel": {
+        "nl": "Vermindering"
+      },
+      "applicationProfileLabel": {
+        "nl": "Vermindering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het verlagen van de omvang van de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het verlagen van de omvang van de schuldvordering."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#verminderingsbedrag",
+          "vocabularyLabel": {
+            "nl": "verminderingsbedrag"
+          },
+          "applicationProfileLabel": {
+            "nl": "verminderingsbedrag"
+          },
+          "vocabularyDefinition": {
+            "nl": "Het bedrag dat in mindering wordt gebracht."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het bedrag dat in mindering wordt gebracht."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Vermindering",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+      "vocabularyLabel": {
+        "nl": "Voorstel"
+      },
+      "applicationProfileLabel": {
+        "nl": "Voorstel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het aanbieden van een afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het aanbieden van een afbetalingsplan."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/prov#Activity",
+          "vocabularyLabel": {
+            "nl": "Activiteit"
+          },
+          "applicationProfileLabel": {
+            "nl": "Activiteit"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#voorgesteldAfbetalingsplan",
+          "vocabularyLabel": {
+            "nl": "voorgesteld afbetalingsplan"
+          },
+          "applicationProfileLabel": {
+            "nl": "voorgesteld afbetalingsplan"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt voorgesteld."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het afbetalingsplan dat wordt voorgesteld."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Afbetalingsplan"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afbetalingsplan"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+      "vocabularyLabel": {
+        "nl": "Wanbetalingsvergoeding"
+      },
+      "applicationProfileLabel": {
+        "nl": "Wanbetalingsvergoeding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Vergoeding die in rekening worden gebracht als gevolg van een wanbetaling."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Vergoeding die in rekening worden gebracht als gevolg van een wanbetaling."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#interest",
+          "vocabularyLabel": {
+            "nl": "interest"
+          },
+          "applicationProfileLabel": {
+            "nl": "interest"
+          },
+          "vocabularyDefinition": {
+            "nl": "De omvang van de wanbetalingsvergoeding  kan bepaald worden als een percentage op bedrag van de schuldvordering dat nog niet betaald werd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De omvang van de wanbetalingsvergoeding  kan bepaald worden als een percentage op bedrag van de schuldvordering dat nog niet betaald werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#decimal",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Decimal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Decimal"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#kost",
+          "vocabularyLabel": {
+            "nl": "kost"
+          },
+          "applicationProfileLabel": {
+            "nl": "kost"
+          },
+          "vocabularyDefinition": {
+            "nl": "De omvang van de wanbetalingsvergoeding kan worden bepaald door een vast geldbedrag."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De omvang van de wanbetalingsvergoeding kan worden bepaald door een vast geldbedrag."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+          "range": {
+            "id": "https://schema.org/MonetaryAmount",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geldbedrag"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geldbedrag"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "De aard van de wanbetalingsvergoeding, bijvoorbeeld verwijlinterest, aanmaningskost, verzendingskost"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De aard van de wanbetalingsvergoeding, bijvoorbeeld verwijlinterest, aanmaningskost, verzendingskost"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Wanbetalingsvergoedingstype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Wanbetalingsvergoedingstype"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wijziging",
+      "vocabularyLabel": {
+        "nl": "Wijziging"
+      },
+      "applicationProfileLabel": {
+        "nl": "Wijziging"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het aanpassen van een bestaand afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het aanpassen van een bestaand afbetalingsplan."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+          "vocabularyLabel": {
+            "nl": "Voorstel"
+          },
+          "applicationProfileLabel": {
+            "nl": "Voorstel"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard"
+    }
+  ],
+  "dataTypes": [
+    {
+      "id": "https://schema.org/MonetaryAmount",
+      "vocabularyLabel": {
+        "nl": "Geldbedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "Geldbedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een geldwaarde of -bereik."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een geldwaarde of -bereik."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Voor de doeleinden van dit applicatieprofiel wordt enkel een geldwaarde gebruikt, geen geldbereik."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "https://schema.org/currency",
+          "vocabularyLabel": {
+            "nl": "valuta"
+          },
+          "applicationProfileLabel": {
+            "nl": "valuta"
+          },
+          "vocabularyDefinition": {
+            "nl": "De valuta van het geldbedrag"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De valuta van het geldbedrag"
+          },
+          "vocabularyUsageNote": {
+            "nl": "Gebruik ISO 4217 valuta codes, bijvoorbeeld \"EUR\""
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Gebruik ISO 4217 valuta codes, bijvoorbeeld \"EUR\""
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://schema.org/MonetaryAmount",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/value",
+          "vocabularyLabel": {
+            "nl": "waarde"
+          },
+          "applicationProfileLabel": {
+            "nl": "waarde"
+          },
+          "vocabularyDefinition": {
+            "nl": "De waarde van het geldbedrag"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De waarde van het geldbedrag"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "https://schema.org/MonetaryAmount",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#decimal",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Decimal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Decimal"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://www.w3.org/ns/adms#Identifier",
+      "vocabularyLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/terms/creator",
+          "vocabularyLabel": {
+            "nl": "maker"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegekend door"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Link naar de agent die de identificator heeft uitgegeven."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://purl.org/dc/terms/Agent",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#notation",
+          "vocabularyLabel": {
+            "nl": "notatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileDefinition": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "GetypeerdeString"
+            },
+            "applicationProfileLabel": {
+              "nl": "Getypeerde String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/issued",
+          "vocabularyLabel": {
+            "nl": "uitgegeven"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegekend op"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Tijdstip waarop de identificator werd uitgegeven."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "DateTime"
+            },
+            "applicationProfileLabel": {
+              "nl": "DateTime"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanleiding",
+      "vocabularyLabel": {
+        "nl": "aanleiding"
+      },
+      "applicationProfileLabel": {
+        "nl": "aanleiding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de aanleiding voor de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de aanleiding voor de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Resource"
+        },
+        "applicationProfileLabel": {
+          "nl": "Resource"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanmaning",
+      "vocabularyLabel": {
+        "nl": "aanmaning"
+      },
+      "applicationProfileLabel": {
+        "nl": "aanmaning"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een aanmaning  met betrekking tot de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een aanmaning  met betrekking tot de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Aanmaning"
+        },
+        "applicationProfileLabel": {
+          "nl": "Aanmaning"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanmaningsdatum",
+      "vocabularyLabel": {
+        "nl": "aanmaningsdatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "aanmaningsdatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "Datum waarop de aanmaning werd verstuurd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Datum waarop de aanmaning werd verstuurd."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanvaardAfbetalingsplan",
+      "vocabularyLabel": {
+        "nl": "aanvaard afbetalingsplan"
+      },
+      "applicationProfileLabel": {
+        "nl": "aanvaard afbetalingsplan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt aanvaard."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt aanvaard."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanvaarding",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplan"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplan"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#aanvaarding",
+      "vocabularyLabel": {
+        "nl": "aanvaarding"
+      },
+      "applicationProfileLabel": {
+        "nl": "aanvaarding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de aanvaarding van het afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de aanvaarding van het afbetalingsplan."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Aanvaarding",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Aanvaarding"
+        },
+        "applicationProfileLabel": {
+          "nl": "Aanvaarding"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#afTeBetalenBedrag",
+      "vocabularyLabel": {
+        "nl": "af te betalen bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "af te betalen bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het geldbedrag dat voor de uiterste betaaldatum moet worden betaald."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het geldbedrag dat voor de uiterste betaaldatum moet worden betaald."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplan",
+      "vocabularyLabel": {
+        "nl": "afbetalingsplan"
+      },
+      "applicationProfileLabel": {
+        "nl": "afbetalingsplan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een afbetalingsplan dat voor de schuldvordering geldt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een afbetalingsplan dat voor de schuldvordering geldt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplan"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplan"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplanonderdeel",
+      "vocabularyLabel": {
+        "nl": "afbetalingsplanonderdeel"
+      },
+      "applicationProfileLabel": {
+        "nl": "afbetalingsplanonderdeel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een onderdeel van het afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een onderdeel van het afbetalingsplan."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplanonderdeel"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplanonderdeel"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#afbetalingsplansaldo",
+      "vocabularyLabel": {
+        "nl": "afbetalingsplansaldo"
+      },
+      "applicationProfileLabel": {
+        "nl": "afbetalingsplansaldo"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een saldo van een afbetalingsplan, namelijk het nog af te betalen bedrag op een bepaalde datum."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een saldo van een afbetalingsplan, namelijk het nog af te betalen bedrag op een bepaalde datum."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplansaldo",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplansaldo"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplansaldo"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#afgeleidVan",
+      "vocabularyLabel": {
+        "nl": "afgeleid van"
+      },
+      "applicationProfileLabel": {
+        "nl": "afgeleid van"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een solvabiliteitsindicator waarvan het solvabilitetisprofiel werd afgeleid."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een solvabiliteitsindicator waarvan het solvabilitetisprofiel werd afgeleid."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Solvabiliteitsindicator"
+        },
+        "applicationProfileLabel": {
+          "nl": "Solvabiliteitsindicator"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#bedoeldVoor",
+      "vocabularyLabel": {
+        "nl": "bedoeld voor"
+      },
+      "applicationProfileLabel": {
+        "nl": "bedoeld voor"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de schuldvordering die de betaler wenst af te lossen met de betaling."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de schuldvordering die de betaler wenst af te lossen met de betaling."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvordering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvordering"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#bedrag",
+      "vocabularyLabel": {
+        "nl": "bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag van de inkomst."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag van de inkomst."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#bepaaldDoor",
+      "vocabularyLabel": {
+        "nl": "bepaald door"
+      },
+      "applicationProfileLabel": {
+        "nl": "bepaald door"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de agent die het solvabiliteitsprofiel bepaald heeft."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de agent die het solvabiliteitsprofiel bepaald heeft."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+      "range": {
+        "id": "http://www.w3.org/ns/prov#Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#betaaldBedrag",
+      "vocabularyLabel": {
+        "nl": "betaald bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "betaald bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het geldbedrag dat werd betaald."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het geldbedrag dat werd betaald."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#betalingsdatum",
+      "vocabularyLabel": {
+        "nl": "betalingsdatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "betalingsdatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "Datum waarop het overgedragen geld werd ontvangen door de ontvanger."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Datum waarop het overgedragen geld werd ontvangen door de ontvanger."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#betwistBedrag",
+      "vocabularyLabel": {
+        "nl": "betwist bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "betwist bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het geldbedrag dat wordt betwist."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het geldbedrag dat wordt betwist."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betwisting",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#betwisting",
+      "vocabularyLabel": {
+        "nl": "betwisting"
+      },
+      "applicationProfileLabel": {
+        "nl": "betwisting"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een betwisting van de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een betwisting van de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betwisting",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Betwisting"
+        },
+        "applicationProfileLabel": {
+          "nl": "Betwisting"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel.einddatum",
+      "vocabularyLabel": {
+        "nl": "einddatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "einddatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De einddatum voor de geldigheid van de solvabiliteitsindicator."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De einddatum voor de geldigheid van de solvabiliteitsindicator."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator.einddatum",
+      "vocabularyLabel": {
+        "nl": "einddatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "einddatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De einddatum van het solvabiliteitsprofiel. Wanneer de finaciële situatie van een persoon wijzigt, kan het nodig zijn om een nieuw solvabiliteitsprofiel voor de persoon aan te maken."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De einddatum van het solvabiliteitsprofiel. Wanneer de finaciële situatie van een persoon wijzigt, kan het nodig zijn om een nieuw solvabiliteitsprofiel voor de persoon aan te maken."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#fiscaal",
+      "vocabularyLabel": {
+        "nl": "fiscaal"
+      },
+      "applicationProfileLabel": {
+        "nl": "fiscaal"
+      },
+      "vocabularyDefinition": {
+        "nl": "Laat toe om te specifiëren of het om fiscale of niet-fiscale schuldvorderingen gaat."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Laat toe om te specifiëren of het om fiscale of niet-fiscale schuldvorderingen gaat."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#boolean",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Boolean"
+        },
+        "applicationProfileLabel": {
+          "nl": "Boolean"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#genereertWanbetalingsvergoeding",
+      "vocabularyLabel": {
+        "nl": "genereert wanbetalingsvergoeding"
+      },
+      "applicationProfileLabel": {
+        "nl": "genereert wanbetalingsvergoeding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een wanbetalingsvergoeding die door de aanmaning wordt gegenereerd. Een wanbetalingsvergoeding wordt gegenereerd door een aanmaning maar heeft zijn grondslag in een algemene voorwaarde of een reglement"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een wanbetalingsvergoeding die door de aanmaning wordt gegenereerd. Een wanbetalingsvergoeding wordt gegenereerd door een aanmaning maar heeft zijn grondslag in een algemene voorwaarde of een reglement"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Aanmaning",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Wanbetalingsvergoeding"
+        },
+        "applicationProfileLabel": {
+          "nl": "Wanbetalingsvergoeding"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#geschraptAfbetalingsplan",
+      "vocabularyLabel": {
+        "nl": "geschrapt afbetalingsplan"
+      },
+      "applicationProfileLabel": {
+        "nl": "geschrapt afbetalingsplan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt geschrapt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt geschrapt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schrapping",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplan"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplan"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#gevolgdAfbetalingsplanonderdeel",
+      "vocabularyLabel": {
+        "nl": "gevolgd afbetalingsplanonderdeel"
+      },
+      "applicationProfileLabel": {
+        "nl": "gevolgd afbetalingsplanonderdeel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplanonderdeel dat werd gevolgd bij het uitvoeren van de afbetaling."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplanonderdeel dat werd gevolgd bij het uitvoeren van de afbetaling."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetaling",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplanonderdeel"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplanonderdeel"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#grondslag",
+      "vocabularyLabel": {
+        "nl": "grondslag"
+      },
+      "applicationProfileLabel": {
+        "nl": "grondslag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de juridische basis voor de schuldvordering"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de juridische basis voor de schuldvordering"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://data.europa.eu/eli/ontology#LegalResource",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Rechtsgrond"
+        },
+        "applicationProfileLabel": {
+          "nl": "Rechtsgrond"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#herschikteSchuldvordering",
+      "vocabularyLabel": {
+        "nl": "herschikte schuldvordering"
+      },
+      "applicationProfileLabel": {
+        "nl": "herschikte schuldvordering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzijng naar een schuldvordering waarvan de betaalmodaliteiten door het afbetalingsplan herschikt worden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzijng naar een schuldvordering waarvan de betaalmodaliteiten door het afbetalingsplan herschikt worden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvordering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvordering"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#hoofdsom",
+      "vocabularyLabel": {
+        "nl": "hoofdsom"
+      },
+      "applicationProfileLabel": {
+        "nl": "hoofdsom"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het totale bedrag dat wordt gevorderd door de schuldeiser, exclusief eventuele wanbetalingskosten."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het totale bedrag dat wordt gevorderd door de schuldeiser, exclusief eventuele wanbetalingskosten."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#identificator",
+      "vocabularyLabel": {
+        "nl": "identificator"
+      },
+      "applicationProfileLabel": {
+        "nl": "identificator"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een identificator voor de schuldvordering"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een identificator voor de schuldvordering"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/ns/adms#Identifier",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Identificator"
+        },
+        "applicationProfileLabel": {
+          "nl": "Identificator"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#initieelKredietbedrag",
+      "vocabularyLabel": {
+        "nl": "initieel kredietbedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "initieel kredietbedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag dat wordt geleend bij het aangaan van een kredietovereenkomst."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag dat wordt geleend bij het aangaan van een kredietovereenkomst."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#inkomst",
+      "vocabularyLabel": {
+        "nl": "inkomst"
+      },
+      "applicationProfileLabel": {
+        "nl": "inkomst"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een inkomst van een persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een inkomst van een persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Inkomst"
+        },
+        "applicationProfileLabel": {
+          "nl": "Inkomst"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#interest",
+      "vocabularyLabel": {
+        "nl": "interest"
+      },
+      "applicationProfileLabel": {
+        "nl": "interest"
+      },
+      "vocabularyDefinition": {
+        "nl": "De omvang van de wanbetalingsvergoeding  kan bepaald worden als een percentage op bedrag van de schuldvordering dat nog niet betaald werd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De omvang van de wanbetalingsvergoeding  kan bepaald worden als een percentage op bedrag van de schuldvordering dat nog niet betaald werd."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#decimal",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Decimal"
+        },
+        "applicationProfileLabel": {
+          "nl": "Decimal"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#isDeelVan",
+      "vocabularyLabel": {
+        "nl": "is deel van"
+      },
+      "applicationProfileLabel": {
+        "nl": "is deel van"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een afbetalingsplanonderdeel is een deel van een afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een afbetalingsplanonderdeel is een deel van een afbetalingsplan."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplan"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplan"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#isGerelateerdMet",
+      "vocabularyLabel": {
+        "nl": "is gerelateerd met"
+      },
+      "applicationProfileLabel": {
+        "nl": "is gerelateerd met"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een andere schuldvordering die een verband heeft met de eerste schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een andere schuldvordering die een verband heeft met de eerste schuldvordering."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Men kan beslissen om een nieuwe schuldvordering aan te maken voor een wanbetalingskost, in plaats van de wanbetalingskost rechtstreeks aan de schuldvordering toe te voeging."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Men kan beslissen om een nieuwe schuldvordering aan te maken voor een wanbetalingskost, in plaats van de wanbetalingskost rechtstreeks aan de schuldvordering toe te voeging."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvordering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvordering"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#juridischStatuut",
+      "vocabularyLabel": {
+        "nl": "juridisch statuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "juridisch statuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een juridisch statuut van een persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een juridisch statuut van een persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#JuridischStatuut",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Juridisch statuut"
+        },
+        "applicationProfileLabel": {
+          "nl": "Juridisch statuut"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#kost",
+      "vocabularyLabel": {
+        "nl": "kost"
+      },
+      "applicationProfileLabel": {
+        "nl": "kost"
+      },
+      "vocabularyDefinition": {
+        "nl": "De omvang van de wanbetalingsvergoeding kan worden bepaald door een vast geldbedrag."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De omvang van de wanbetalingsvergoeding kan worden bepaald door een vast geldbedrag."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#krediet",
+      "vocabularyLabel": {
+        "nl": "krediet"
+      },
+      "applicationProfileLabel": {
+        "nl": "krediet"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een krediet dat door een persoon werd aangegaan als schuldenaar."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een krediet dat door een persoon werd aangegaan als schuldenaar."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Krediet"
+        },
+        "applicationProfileLabel": {
+          "nl": "Krediet"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#oninbaarBedrag",
+      "vocabularyLabel": {
+        "nl": "oninbaar bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "oninbaar bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag dat als oninbaar beschouwd wordt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag dat als oninbaar beschouwd wordt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Oninbaarheidsverklaring",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#oninbaarheidsverklaring",
+      "vocabularyLabel": {
+        "nl": "oninbaarheidsverklaring"
+      },
+      "applicationProfileLabel": {
+        "nl": "oninbaarheidsverklaring"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een oninbaarheidsverklaring voor de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een oninbaarheidsverklaring voor de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Oninbaarheidsverklaring",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Oninbaarheidsverklaring"
+        },
+        "applicationProfileLabel": {
+          "nl": "Oninbaarheidsverklaring"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#periodiciteitInkomst",
+      "vocabularyLabel": {
+        "nl": "periodiciteit inkomst"
+      },
+      "applicationProfileLabel": {
+        "nl": "periodiciteit inkomst"
+      },
+      "vocabularyDefinition": {
+        "nl": "Laat toe om het verschil tussen een eenmalige inkomst en een periodieke inkomst te specifiëren."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Laat toe om het verschil tussen een eenmalige inkomst en een periodieke inkomst te specifiëren."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Bijvoorbeeld eenmalig, maandelijks, jaarlijks."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld eenmalig, maandelijks, jaarlijks."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Inkomst",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Periodiciteit inkomst"
+        },
+        "applicationProfileLabel": {
+          "nl": "Periodiciteit inkomst"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#rechtsgrond",
+      "vocabularyLabel": {
+        "nl": "rechtsgrond"
+      },
+      "applicationProfileLabel": {
+        "nl": "rechtsgrond"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de juridische grondslag van het juridisch statuut."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de juridische grondslag van het juridisch statuut."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#JuridischStatuut",
+      "range": {
+        "id": "http://data.europa.eu/eli/ontology#LegalResource",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "Rechtsgrond"
+        },
+        "applicationProfileLabel": {
+          "nl": "Rechtsgrond"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#rekentToeAan",
+      "vocabularyLabel": {
+        "nl": "rekent toe aan"
+      },
+      "applicationProfileLabel": {
+        "nl": "rekent toe aan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een toerekening van betaling rekent een (deel van het) betaalde bedrag toe aan een schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een toerekening van betaling rekent een (deel van het) betaalde bedrag toe aan een schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvordering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvordering"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#saldobedrag",
+      "vocabularyLabel": {
+        "nl": "saldobedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "saldobedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het resterende bedrag zelf."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het resterende bedrag zelf."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#saldodatum",
+      "vocabularyLabel": {
+        "nl": "saldodatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "saldodatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De datum waarop het saldo geldt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De datum waarop het saldo geldt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Saldo",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#schrapping",
+      "vocabularyLabel": {
+        "nl": "schrapping"
+      },
+      "applicationProfileLabel": {
+        "nl": "schrapping"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een schrapping van de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een schrapping van de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schrapping",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schrapping"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schrapping"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldeiser",
+      "vocabularyLabel": {
+        "nl": "schuldeiser"
+      },
+      "applicationProfileLabel": {
+        "nl": "schuldeiser"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de agent (persoon of organisatie) die zijn recht uitoefent om een bedrag te innen van andere partijen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de agent (persoon of organisatie) die zijn recht uitoefent om een bedrag te innen van andere partijen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/ns/prov#Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldenaar",
+      "vocabularyLabel": {
+        "nl": "schuldenaar"
+      },
+      "applicationProfileLabel": {
+        "nl": "schuldenaar"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de agent (persoon of organisatie) die de verplichting heeft om een schuld te voldoen aan een andere partij."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de agent (persoon of organisatie) die de verplichting heeft om een schuld te voldoen aan een andere partij."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/ns/prov#Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldvorderingscategorie",
+      "vocabularyLabel": {
+        "nl": "schuldvorderingscategorie"
+      },
+      "applicationProfileLabel": {
+        "nl": "schuldvorderingscategorie"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een schuldvordering behoort tot een categorie."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een schuldvordering behoort tot een categorie."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvorderingscategorie"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvorderingscategorie"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#schuldvordingssaldo",
+      "vocabularyLabel": {
+        "nl": "schuldvorderingssaldo"
+      },
+      "applicationProfileLabel": {
+        "nl": "schuldvorderingssaldo"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een saldo dat werd berekend voor de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een saldo dat werd berekend voor de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingssaldo",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Schuldvorderingssaldo"
+        },
+        "applicationProfileLabel": {
+          "nl": "Schuldvorderingssaldo"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#sociaalStatuut",
+      "vocabularyLabel": {
+        "nl": "sociaal statuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "sociaal statuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een sociaal statuut van een persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een sociaal statuut van een persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#SociaalStatuut",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Sociaal Statuut"
+        },
+        "applicationProfileLabel": {
+          "nl": "Sociaal Statuut"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#solvabiliteitsprofiel",
+      "vocabularyLabel": {
+        "nl": "solvabiliteitsprofiel"
+      },
+      "applicationProfileLabel": {
+        "nl": "solvabiliteitsprofiel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een solvabiliteitsrofiel van een persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een solvabiliteitsrofiel van een persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Solvabiliteitsprofiel"
+        },
+        "applicationProfileLabel": {
+          "nl": "Solvabiliteitsprofiel"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#startBedrag",
+      "vocabularyLabel": {
+        "nl": "startbedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "startbedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het totale verschuldigde bedrag dat wordt herschikt bij de aanvang van het afbetalingsplan."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het totale verschuldigde bedrag dat wordt herschikt bij de aanvang van het afbetalingsplan."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicatoprofiel.startdatum",
+      "vocabularyLabel": {
+        "nl": "startdatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "startdatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De startdatum voor de geldigheid van de solvabiliteitsindicator."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De startdatum voor de geldigheid van de solvabiliteitsindicator."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsindicator.startdatum",
+      "vocabularyLabel": {
+        "nl": "startdatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "startdatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De startdatum van het solvabiliteitsprofiel."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De startdatum van het solvabiliteitsprofiel."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Solvabiliteitsprofiel",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegekendDoor",
+      "vocabularyLabel": {
+        "nl": "toegekend door"
+      },
+      "applicationProfileLabel": {
+        "nl": "toegekend door"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de organisatie die het sociaal statuut heeft toegekend."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de organisatie die het sociaal statuut heeft toegekend."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#SociaalStatuut",
+      "range": {
+        "id": "http://www.w3.org/ns/prov#Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegerekendBedrag",
+      "vocabularyLabel": {
+        "nl": "toegerekend bedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "toegerekend bedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het geldbedrag dat werd toegerekend aan een schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het geldbedrag dat werd toegerekend aan een schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#toegerekendeBetaling",
+      "vocabularyLabel": {
+        "nl": "toegerekende betaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "toegerekende betaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de betaling die werd toegerekend."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de betaling die werd toegerekend."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Betaling"
+        },
+        "applicationProfileLabel": {
+          "nl": "Betaling"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#toerekeningVanBetaling",
+      "vocabularyLabel": {
+        "nl": "toerekening van betaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "toerekening van betaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het toewijzen van een betaald geldbedrag aan een schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Toerekening van Betaling"
+        },
+        "applicationProfileLabel": {
+          "nl": "Toerekening van Betaling"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel.uitersteBetaaldatum",
+      "vocabularyLabel": {
+        "nl": "uiterste betaaldatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "uiterste betaaldatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De laatst mogelijke datum waarop het af te betalen bedrag moet betaald zijn om aan de betaaldverplichting van het aanvaarde afbetalingsplan te voldoen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De laatst mogelijke datum waarop het af te betalen bedrag moet betaald zijn om aan de betaaldverplichting van het aanvaarde afbetalingsplan te voldoen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplanonderdeel",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering.uitersteBetaaldatum",
+      "vocabularyLabel": {
+        "nl": "uiterste betaaldatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "uiterste betaaldatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De laatst mogelijke datum waarop een betaling moet worden gedaan om te voorkomen dat er eventuele boetes, interesten of andere sancties worden opgelegd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De laatst mogelijke datum waarop een betaling moet worden gedaan om te voorkomen dat er eventuele boetes, interesten of andere sancties worden opgelegd."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#verjaringsdatum",
+      "vocabularyLabel": {
+        "nl": "verjaringsdatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "verjaringsdatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "De datum waarna de schuldeiser zijn recht om juridische stappen te ondernemen verliest en de vordering niet langer inbaar is. Wordt berekend op basis van de verjaringstermijn, vanaf de startdatum van de vordering of de datum van de stuitende activiteit, bijvoorbeeld een betaling."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De datum waarna de schuldeiser zijn recht om juridische stappen te ondernemen verliest en de vordering niet langer inbaar is. Wordt berekend op basis van de verjaringstermijn, vanaf de startdatum van de vordering of de datum van de stuitende activiteit, bijvoorbeeld een betaling."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#date",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Date"
+        },
+        "applicationProfileLabel": {
+          "nl": "Date"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#verjaringstermijn",
+      "vocabularyLabel": {
+        "nl": "verjaringstermijn"
+      },
+      "applicationProfileLabel": {
+        "nl": "verjaringstermijn"
+      },
+      "vocabularyDefinition": {
+        "nl": "De verjaringstermijn die voor schuldvorderingen van deze categorie geldt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De verjaringstermijn die voor schuldvorderingen van deze categorie geldt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvorderingscategorie",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#duration",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Duration"
+        },
+        "applicationProfileLabel": {
+          "nl": "Duration"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#vermindering",
+      "vocabularyLabel": {
+        "nl": "vermindering"
+      },
+      "applicationProfileLabel": {
+        "nl": "vermindering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een vermindering voor de schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een vermindering voor de schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Vermindering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Vermindering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Vermindering"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#verminderingsbedrag",
+      "vocabularyLabel": {
+        "nl": "verminderingsbedrag"
+      },
+      "applicationProfileLabel": {
+        "nl": "verminderingsbedrag"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het bedrag dat in mindering wordt gebracht."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het bedrag dat in mindering wordt gebracht."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Vermindering",
+      "range": {
+        "id": "https://schema.org/MonetaryAmount",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geldbedrag"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geldbedrag"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#voorgesteldAfbetalingsplan",
+      "vocabularyLabel": {
+        "nl": "voorgesteld afbetalingsplan"
+      },
+      "applicationProfileLabel": {
+        "nl": "voorgesteld afbetalingsplan"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt voorgesteld."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het afbetalingsplan dat wordt voorgesteld."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Afbetalingsplan"
+        },
+        "applicationProfileLabel": {
+          "nl": "Afbetalingsplan"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#voorstel",
+      "vocabularyLabel": {
+        "nl": "voorstel"
+      },
+      "applicationProfileLabel": {
+        "nl": "voorstel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de activiteit die het afbetalingsplan voorstelt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de activiteit die het afbetalingsplan voorstelt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Afbetalingsplan",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Voorstel",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Voorstel"
+        },
+        "applicationProfileLabel": {
+          "nl": "Voorstel"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet.wanbetaling",
+      "vocabularyLabel": {
+        "nl": "wanbetaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "wanbetaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Laat toe te specifiëren of een schuldenaar zijn financiële verplichtingen al dan niet heeft nagekomen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Laat toe te specifiëren of een schuldenaar zijn financiële verplichtingen al dan niet heeft nagekomen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Krediet",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#boolean",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Boolean"
+        },
+        "applicationProfileLabel": {
+          "nl": "Boolean"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering.wanbetaling",
+      "vocabularyLabel": {
+        "nl": "wanbetaling"
+      },
+      "applicationProfileLabel": {
+        "nl": "wanbetaling"
+      },
+      "vocabularyDefinition": {
+        "nl": "Laat toe om aan te duiden of de hoofdsom voor de uiterste betaaldatum werd betaald."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Laat toe om aan te duiden of de hoofdsom voor de uiterste betaaldatum werd betaald."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#boolean",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Boolean"
+        },
+        "applicationProfileLabel": {
+          "nl": "Boolean"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#wanbetalingsvergoeding",
+      "vocabularyLabel": {
+        "nl": "wanbetalingsvergoeding"
+      },
+      "applicationProfileLabel": {
+        "nl": "wanbetalingsvergoeding"
+      },
+      "vocabularyDefinition": {
+        "nl": "Een schuldvordering kan verhoogd worden met een wanbetalingsvergoeding."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een schuldvordering kan verhoogd worden met een wanbetalingsvergoeding."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Schuldvordering",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#Wanbetalingsvergoeding",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Wanbetalingsvergoeding"
+        },
+        "applicationProfileLabel": {
+          "nl": "Wanbetalingsvergoeding"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/schuldbeheer#wordtToegerekendDoor",
+      "vocabularyLabel": {
+        "nl": "wordt toegerekend door"
+      },
+      "applicationProfileLabel": {
+        "nl": "wordt toegerekend door"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de activiteit die (een deel van) een  betaald bedrag toewijst aan een schuldvordering."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de activiteit die (een deel van) een  betaald bedrag toewijst aan een schuldvordering."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ErkendeStandaard",
+      "domain": "https://data.vlaanderen.be/ns/schuldbeheer#Betaling",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/schuldbeheer#ToerekeningVanBetaling",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Toerekening van Betaling"
+        },
+        "applicationProfileLabel": {
+          "nl": "Toerekening van Betaling"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    }
+  ]
+}

@@ -18,6 +18,7 @@
   "classes": "Clases",
   "properties": "Propiedades",
   "externalTerminology": "Terminología externa",
+  "usedExternalTerminology": "Gebruikte (externe) terminologie",
   "entitiesOverview": "Este documento explica el uso correcto de las siguientes entidades",
   "dataTypes": "Tipos de datos",
   "dataTypesOverview": "Este documento explica los siguientes tipos de datos",
